@@ -1,5 +1,5 @@
 import { Button, Input, Upload, Modal } from 'antd';
-import { SearchOutlined, InboxOutlined } from '@ant-design/icons';
+import { SearchOutlined } from '@ant-design/icons';
 import UploadImg from '../../../img/upload.png';
 import CloseModalImg from '../../../img/close-modal.png';
 import styles from '../index.module.css';

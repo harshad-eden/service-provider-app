@@ -149,10 +149,23 @@ label {
 
 .PreAuths_table__eZldm .ant-table-thead .ant-table-cell {
   font-size: 13px !important;
+  cursor: auto;
 }
 
 .PreAuths_table__eZldm .ant-table-cell {
   font-size: 12px !important;
+}
+
+.PreAuths_table__eZldm .ant-table-cell {
+  cursor: pointer;
+}
+
+.PreAuths_table__eZldm .ant-table-filter-column {
+  justify-content: flex-start !important;
+}
+
+.PreAuths_table__eZldm .ant-table-column-title {
+  flex: inherit;
 }
 
 .activeTopNavLi {

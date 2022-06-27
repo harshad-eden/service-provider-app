@@ -11,7 +11,7 @@ import RequestPreAuth from './Modals/RequestPreAuth';
 import CommonModal from './Modals/CommonModal';
 
 const Index = () => {
-  const [isModalVisible, setIsModalVisible] = useState(true);
+  const [isModalVisible, setIsModalVisible] = useState(false);
   return (
     <Main>
       <div style={{ marginTop: 20 }}>
@@ -23,22 +23,19 @@ const Index = () => {
           />
           <img src="/icons/filter.png" alt="" style={{ height: 35 }} />
         </div>
-        <div
-          onClick={() => setIsModalVisible(true)}
-          style={{ display: 'flex', justifyContent: 'flex-end' }}
-        >
-          <AddBox value="New Pre-Auth" />
+        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <div onClick={() => setIsModalVisible(true)}>
+            <AddBox value="New Pre-Auth" />
+          </div>
         </div>
       </div>
       <div className="mtLarge">
         <div className="mlLarge">
           <TopNav options={['Pending Pre-Auths', 'Approved', 'Declined']} width={300} />
-          {/* <TabMenu options={['Pending Pre-Auths', 'Approved', 'Declined']} /> */}
         </div>
 
         <div className={styles.table}>
           <AntTable />
-          {/* <Iest /> */}
         </div>
         <div style={{ marginTop: 30, display: 'flex', justifyContent: 'center' }}>
           <Pagination size="small" total={50} />

@@ -9,49 +9,62 @@ const columns = [
   {
     title: 'Trans No',
     dataIndex: 'transNo',
+    filters: [],
+    filterIcon: (filtered) => <AiFillCaretDown type="filter" style={{ color: '#f87d4e' }} />,
     width: 90,
   },
   {
     title: 'Member No',
     dataIndex: 'memberNumber',
-    width: 90,
+    filters: [],
+    filterIcon: (filtered) => <AiFillCaretDown type="filter" style={{ color: '#f87d4e' }} />,
+    width: 105,
   },
   {
     title: 'Names',
     dataIndex: 'names',
-    width: 80,
+    width: 70,
   },
   {
     title: 'Phone No',
     dataIndex: 'phoneNo',
-    width: 90,
+    filters: [],
+    filterIcon: (filtered) => <AiFillCaretDown type="filter" style={{ color: '#f87d4e' }} />,
+    width: 70,
   },
   {
     title: 'Department',
     dataIndex: 'department',
     width: 70,
-    // filters: [
-    //   {
-    //     text: <span>London</span>,
-    //     value: 'Marketing',
-    //   },
-    //   {
-    //     text: <span>New York</span>,
-    //     value: 'New York',
-    //   },
-    // ],
-    // filterDropdown: (props) => <Dropdown />,
-    // onFilter: (value, record) => record.address.startsWith(value),
-    // filterIcon: (filtered) => <AiFillCaretDown type="filter" style={{ color: '#f87d4e' }} />,
+    filters: [],
+    filterIcon: (filtered) => <AiFillCaretDown type="filter" style={{ color: '#f87d4e' }} />,
   },
   {
     title: 'Claim No',
     dataIndex: 'claimNo',
+    filters: [],
+    filterIcon: (filtered) => <AiFillCaretDown type="filter" style={{ color: '#f87d4e' }} />,
     width: 90,
+  },
+  {
+    title: 'Status',
+    dataIndex: 'status',
+    filterDropdown: (props) => <Dropdown />,
+    onFilter: (value, record) => record.address.startsWith(value),
+    filterIcon: (filtered) => <AiFillCaretDown type="filter" style={{ color: '#f87d4e' }} />,
+    render: (status) => (
+      <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+        <div className={styles.pinkRound}></div>
+        {status}
+      </div>
+    ),
+    width: 100,
   },
   {
     title: 'Documents',
     dataIndex: 'Documents',
+    filters: [],
+    filterIcon: (filtered) => <AiFillCaretDown type="filter" style={{ color: '#f87d4e' }} />,
     width: 180,
     render: (text) => (
       <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -72,17 +85,7 @@ const columns = [
       </div>
     ),
   },
-  {
-    title: 'Status',
-    dataIndex: 'status',
-    render: (status) => (
-      <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-        <div className={styles.pinkRound}></div>
-        {status}
-      </div>
-    ),
-    width: 100,
-  },
+
   {
     title: 'Comments',
     dataIndex: 'comment',
@@ -94,11 +97,9 @@ const data = [];
 for (let i = 0; i < 5; i++) {
   data.push({
     key: i,
-    names: 'Jhon doe',
+    names: 'Jhons',
     memberNumber: '#45454',
     documents: [],
-    address: 'London, Park Lane no',
-    authorityProcessing: 'Dorcas Nyangayi',
     status: 'pending',
     comment: 'lorem lipsul lorem lipsul lorem ',
     claimNo: '#45454',
@@ -114,7 +115,7 @@ const AntTable = () => {
     <Table
       onRow={(record, rowIndex) => {
         return {
-          onClick: (e) => navigate('/pre-auths/patient'),
+          onClick: () => navigate('/pre-auths/patient'),
         };
       }}
       columns={columns}
