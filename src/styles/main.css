@@ -158,6 +158,30 @@ label {
 .activeTopNavLi {
   border-bottom: #f87d4e 3px solid;
 }
+
+.ant-modal-content {
+  width: 470px;
+  border-radius: 23px !important;
+}
+.commonModal .ant-modal-content {
+  width: 370px !important;
+}
+
+.ant-upload.ant-upload-drag {
+  border-radius: 20px !important;
+}
+
+.modalCloseIcon {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 10;
+}
+
+.ant-modal-close {
+  display: none !important;
+}
+
 /* 
 .PreAuths_table__eZldm tr:nth-child(even) {
   background: white;

@@ -1,18 +1,17 @@
-import React from 'react';
+import { useState } from 'react';
 import Main from '../../components/Layout';
 import TopNav from '../../components/Common/TopNav';
 import styles from './index.module.css';
 import AntTable from './AntTable';
-// import Iest from './Test';
-
 import { Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-
-// import TabMenu from './TabMenu';
 import AddBox from '../../components/Common/AddBox';
 import { Pagination } from 'antd';
+import RequestPreAuth from './Modals/RequestPreAuth';
+import CommonModal from './Modals/CommonModal';
 
 const Index = () => {
+  const [isModalVisible, setIsModalVisible] = useState(true);
   return (
     <Main>
       <div style={{ marginTop: 20 }}>
@@ -24,7 +23,10 @@ const Index = () => {
           />
           <img src="/icons/filter.png" alt="" style={{ height: 35 }} />
         </div>
-        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+        <div
+          onClick={() => setIsModalVisible(true)}
+          style={{ display: 'flex', justifyContent: 'flex-end' }}
+        >
           <AddBox value="New Pre-Auth" />
         </div>
       </div>
@@ -42,6 +44,8 @@ const Index = () => {
           <Pagination size="small" total={50} />
         </div>
       </div>
+      {/* <CommonModal isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} /> */}
+      <RequestPreAuth isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />
     </Main>
   );
 };
