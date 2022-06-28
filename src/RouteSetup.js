@@ -4,6 +4,7 @@ import LoaderComponenet from './components/Loader';
 
 const Dashboard = lazy(() => import('./pages/Dashboard'));
 const PreAuths = lazy(() => import('./pages/PreAuths'));
+const Claims = lazy(() => import('./pages/Claims'));
 const Patient = lazy(() => import('./pages/Patient'));
 const Login = lazy(() => import('./pages/Login'));
 const RestPassword = lazy(() => import('./pages/RestPassword'));
@@ -15,6 +16,7 @@ const RouteSetup = () => {
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/pre-auths" element={<PreAuths />} />
+        <Route path="/claims" element={<Claims />} />
         <Route path="/pre-auths/:patient" element={<Patient />} />
         <Route path="/login" element={<Login />} />
         <Route path="/reset-password" element={<RestPassword />} />

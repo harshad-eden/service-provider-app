@@ -37,7 +37,7 @@ const links = [
   },
   {
     name: 'Claims',
-    path: '/claim',
+    path: '/claims',
     icon: claims,
     activeIcon: claimsActive,
   },

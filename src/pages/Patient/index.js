@@ -63,7 +63,7 @@ const Index = () => {
               justifyContent: 'space-between',
             }}
           >
-            <h2>Recived</h2>
+            <h2>Received</h2>
             <h2>Processing</h2>
             <h2>Status</h2>
           </div>
