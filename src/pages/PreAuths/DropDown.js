@@ -16,14 +16,14 @@ const DropDown = () => {
         <p className="mbZero">Approved</p>
       </div>
 
-      <Divider style={{ marginBottom: 6, marginTop: 6 }} />
+      <Divider />
 
       <div className={styles.dropdownMarginLine}>
         <div className={styles.greenRound}></div>
         <p className="mbZero">Pending</p>
       </div>
 
-      <Divider style={{ marginBottom: 6, marginTop: 6 }} />
+      <Divider />
 
       <div className={styles.dropdownMarginLine}>
         <div className={styles.voiletRound}></div>

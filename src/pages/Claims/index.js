@@ -7,8 +7,7 @@ import { Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import AddBox from '../../components/Common/AddBox';
 import { Pagination } from 'antd';
-import RequestPreAuth from './Modals/RequestPreAuth';
-import CommonModal from './Modals/CommonModal';
+import RequestPreAuth from './Modals/FileCliam';
 
 const Index = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);

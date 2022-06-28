@@ -27,7 +27,9 @@ const Login = () => {
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
         >
-          <label htmlFor="username">Enter Email Address</label>
+          <label className="fieldLabel" htmlFor="username">
+            Enter Email Address
+          </label>
           <Form.Item
             name="username"
             rules={[

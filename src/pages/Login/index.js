@@ -15,7 +15,9 @@ const Login = () => {
       <div className={styles.box}>
         <img src="icons/logo.png" className={styles.logo} />
         <Form form={form} className="wFull" name="basic" onFinish={onFinish}>
-          <label htmlFor="username">Username</label>
+          <label className="fieldLabel" htmlFor="username">
+            Username
+          </label>
           <Form.Item
             name="username"
             rules={[
@@ -28,7 +30,7 @@ const Login = () => {
             <Input placeholder="Enter your Username" className="customAntInput" size="large" />
           </Form.Item>
 
-          <label className="label" htmlFor="username">
+          <label className="fieldLabel" htmlFor="username">
             Password
           </label>
           <Form.Item

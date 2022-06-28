@@ -9,7 +9,7 @@ body {
   background-color: #f8f8f8 !important;
 }
 
-label {
+.fieldLabel {
   font-size: 14px;
   font-weight: bold;
 }
@@ -199,6 +199,10 @@ label {
   width: 370px !important;
 }
 
+.fileCliam .ant-modal-content {
+  width: 520px !important;
+}
+
 .ant-upload.ant-upload-drag {
   border-radius: 20px !important;
 }
@@ -221,6 +225,16 @@ label {
 
 .ant-pagination-item-active a {
   color: white !important;
+}
+
+.ant-radio-wrapper-checked span {
+  color: #f87d4e !important;
+  font-weight: 500;
+}
+
+.ant-divider-horizontal {
+  margin-top: 6px !important;
+  margin-bottom: 6px !important;
 }
 
 /* 

@@ -22,3 +22,10 @@
   border-radius: 5px;
   background-color: violet;
 }
+
+.borderBottom {
+  border-bottom: 0.5px solid rgb(189, 187, 187);
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  width: 80%;
+}
