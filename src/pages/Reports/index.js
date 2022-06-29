@@ -11,14 +11,14 @@ import finger from '../../img/fingerprintBlue.png';
 import GenerateReport from './GenerateModal';
 
 let imgs = [
-  { img: patient, color: '#f87d4e', title: 'Patients' },
-  { img: claim, color: '#3ab44d', title: 'Pending claims' },
-  { img: group, color: '#8e3ab4', title: 'Pre-auths' },
-  { img: finger, color: '#3a98b4', title: 'Employees' },
+  { img: patient, color: '#f87d4e', title: 'Patients', count: '4,500' },
+  { img: claim, color: '#3ab44d', title: 'Pending claims', count: '14' },
+  { img: group, color: '#8e3ab4', title: 'Pre-auths', count: '27' },
+  { img: finger, color: '#3a98b4', title: 'Employees', count: '20,000' },
 ];
 
 const Index = () => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(true);
   return (
     <Main>
       <div style={{ marginTop: 20 }}>

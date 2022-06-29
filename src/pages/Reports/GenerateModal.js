@@ -1,4 +1,4 @@
-import { Button, Modal, Form, Input, DatePicker } from 'antd';
+import { Button, Modal, Form, Input, DatePicker, Select } from 'antd';
 
 import CloseModalImg from '../../img/close-modal.png';
 import styles from './index.module.css';
@@ -18,6 +18,8 @@ const GenerateReport = ({ setIsModalVisible, isModalVisible }) => {
     form.submit();
     setIsModalVisible(false);
   };
+
+  const { Option } = Select;
 
   return (
     <>
@@ -45,7 +47,7 @@ const GenerateReport = ({ setIsModalVisible, isModalVisible }) => {
               <div style={{ width: '50%' }}>
                 <label>From Date</label>
                 <Form.Item
-                  name="username"
+                  name="from"
                   rules={[
                     {
                       required: true,
@@ -54,9 +56,10 @@ const GenerateReport = ({ setIsModalVisible, isModalVisible }) => {
                   ]}
                 >
                   <DatePicker
-                    placeholder="From date"
+                    className="fromDatePicker"
+                    placeholder="Date from"
                     onChange={onChange}
-                    style={{ borderRadius: 20 }}
+                    style={{ borderRadius: 20, width: '100%' }}
                     size="large"
                     format="YYYY/MM/DD"
                   />
@@ -65,7 +68,7 @@ const GenerateReport = ({ setIsModalVisible, isModalVisible }) => {
               <div style={{ width: '50%' }}>
                 <label>To Date</label>
                 <Form.Item
-                  name="username"
+                  name="to"
                   rules={[
                     {
                       required: true,
@@ -74,9 +77,9 @@ const GenerateReport = ({ setIsModalVisible, isModalVisible }) => {
                   ]}
                 >
                   <DatePicker
-                    placeholder="To date"
+                    placeholder="Date to"
                     onChange={onChange}
-                    style={{ borderRadius: 20 }}
+                    style={{ borderRadius: 20, width: '100%' }}
                     size="large"
                     format="YYYY/MM/DD"
                   />
@@ -85,7 +88,7 @@ const GenerateReport = ({ setIsModalVisible, isModalVisible }) => {
             </div>
             <label>Status</label>
             <Form.Item
-              name="username"
+              name="status"
               rules={[
                 {
                   required: true,
@@ -93,12 +96,15 @@ const GenerateReport = ({ setIsModalVisible, isModalVisible }) => {
                 },
               ]}
             >
-              <Input placeholder="Status" style={{ borderRadius: 20 }} size="large" />
+              <Select size="large" placeholder="Status">
+                <Option value="lucy">Active</Option>
+                <Option value="lucy">Inactive</Option>
+              </Select>
             </Form.Item>
 
             <label>Amount</label>
             <Form.Item
-              name="username"
+              name="amount"
               rules={[
                 {
                   required: true,
@@ -117,7 +123,7 @@ const GenerateReport = ({ setIsModalVisible, isModalVisible }) => {
             type="primary"
             shape="round"
           >
-            File claim
+            Generate Report
           </Button>
         </div>
       </Modal>

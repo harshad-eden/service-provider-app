@@ -237,6 +237,26 @@ body {
   margin-bottom: 6px !important;
 }
 
+.ant-picker-input,
+.ant-picker.ant-picker-range {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.ant-picker-input span.ant-picker-suffix,
+.ant-picker.ant-picker-range span.ant-picker-suffix {
+  margin-left: 0;
+  margin-right: 10px;
+  color: #f87d4e;
+}
+
+.ant-select .ant-select-selector {
+  border-radius: 20px !important;
+}
+
+.ant-select-arrow {
+  color: #f87d4e !important;
+}
+
 /* 
 .PreAuths_table__eZldm tr:nth-child(even) {
   background: white;

@@ -28,7 +28,7 @@ const ColumnItem = ({ imgs, setIsModalVisible }) => {
         >
           {item.title}{' '}
         </p>
-        <p style={{ fontWeight: 800, fontSize: 26, marginBottom: 0 }}>4500</p>
+        <p style={{ fontWeight: 800, fontSize: 26, marginBottom: 0 }}>{item.count}</p>
         <Button
           onClick={() => setIsModalVisible(true)}
           size="small"
