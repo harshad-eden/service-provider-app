@@ -1,5 +1,4 @@
-import { Grid } from 'antd';
-import React from 'react';
+import { Divider } from 'antd';
 import styles from './index.module.css';
 
 const DropDown = () => {
@@ -12,16 +11,21 @@ const DropDown = () => {
         marginBottom: 15,
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-        <div className={styles.pinkRound}></div>
+      <div className={styles.dropdownMarginLine}>
+        <div className={styles.greenRound}></div>
         <p className="mbZero">Approved</p>
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-        <div className={styles.greenRound}></div>
+      <Divider />
+
+      <div className={styles.dropdownMarginLine}>
+        <div className={styles.pinkRound}></div>
         <p className="mbZero">Pending</p>
       </div>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+
+      <Divider />
+
+      <div className={styles.dropdownMarginLine}>
         <div className={styles.voiletRound}></div>
         <p className="mbZero">Declined</p>
       </div>

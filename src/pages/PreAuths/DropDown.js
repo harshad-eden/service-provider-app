@@ -12,14 +12,14 @@ const DropDown = () => {
       }}
     >
       <div className={styles.dropdownMarginLine}>
-        <div className={styles.pinkRound}></div>
+        <div className={styles.greenRound}></div>
         <p className="mbZero">Approved</p>
       </div>
 
       <Divider />
 
       <div className={styles.dropdownMarginLine}>
-        <div className={styles.greenRound}></div>
+        <div className={styles.pinkRound}></div>
         <p className="mbZero">Pending</p>
       </div>
 

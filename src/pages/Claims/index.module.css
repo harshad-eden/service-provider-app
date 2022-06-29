@@ -2,25 +2,25 @@
   margin-top: 10px;
 }
 
-.pinkRound {
-  width: 10px;
-  height: 10px;
-  border-radius: 5px;
-  background-color: #e00a65;
-}
-
 .greenRound {
   width: 10px;
   height: 10px;
   border-radius: 5px;
-  background-color: green;
+  background-color: #2da028;
+}
+
+.pinkRound {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #e00f65;
 }
 
 .voiletRound {
   width: 10px;
   height: 10px;
   border-radius: 5px;
-  background-color: violet;
+  background-color: #9f3ade;
 }
 
 .borderBottom {
@@ -28,4 +28,10 @@
   padding-bottom: 5px;
   margin-bottom: 5px;
   width: 80%;
+}
+
+.dropdownMarginLine {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
