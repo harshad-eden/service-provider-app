@@ -131,59 +131,59 @@ body {
   background-color: #fce4d9 !important;
 }
 
-.PreAuths_table__eZldm .ant-table-thead .ant-table-cell {
+.ant-table-thead .ant-table-cell {
   background-color: #fce4d9 !important;
   color: #f87d4e !important;
   font-weight: bold;
   padding-bottom: 10px !important;
 }
 
-.Claims_table__Xhyu6 .ant-table-thead .ant-table-cell {
+.ant-table-thead .ant-table-cell {
   background-color: #fce4d9 !important;
   color: #f87d4e !important;
   font-weight: bold;
   padding-bottom: 10px !important;
 }
 
-.PreAuths_table__eZldm .ant-table-thead .ant-table-cell {
+.ant-table-thead .ant-table-cell {
   font-size: 13px !important;
   cursor: auto;
 }
 
-.Claims_table__Xhyu6 .ant-table-thead .ant-table-cell {
+.ant-table-thead .ant-table-cell {
   font-size: 13px !important;
   cursor: auto;
 }
 
-.PreAuths_table__eZldm .ant-table-cell {
+.ant-table-cell {
   font-size: 12px !important;
 }
 
-.Claims_table__Xhyu6 .ant-table-cell {
+.ant-table-cell {
   font-size: 12px !important;
 }
 
-.PreAuths_table__eZldm .ant-table-cell {
+.ant-table-cell {
   cursor: pointer;
 }
 
-.Claims_table__Xhyu6 .ant-table-cell {
+.ant-table-cell {
   cursor: pointer;
 }
 
-.PreAuths_table__eZldm .ant-table-filter-column {
+.ant-table-filter-column {
   justify-content: flex-start !important;
 }
 
-.Claims_table__Xhyu6 .ant-table-filter-column {
+.ant-table-filter-column {
   justify-content: flex-start !important;
 }
 
-.PreAuths_table__eZldm .ant-table-filter-column .ant-table-column-title {
+.ant-table-filter-column .ant-table-column-title {
   flex: inherit;
 }
 
-.Claims_table__Xhyu6 .ant-table-filter-column .ant-table-column-title {
+.ant-table-filter-column .ant-table-column-title {
   flex: inherit;
 }
 

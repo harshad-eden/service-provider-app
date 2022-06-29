@@ -22,7 +22,7 @@ const App = () => {
 
       <div className={styles.progressItem}>
         <div className={styles.stepDotRing}>
-          <div className={styles.stepDotActive} />
+          <div className={styles.stepDot} />
         </div>
         <div style={{ backgroundColor: '#e6eae5' }} className={styles.progressLine} />
       </div>

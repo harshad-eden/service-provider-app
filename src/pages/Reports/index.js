@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Main from '../../components/Layout';
 import styles from './index.module.css';
-import { Input } from 'antd';
+import { Input, Pagination } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import ColumnItem from './ColumnItem';
 import patient from '../../img/patient.png';
@@ -9,6 +9,7 @@ import group from '../../img/group.png';
 import claim from '../../img/claim.png';
 import finger from '../../img/fingerprintBlue.png';
 import GenerateReport from './GenerateModal';
+import AntTable from './AntTable';
 
 let imgs = [
   { img: patient, color: '#f87d4e', title: 'Patients', count: '4,500' },
@@ -46,6 +47,13 @@ const Index = () => {
       </div>
 
       <GenerateReport isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />
+
+      <div className={styles.table}>
+        <AntTable />
+      </div>
+      <div style={{ marginTop: 30, display: 'flex', justifyContent: 'center' }}>
+        <Pagination size="small" total={50} />
+      </div>
     </Main>
   );
 };

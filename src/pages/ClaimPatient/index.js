@@ -17,7 +17,7 @@ const Index = () => {
       </Link>
       <div style={{ width: '90%', margin: 'auto' }}>
         <div style={{ marginBottom: 60 }}>
-          <p style={{ marginBottom: 5, color: '#3eb919', fontWeight: 700 }}>claim</p>
+          <p style={{ marginBottom: 5, color: '#3eb919', fontWeight: 700 }}>Claim</p>
           <div
             style={{
               width: '100%',

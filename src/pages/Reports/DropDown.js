@@ -22,20 +22,6 @@ const DropDown = () => {
         <div className={styles.pinkRound}></div>
         <p className="mbZero">Rejected</p>
       </div>
-
-      <Divider />
-
-      <div className={styles.dropdownMarginLine}>
-        <div className={styles.voiletRound}></div>
-        <p className="mbZero">In-process</p>
-      </div>
-
-      <Divider />
-
-      <div className={styles.dropdownMarginLine}>
-        <div className={styles.skyblue}></div>
-        <p className="mbZero">Settled</p>
-      </div>
     </div>
   );
 };

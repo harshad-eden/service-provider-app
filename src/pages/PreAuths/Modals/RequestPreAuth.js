@@ -20,7 +20,7 @@ const RequestPreAuth = ({ setIsModalVisible, isModalVisible }) => {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 35 }}>
           <div>
             <h1 className="mbZero">New Pre-Auth</h1>
-            <h5 className="mbZero">Fill in the below form o patient ID</h5>
+            <h5 className="mbZero">Fill in the below form to patient ID</h5>
           </div>
           <div style={{ width: '65%' }}>
             <h5 style={{ fontWeight: 700 }}>Patient ID</h5>
