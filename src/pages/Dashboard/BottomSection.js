@@ -113,12 +113,20 @@ const BottomSection = () => {
               <img style={{ width: 70 }} src="/icons/fingerprintBlue.png" alt="fingerprintBlue" />
             </div>
             <div>
-              <p style={{ fontSize: 10 }}>SMART to INVOICE</p>
-              <p style={{ fontWeight: 'bold', fontSize: 24 }}>270</p>
+              <p className="mbZero" style={{ fontSize: 10 }}>
+                SMART to INVOICE
+              </p>
+              <p className="mbZero" style={{ fontWeight: 'bold', fontSize: 24 }}>
+                270
+              </p>
             </div>
             <div>
-              <p style={{ fontSize: 10 }}>Pre-Auth TAT</p>
-              <p style={{ fontWeight: 'bold', fontSize: 24 }}>13</p>
+              <p className="mbZero" style={{ fontSize: 10 }}>
+                Pre-Auth TAT
+              </p>
+              <p className="mbZero" style={{ fontWeight: 'bold', fontSize: 24 }}>
+                13
+              </p>
             </div>
           </div>
         </div>

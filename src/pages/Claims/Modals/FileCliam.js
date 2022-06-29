@@ -4,7 +4,6 @@ import { CheckOutlined } from '@ant-design/icons';
 import UploadImg from '../../../img/upload.png';
 import CloseModalImg from '../../../img/close-modal.png';
 import styles from '../index.module.css';
-import { TiTick } from 'react-icons/ti';
 
 const RequestPreAuth = ({ setIsModalVisible, isModalVisible }) => {
   const { Dragger } = Upload;
@@ -54,24 +53,51 @@ const RequestPreAuth = ({ setIsModalVisible, isModalVisible }) => {
               </div>
             </Dragger>
           </div>
-          <div style={{ width: '70%' }}>
-            <p style={{ fontWeight: 700, color: '#f87d4e' }}>Required documents</p>
+          {value === 1 ? (
+            <div style={{ width: '70%' }}>
+              <p style={{ fontWeight: 700, color: '#f87d4e' }}>Required documents</p>
 
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <CheckOutlined style={{ color: '#f87d4e', marginRight: 6, paddingBottom: 7 }} />
-              <div className={styles.borderBottom}>claim form</div>
-            </div>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <CheckOutlined style={{ color: '#f87d4e', marginRight: 6, paddingBottom: 7 }} />
+                <div className={styles.borderBottom}>claim form</div>
+              </div>
 
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <CheckOutlined style={{ color: 'white', marginRight: 6, paddingBottom: 7 }} />
-              <div className={styles.borderBottom}>Invoice</div>
-            </div>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <CheckOutlined style={{ color: 'white', marginRight: 6, paddingBottom: 7 }} />
+                <div className={styles.borderBottom}>Invoice</div>
+              </div>
 
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <CheckOutlined style={{ color: '#f87d4e', marginRight: 6, paddingBottom: 7 }} />
-              <div className={styles.borderBottom}>Medical Report</div>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <CheckOutlined style={{ color: '#f87d4e', marginRight: 6, paddingBottom: 7 }} />
+                <div className={styles.borderBottom}>Medical Report</div>
+              </div>
             </div>
-          </div>
+          ) : (
+            <div style={{ width: '70%' }}>
+              <p style={{ fontWeight: 700, color: '#f87d4e' }}>Required documents</p>
+
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <CheckOutlined style={{ color: '#f87d4e', marginRight: 6, paddingBottom: 7 }} />
+                <div className={styles.borderBottom}>claim form</div>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <CheckOutlined style={{ color: 'white', marginRight: 6, paddingBottom: 7 }} />
+                <div className={styles.borderBottom}>Invoice</div>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <CheckOutlined style={{ color: '#f87d4e', marginRight: 6, paddingBottom: 7 }} />
+                <div className={styles.borderBottom}>Medical Report</div>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <CheckOutlined style={{ color: 'white', marginRight: 6, paddingBottom: 7 }} />
+                <div className={styles.borderBottom}>Discharge Form</div>
+              </div>
+            </div>
+          )}
+
           <Button
             onClick={() => setIsModalVisible(false)}
             size="large"

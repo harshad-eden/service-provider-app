@@ -115,7 +115,7 @@ const AntTable = () => {
     <Table
       onRow={(record, rowIndex) => {
         return {
-          onClick: () => navigate('/pre-auths/patient'),
+          onClick: () => navigate('/claims/patient'),
         };
       }}
       columns={columns}
