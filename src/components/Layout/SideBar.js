@@ -57,8 +57,8 @@ const links = [
   {
     name: 'Support',
     path: '/support',
-    icon: <BiSupport />,
-    activeIcon: <BiSupport color="#f87d4e" />,
+    icon: <BiSupport size={25} />,
+    activeIcon: <BiSupport size={25} color="#f87d4e" />,
   },
 ];
 

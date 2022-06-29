@@ -25,7 +25,7 @@ const RouteSetup = () => {
         <Route path="/pre-auths/:patient" element={<PreAuthPatient />} />
         <Route path="/claims/:patient" element={<ClaimPatient />} />
         <Route path="/reports" element={<Reports />} />
-        <Route path="/paymets" element={<Payments />} />
+        <Route path="/payments" element={<Payments />} />
         <Route path="/patients" element={<Patients />} />
         <Route path="/support" element={<Support />} />
         <Route path="/login" element={<Login />} />
