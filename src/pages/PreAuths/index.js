@@ -25,7 +25,7 @@ const Index = () => {
         </div>
         <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
           <div onClick={() => setIsModalVisible(true)}>
-            <AddBox value="New Pre-Auth" />
+            <AddBox link="/pre-auths" value="New Pre-Auth" />
           </div>
         </div>
       </div>

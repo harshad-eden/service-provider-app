@@ -18,7 +18,7 @@ let imgs = [
 ];
 
 const Index = () => {
-  const [isModalVisible, setIsModalVisible] = useState(true);
+  const [isModalVisible, setIsModalVisible] = useState(false);
   return (
     <Main>
       <div style={{ marginTop: 20 }}>
