@@ -7,11 +7,18 @@ import Dropdown from './DropDown';
 
 const columns = [
   {
-    title: 'Staff ID',
+    title: 'Batch No',
     dataIndex: 'transNo',
     filters: [],
     filterIcon: (filtered) => <AiFillCaretDown type="filter" style={{ color: '#f87d4e' }} />,
     width: 90,
+  },
+  {
+    title: 'Staff ID',
+    dataIndex: 'memberNumber',
+    filters: [],
+    filterIcon: (filtered) => <AiFillCaretDown type="filter" style={{ color: '#f87d4e' }} />,
+    width: 105,
   },
   {
     title: 'Names',
@@ -25,13 +32,7 @@ const columns = [
     filterIcon: (filtered) => <AiFillCaretDown type="filter" style={{ color: '#f87d4e' }} />,
     width: 70,
   },
-  {
-    title: 'Department',
-    dataIndex: 'department',
-    width: 70,
-    filters: [],
-    filterIcon: (filtered) => <AiFillCaretDown type="filter" style={{ color: '#f87d4e' }} />,
-  },
+
   {
     title: 'Supervisor',
     dataIndex: 'claimNo',
@@ -49,9 +50,10 @@ const columns = [
       <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
         <div className={styles.pinkRound}></div>
         {status}
+        <span style={{ color: 'green', fontSize: 12 }}>{'( +22 days )'}</span>
       </div>
     ),
-    width: 100,
+    width: 140,
   },
   {
     title: 'Documents',
@@ -87,7 +89,7 @@ const columns = [
 ];
 const data = [];
 
-for (let i = 0; i < 4; i++) {
+for (let i = 0; i < 5; i++) {
   data.push({
     key: i,
     names: 'Jhons',

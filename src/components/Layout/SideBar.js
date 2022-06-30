@@ -15,7 +15,9 @@ import payment from '../../img/sidebarIcons/payment.png';
 import paymentActive from '../../img/sidebarIcons/dashboardActive.png';
 import reports from '../../img/sidebarIcons/reports.png';
 import reportsActive from '../../img/sidebarIcons/dashboardActive.png';
-import { BiSupport } from 'react-icons/bi';
+
+import support from '../../img/sidebarIcons/support.png';
+import supportActive from '../../img/sidebarIcons/supportActive.png';
 
 const links = [
   {
@@ -57,8 +59,8 @@ const links = [
   {
     name: 'Support',
     path: '/support',
-    icon: <BiSupport size={25} />,
-    activeIcon: <BiSupport size={25} color="#f87d4e" />,
+    icon: support,
+    activeIcon: supportActive,
   },
 ];
 
@@ -69,20 +71,14 @@ const SideBar = () => {
         <img src={Logo} className={styles.logo} />
       </Link>
       <div className={styles.links}>
-        {links.map((item, index) => (
+        {links.map((item) => (
           <NavLink
             key={item.name}
             className={({ isActive }) => (isActive ? styles.linkItemActive : styles.linkItem)}
             to={item.path}
           >
-            {index + 1 === links.length ? (
-              item.icon
-            ) : (
-              <>
-                <img className={styles.sidebarIcon} src={item.icon} alt="" />
-                <img className={styles.sidebarIconActive} src={item.activeIcon} alt="" />
-              </>
-            )}
+            <img className={styles.sidebarIcon} src={item.icon} alt="" />
+            <img className={styles.sidebarIconActive} src={item.activeIcon} alt="" />
 
             <p>{item.name}</p>
             <div className={styles.bottomLine} />

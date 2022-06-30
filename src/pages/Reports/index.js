@@ -7,6 +7,8 @@ import ColumnItem from './ColumnItem';
 import patient from '../../img/patient.png';
 import group from '../../img/group.png';
 import claim from '../../img/claim.png';
+import pdf from '../../img/pdf.png';
+import excel from '../../img/excel.png';
 import finger from '../../img/fingerprintBlue.png';
 import GenerateReport from './GenerateModal';
 import AntTable from './AntTable';
@@ -48,10 +50,26 @@ const Index = () => {
 
       <GenerateReport isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />
 
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'flex-end',
+          marginTop: 30,
+
+          alignItems: 'center',
+        }}
+      >
+        <h4 style={{ fontSize: 13, marginRight: 20 }} className="mbZero">
+          Downloaded as
+        </h4>
+        <img src={excel} style={{ height: 20, marginRight: 8 }} alt="" />
+        <img src={pdf} style={{ height: 20 }} alt="" />
+      </div>
+
       <div className={styles.table}>
         <AntTable />
       </div>
-      <div style={{ marginTop: 30, display: 'flex', justifyContent: 'center' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20 }}>
         <Pagination size="small" total={50} />
       </div>
     </Main>

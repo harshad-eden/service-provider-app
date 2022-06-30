@@ -19,7 +19,7 @@
 .links {
   display: flex;
   flex-direction: column;
-  height: 70%;
+  height: 74%;
   justify-content: space-between;
   margin: 3rem 0rem;
 }
