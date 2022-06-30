@@ -27,7 +27,7 @@ const CollapseComponent = () => {
       <Panel header="Pre-Auths" key="3">
         <p style={{ marginLeft: 33, color: 'gray' }}>{text}</p>
       </Panel>
-      <Panel header="Categories" key="3">
+      <Panel header="Categories" key="4">
         <p style={{ marginLeft: 33, color: 'gray' }}>{text}</p>
       </Panel>
     </Collapse>
