@@ -41,7 +41,7 @@ const Index = () => {
         </div>
       </div>
       {/* <CommonModal isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} /> */}
-      <RequestPreAuth isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />
+      {/* <RequestPreAuth isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} /> */}
     </Main>
   );
 };

@@ -106,18 +106,7 @@ for (let i = 0; i < 5; i++) {
 
 const AntTable = () => {
   const navigate = useNavigate();
-  return (
-    <Table
-      onRow={(record, rowIndex) => {
-        return {
-          onClick: () => navigate('/payments/detail'),
-        };
-      }}
-      columns={columns}
-      dataSource={data}
-      pagination={false}
-    />
-  );
+  return <Table columns={columns} dataSource={data} pagination={false} />;
 };
 
 export default AntTable;
