@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Input, Upload, Modal, Radio, Divider } from 'antd';
+import { Button, Upload, Modal, Radio } from 'antd';
 import { CheckOutlined } from '@ant-design/icons';
 import UploadImg from '../../img/upload.png';
 import CloseModalImg from '../../img/close-modal.png';

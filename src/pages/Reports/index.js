@@ -1,8 +1,6 @@
 import { useState } from 'react';
-import Main from '../../components/Layout';
-import styles from './index.module.css';
-import { Input, Pagination } from 'antd';
-import { SearchOutlined } from '@ant-design/icons';
+import { Pagination } from 'antd';
+import AntTable from './AntTable';
 import ColumnItem from './ColumnItem';
 import patient from '../../img/patient.png';
 import group from '../../img/group.png';
@@ -11,7 +9,9 @@ import pdf from '../../img/pdf.png';
 import excel from '../../img/excel.png';
 import finger from '../../img/fingerprintBlue.png';
 import GenerateReport from './GenerateModal';
-import AntTable from './AntTable';
+import Main from '../../components/Layout';
+import styles from './index.module.css';
+import SearchAndFilter from '../../components/Common/SearchAndFilter';
 
 let imgs = [
   { img: patient, color: '#f87d4e', title: 'Patients', count: '4,500' },
@@ -25,14 +25,7 @@ const Index = () => {
   return (
     <Main>
       <div style={{ marginTop: 20 }}>
-        <div style={{ width: '30%', display: 'flex', alignItems: 'center', gap: 12 }}>
-          <Input
-            size="large"
-            style={{ border: 'none', borderRadius: 20 }}
-            prefix={<SearchOutlined className={styles.searchIcon} />}
-          />
-          <img src="/icons/filter.png" alt="" style={{ height: 35 }} />
-        </div>
+        <SearchAndFilter />
       </div>
       <div style={{ marginTop: 30, width: '100%' }}>
         <p style={{ fontWeight: 500 }}>Summary</p>
