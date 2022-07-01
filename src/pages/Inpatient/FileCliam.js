@@ -33,10 +33,7 @@ const RequestPreAuth = ({ setIsModalVisible, isModalVisible }) => {
             <h1 className="mbZero">New Inpatient</h1>
             <h5 className="mbZero">Fill in the form below to make a New Inpatient</h5>
           </div>
-          <Radio.Group onChange={onChange} value={value}>
-            <Radio value={1}>Outpatient</Radio>
-            <Radio value={2}>Inpatient</Radio>
-          </Radio.Group>
+
           <div>
             <p style={{ fontWeight: 700, marginBottom: 6 }}>Upload Documents</p>
             <Dragger>
