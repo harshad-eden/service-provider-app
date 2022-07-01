@@ -76,7 +76,9 @@ const Index = () => {
               margin: 'auto',
             }}
           >
-            <h2 style={{ fontWeight: 600, color: '#f87d4e' }}>Frequently asked Questions</h2>
+            <h2 style={{ fontWeight: 600, color: '#f87d4e' }}>
+              Frequently asked Questions {'(FAQs)'}
+            </h2>
             <div style={{ backgroundColor: 'white', padding: 20, borderRadius: 30 }}>
               <CollapseComponent />
             </div>
