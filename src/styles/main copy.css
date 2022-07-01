@@ -124,70 +124,67 @@ body {
   background-color: white !important;
 }
 
-.PreAuths_table__eZldm,
-.ant-table-thead
+.PreAuths_table__eZldm
+  .ant-table-thead
   > tr
   > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
   background-color: #fce4d9 !important;
 }
 
-.ant-table-thead .ant-table-cell {
+.PreAuths_table__eZldm .ant-table-thead .ant-table-cell {
   background-color: #fce4d9 !important;
   color: #f87d4e !important;
   font-weight: bold;
   padding-bottom: 10px !important;
 }
 
-.ant-table-thead .ant-table-cell {
+.Claims_table__Xhyu6 .ant-table-thead .ant-table-cell {
   background-color: #fce4d9 !important;
   color: #f87d4e !important;
   font-weight: bold;
   padding-bottom: 10px !important;
 }
 
-.ant-table-thead .ant-table-cell {
+.PreAuths_table__eZldm .ant-table-thead .ant-table-cell {
   font-size: 13px !important;
   cursor: auto;
 }
 
-.ant-table-thead .ant-table-cell {
+.Claims_table__Xhyu6 .ant-table-thead .ant-table-cell {
   font-size: 13px !important;
   cursor: auto;
 }
 
-.ant-table-cell {
+.PreAuths_table__eZldm .ant-table-cell {
   font-size: 12px !important;
 }
 
-.ant-table-cell {
+.Claims_table__Xhyu6 .ant-table-cell {
   font-size: 12px !important;
 }
 
-.ant-table-cell {
+.PreAuths_table__eZldm .ant-table-cell {
   cursor: pointer;
 }
 
-.ant-table-cell {
+.Claims_table__Xhyu6 .ant-table-cell {
   cursor: pointer;
 }
 
-.ant-table-filter-column {
+.PreAuths_table__eZldm .ant-table-filter-column {
   justify-content: flex-start !important;
 }
 
-.ant-table-filter-column {
+.Claims_table__Xhyu6 .ant-table-filter-column {
   justify-content: flex-start !important;
 }
 
-.ant-table-filter-column .ant-table-column-title {
+.PreAuths_table__eZldm .ant-table-filter-column .ant-table-column-title {
   flex: inherit;
 }
 
-.ant-table-filter-column .ant-table-column-title {
+.Claims_table__Xhyu6 .ant-table-filter-column .ant-table-column-title {
   flex: inherit;
-}
-
-.Reports_table__v5Tn- {
 }
 
 .activeTopNavLi {
@@ -260,10 +257,17 @@ body {
   color: #f87d4e !important;
 }
 
-/* 
-.PreAuths_table__eZldm tr:nth-child(even) {
-  background: white;
+.ant-collapse-header-text {
+  width: 100%;
+  padding-bottom: 10px;
+  font-weight: 700;
+  border-bottom: 1px solid rgb(219, 217, 217) !important;
 }
-.PreAuths_table__eZldm tr:nth-child(odd) {
-  background: #f8f8f8;
-} */
+
+.support .ant-select-selection-placeholder {
+  font-size: 14px !important;
+}
+
+.support .ant-select-selector {
+  border: none !important;
+}

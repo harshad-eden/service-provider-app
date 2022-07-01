@@ -28,7 +28,7 @@ const TopSection = () => {
           <TabMenu
             options={['Authorizations', 'Payments', 'Claims']}
             width={280}
-            marginBottom={14}
+            marginBottom={15}
           />
         </div>
         <div className={styles.table}>
