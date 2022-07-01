@@ -7,7 +7,7 @@ import { Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import AddBox from '../../components/Common/AddBox';
 import { Pagination } from 'antd';
-import RequestPreAuth from './FileCliam';
+import RequestPreAuth from './FileClaim';
 
 const Index = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -30,7 +30,7 @@ const Index = () => {
       </div>
       <div className="mtLarge">
         <div className="mlLarge">
-          <TopNav options={['Pending claims', 'Approved']} width={200} />
+          <TopNav options={['Pending claims', 'Approved']} width={200} notification />
         </div>
 
         <div className={styles.table}>

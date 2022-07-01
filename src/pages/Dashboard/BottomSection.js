@@ -81,14 +81,18 @@ const BottomSection = () => {
                 <p className={styles.greenPrecentage}>60%</p>
                 <div style={{ display: 'flex', gap: 4, alignItems: 'center' }}>
                   <div style={{ backgroundColor: '#cb6ba2' }} className={styles.greenDot} />
-                  <p style={{ fontSize: 10 }}>Approved</p>
+                  <p className="mbZero" style={{ fontSize: 10 }}>
+                    Approved
+                  </p>
                 </div>
               </div>
               <div>
                 <p className={styles.bluePrecentage}>40%</p>
                 <div style={{ display: 'flex', gap: 4, alignItems: 'center' }}>
                   <div style={{ backgroundColor: '#246798' }} className={styles.blueDot} />
-                  <p style={{ fontSize: 10 }}>Denied</p>
+                  <p className="mbZero" style={{ fontSize: 10 }}>
+                    Denied
+                  </p>
                 </div>
               </div>
             </div>

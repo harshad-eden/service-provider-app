@@ -3,37 +3,27 @@ import Main from '../../components/Layout';
 import TopNav from '../../components/Common/TopNav';
 import styles from './index.module.css';
 import AntTable from './AntTable';
-import { Input } from 'antd';
-import { SearchOutlined } from '@ant-design/icons';
 import AddBox from '../../components/Common/AddBox';
 import { Pagination } from 'antd';
 import RequestPreAuth from './Modals/RequestPreAuth';
-import CommonModal from './Modals/CommonModal';
+import SearchAndFilter from '../../components/Common/SearchAndFilter';
 
 const Index = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   return (
     <Main>
       <div style={{ marginTop: 20 }}>
-        <div style={{ width: '30%', display: 'flex', alignItems: 'center', gap: 12 }}>
-          <Input
-            size="large"
-            style={{ border: 'none', borderRadius: 20 }}
-            prefix={<SearchOutlined className={styles.searchIcon} />}
-          />
-          <img src="/icons/filter.png" alt="" style={{ height: 35 }} />
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <div onClick={() => setIsModalVisible(true)}>
-            <AddBox link="/pre-auths" value="New Pre-Auth" />
-          </div>
-        </div>
+        <SearchAndFilter />
+        <AddBox value="New Pre-Auth" setIsModalVisible={setIsModalVisible} />
       </div>
       <div className="mtLarge">
         <div className="mlLarge">
-          <TopNav options={['Pending Pre-Auths', 'Approved', 'Declined']} width={300} />
+          <TopNav
+            options={['Pending Pre-Auths', 'Approved', 'Declined']}
+            width={300}
+            notification
+          />
         </div>
-
         <div className={styles.table}>
           <AntTable />
         </div>
@@ -41,7 +31,6 @@ const Index = () => {
           <Pagination size="small" total={50} />
         </div>
       </div>
-      {/* <CommonModal isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} /> */}
       <RequestPreAuth isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />
     </Main>
   );

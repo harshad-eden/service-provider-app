@@ -7,30 +7,20 @@ import { Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import AddBox from '../../components/Common/AddBox';
 import { Pagination } from 'antd';
-import RequestPreAuth from './FileCliam';
+import RequestPreAuth from './FileClaim';
+import SearchAndFilter from '../../components/Common/SearchAndFilter';
 
 const Index = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   return (
     <Main>
       <div style={{ marginTop: 20 }}>
-        <div style={{ width: '30%', display: 'flex', alignItems: 'center', gap: 12 }}>
-          <Input
-            size="large"
-            style={{ border: 'none', borderRadius: 20 }}
-            prefix={<SearchOutlined className={styles.searchIcon} />}
-          />
-          <img src="/icons/filter.png" alt="" style={{ height: 35 }} />
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <div onClick={() => setIsModalVisible(true)}>
-            <AddBox value="Add Inpatient" />
-          </div>
-        </div>
+        <SearchAndFilter />
+        <AddBox value="Add Inpatient" setIsModalVisible={setIsModalVisible} />
       </div>
       <div className="mtLarge">
         <div className="mlLarge">
-          <TopNav options={['Pending Claims', 'Approved']} width={200} />
+          <TopNav options={['Pending Claims', 'Approved']} width={200} notification />
         </div>
 
         <div className={styles.table}>
@@ -40,7 +30,7 @@ const Index = () => {
           <Pagination size="small" total={50} />
         </div>
       </div>
-      {/* <CommonModal isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} /> */}
+
       <RequestPreAuth isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />
     </Main>
   );

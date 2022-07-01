@@ -16,7 +16,7 @@ const RequestPreAuth = ({ setIsModalVisible, isModalVisible }) => {
   return (
     <>
       <Modal
-        className="fileCliam"
+        className="fileClaim"
         bodyStyle={{ padding: 50 }}
         footer={null}
         visible={isModalVisible}

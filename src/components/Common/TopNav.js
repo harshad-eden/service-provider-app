@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TopNav = ({ options, width }) => {
+const TopNav = ({ options, width, marginBottom, notification }) => {
   return (
     <div
       style={{
@@ -8,30 +8,43 @@ const TopNav = ({ options, width }) => {
         alignItems: 'center',
         width,
         justifyContent: 'space-between',
-        marginBottom: 30,
+        marginBottom: marginBottom ? marginBottom : 30,
       }}
     >
       {options.map((item, index) =>
         index === 0 ? (
-          <div>
-            {/* <div
-              style={{
-                height: 20,
-                width: 20,
-                borderRadius: '50%',
-                backgroundColor: 'red',
-                fontSize: 8,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: 'white',
-                float: 'right',
-              }}
-            >
-              23
-            </div> */}
+          <div
+            style={{
+              position: 'relative',
+              height: 50,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'flex-end',
+            }}
+          >
+            {notification && (
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  height: 20,
+                  width: 20,
+                  borderRadius: '50%',
+                  backgroundColor: 'red',
+                  fontSize: 8,
+                  color: 'white',
+                  position: 'absolute',
+                  right: -5,
+                  top: 0,
+                }}
+              >
+                23
+              </div>
+            )}
+
             <div
-              style={{ paddingBottom: 8, fontWeight: 700, fontSize: 13 }}
+              style={{ paddingBottom: 6, fontWeight: 700, fontSize: 13, cursor: 'pointer' }}
               className="activeTopNavLi"
               key={item}
             >
@@ -39,8 +52,18 @@ const TopNav = ({ options, width }) => {
             </div>
           </div>
         ) : (
-          <div style={{ paddingBottom: 10 }} className="topNav" key={item}>
-            {item}
+          <div
+            style={{
+              position: 'relative',
+              height: 50,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'flex-end',
+            }}
+          >
+            <div style={{ paddingBottom: 10, cursor: 'pointer' }} className="topNav" key={item}>
+              {item}
+            </div>
           </div>
         ),
       )}

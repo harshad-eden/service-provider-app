@@ -85,7 +85,7 @@ body {
   cursor: pointer;
 }
 
-.addBoxwhite {
+.addBoxWhite {
   display: grid;
   place-items: center;
   width: 170px;
@@ -202,7 +202,7 @@ body {
   width: 370px !important;
 }
 
-.fileCliam .ant-modal-content {
+.fileClaim .ant-modal-content {
   width: 520px !important;
 }
 

@@ -26,11 +26,11 @@ const columns = [
       <div style={{ display: 'flex' }}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <HiOutlineDocumentText size={30} color="#f87d4e" />
-          <p style={{ fontSize: 8 }}>Request form</p>
+          <p style={{ fontSize: 8, marginBottom: 0 }}>Request form</p>
         </div>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <HiOutlineDocumentText size={30} color="#f87d4e" />
-          <p style={{ fontSize: 8 }}>Request form</p>
+          <p style={{ fontSize: 8, marginBottom: 0 }}>Request form</p>
         </div>
       </div>
     ),

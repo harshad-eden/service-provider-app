@@ -85,7 +85,7 @@ body {
   cursor: pointer;
 }
 
-.addBoxwhite {
+.addBoxWhite {
   display: grid;
   place-items: center;
   width: 170px;
@@ -124,8 +124,8 @@ body {
   background-color: white !important;
 }
 
-.PreAuths_table__eZldm,
-.ant-table-thead
+.PreAuths_table__eZldm
+  .ant-table-thead
   > tr
   > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
   background-color: #fce4d9 !important;
@@ -187,9 +187,6 @@ body {
   flex: inherit;
 }
 
-.Reports_table__v5Tn- {
-}
-
 .activeTopNavLi {
   border-bottom: #f87d4e 3px solid;
 }
@@ -202,7 +199,7 @@ body {
   width: 370px !important;
 }
 
-.fileCliam .ant-modal-content {
+.fileClaim .ant-modal-content {
   width: 520px !important;
 }
 
@@ -274,11 +271,3 @@ body {
 .support .ant-select-selector {
   border: none !important;
 }
-
-/* 
-.PreAuths_table__eZldm tr:nth-child(even) {
-  background: white;
-}
-.PreAuths_table__eZldm tr:nth-child(odd) {
-  background: #f8f8f8;
-} */
