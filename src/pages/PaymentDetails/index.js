@@ -4,6 +4,7 @@ import styles from './index.module.css';
 import AntTable from './AntTable';
 import { HiOutlineArrowLeft } from 'react-icons/hi';
 import { IoMdArrowDropdown } from 'react-icons/io';
+import { Link } from 'react-router-dom';
 
 import { Pagination } from 'antd';
 
@@ -11,10 +12,13 @@ const Index = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   return (
     <Main>
-      <div style={{ display: 'flex', alignItems: 'center', marginBottom: 40, gap: 10 }}>
+      <Link
+        to="/payments"
+        style={{ display: 'flex', alignItems: 'center', marginBottom: 40, gap: 10 }}
+      >
         <HiOutlineArrowLeft size={30} />
         <h3 style={{ marginBottom: 0, fontWeight: 700 }}>Batch payments</h3>
-      </div>
+      </Link>
       <div style={{ display: 'flex', gap: 3 }}>
         <p className="mbZero">Batch Number </p>
         <IoMdArrowDropdown size={23} color="#f87d4e" />
