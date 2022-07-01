@@ -24,7 +24,7 @@ const Index = () => {
         </div>
         <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
           <div onClick={() => setIsModalVisible(true)}>
-            <AddBox value="New Claim" />
+            <AddBox value="Add Inpatient" />
           </div>
         </div>
       </div>

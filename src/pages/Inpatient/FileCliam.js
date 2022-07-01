@@ -30,8 +30,8 @@ const RequestPreAuth = ({ setIsModalVisible, isModalVisible }) => {
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 35 }}>
           <div>
-            <h1 className="mbZero">New Claim</h1>
-            <h5 className="mbZero">Fill in the form below to make a New Claim</h5>
+            <h1 className="mbZero">New Inpatient</h1>
+            <h5 className="mbZero">Fill in the form below to make a New Inpatient</h5>
           </div>
           <Radio.Group onChange={onChange} value={value}>
             <Radio value={1}>Outpatient</Radio>
