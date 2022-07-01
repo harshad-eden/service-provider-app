@@ -26,15 +26,15 @@ const DropDown = () => {
       <Divider />
 
       <div className={styles.dropdownMarginLine}>
-        <div className={styles.voiletRound}></div>
-        <p className="mbZero">In-process</p>
+        <div className={styles.skyblue}></div>
+        <p className="mbZero">Settled</p>
       </div>
 
       <Divider />
 
       <div className={styles.dropdownMarginLine}>
-        <div className={styles.skyblue}></div>
-        <p className="mbZero">Settled</p>
+        <div className={styles.voiletRound}></div>
+        <p className="mbZero">In-process</p>
       </div>
     </div>
   );

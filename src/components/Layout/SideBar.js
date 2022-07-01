@@ -8,13 +8,13 @@ import dashboardActive from '../../img/sidebarIcons/dashboardActive.png';
 import fingerprint from '../../img/sidebarIcons/fingerprint.png';
 import fingerprintActive from '../../img/sidebarIcons/fingerprintActive.png';
 import patient from '../../img/sidebarIcons/patient.png';
-import patientActive from '../../img/sidebarIcons/dashboardActive.png';
+import patientActive from '../../img/sidebarIcons/patientActive.png';
 import claims from '../../img/sidebarIcons/claim.png';
-import claimsActive from '../../img/sidebarIcons/dashboardActive.png';
+import claimsActive from '../../img/sidebarIcons/claimsActive.png';
 import payment from '../../img/sidebarIcons/payment.png';
 import paymentActive from '../../img/sidebarIcons/dashboardActive.png';
 import reports from '../../img/sidebarIcons/reports.png';
-import reportsActive from '../../img/sidebarIcons/dashboardActive.png';
+import reportsActive from '../../img/sidebarIcons/reportsActive.png';
 
 import support from '../../img/sidebarIcons/support.png';
 import supportActive from '../../img/sidebarIcons/supportActive.png';

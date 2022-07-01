@@ -22,14 +22,6 @@ body {
   width: 50%;
 }
 
-.mbZero {
-  margin-bottom: 0px !important;
-}
-
-.mbFive {
-  margin-bottom: 5px !important;
-}
-
 .mtLarge {
   margin-top: 30px;
 }
@@ -44,6 +36,14 @@ body {
 
 .mrLarge {
   margin-right: 30px;
+}
+
+.mbZero {
+  margin-bottom: 0px !important;
+}
+
+.mbFive {
+  margin-bottom: 5px !important;
 }
 
 .customAntInput {
@@ -92,68 +92,6 @@ body {
   height: 40px;
   color: black;
   background-color: #fff;
-}
-
-.ant-tabs-top > .ant-tabs-nav::before {
-  display: none;
-}
-
-.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
-  font-weight: bold;
-  font-size: 15px;
-}
-
-.ant-table-thead > tr > th {
-  background-color: white !important;
-  border-bottom: 4px solid #fce4d9 !important;
-}
-
-.ant-table-thead .ant-table-cell {
-  color: #f87d4e !important;
-  font-weight: bold;
-  padding-bottom: 6px !important;
-}
-
-.ant-table-cell {
-  font-size: 13px !important;
-}
-
-.Dashboard_table__eLPic .ant-table-thead .ant-table-cell {
-  background-color: inherit !important;
-}
-
-.ant-table-thead
-  > tr
-  > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
-  background-color: inherit !important;
-}
-
-.ant-table-thead .ant-table-cell {
-  background-color: #fce4d9 !important;
-  color: #f87d4e !important;
-  font-weight: bold;
-  padding-bottom: 10px !important;
-}
-
-.ant-table-thead .ant-table-cell {
-  font-size: 13px !important;
-  cursor: auto;
-}
-
-.ant-table-cell {
-  font-size: 12px !important;
-}
-
-.ant-table-cell {
-  cursor: pointer;
-}
-
-.ant-table-filter-column {
-  justify-content: flex-start !important;
-}
-
-.ant-table-filter-column .ant-table-column-title {
-  flex: inherit;
 }
 
 .activeTopNavLi {
@@ -240,3 +178,64 @@ body {
 .support .ant-select-selector {
   border: none !important;
 }
+
+/* Ant table css customization starts from here*/
+
+.ant-table-thead > tr > th {
+  background-color: white !important;
+  border-bottom: 4px solid #fce4d9 !important;
+}
+
+.ant-table-thead .ant-table-cell {
+  color: #f87d4e !important;
+  font-weight: bold;
+  padding-bottom: 6px !important;
+}
+
+.ant-table-cell {
+  font-size: 13px !important;
+}
+
+.Dashboard_table__eLPic .ant-table-thead .ant-table-cell {
+  background-color: inherit !important;
+}
+
+.InpatientDetail_table__Wx3v7 .ant-table-thead .ant-table-cell {
+  background-color: inherit !important;
+}
+
+.ant-table-thead
+  > tr
+  > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+  background-color: inherit !important;
+}
+
+.ant-table-thead .ant-table-cell {
+  background-color: #fce4d9 !important;
+  color: #f87d4e !important;
+  font-weight: bold;
+  padding-bottom: 10px !important;
+}
+
+.ant-table-thead .ant-table-cell {
+  font-size: 13px !important;
+  cursor: auto;
+}
+
+.ant-table-cell {
+  font-size: 12px !important;
+}
+
+.ant-table-cell {
+  cursor: pointer;
+}
+
+.ant-table-filter-column {
+  justify-content: flex-start !important;
+}
+
+.ant-table-filter-column .ant-table-column-title {
+  flex: inherit;
+}
+
+/* Ant table css customization over here*/
