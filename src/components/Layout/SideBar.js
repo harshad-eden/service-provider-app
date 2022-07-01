@@ -33,8 +33,8 @@ const links = [
     activeIcon: fingerprintActive,
   },
   {
-    name: 'Patients',
-    path: '/patients',
+    name: 'Inpatients',
+    path: '/inpatients',
     icon: patient,
     activeIcon: patientActive,
   },

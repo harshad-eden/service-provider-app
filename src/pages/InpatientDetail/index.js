@@ -12,7 +12,7 @@ import styles from './index.module.css';
 const Index = () => {
   return (
     <Main>
-      <Link to={'/claims'}>
+      <Link to={'/inpatients'}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 20, marginBottom: 40 }}>
           <HiOutlineArrowLeft size={30} />
           <h3 style={{ marginBottom: 0, fontWeight: 700 }}>Inpatient Profile</h3>

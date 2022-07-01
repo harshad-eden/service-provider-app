@@ -10,7 +10,8 @@ const ClaimPatient = lazy(() => import('./pages/ClaimPatient'));
 const Reports = lazy(() => import('./pages/Reports'));
 const Support = lazy(() => import('./pages/Support'));
 const Payments = lazy(() => import('./pages/Payments'));
-const Patients = lazy(() => import('./pages/Patients'));
+const Inpatients = lazy(() => import('./pages/Inpatient'));
+const InpatientDetail = lazy(() => import('./pages/InpatientDetail'));
 const Login = lazy(() => import('./pages/Login'));
 const RestPassword = lazy(() => import('./pages/RestPassword'));
 const NotFound = lazy(() => import('./pages/404'));
@@ -22,11 +23,12 @@ const RouteSetup = () => {
         <Route path="/" element={<Dashboard />} />
         <Route path="/pre-auths" element={<PreAuths />} />
         <Route path="/claims" element={<Claims />} />
-        <Route path="/pre-auths/:patient" element={<PreAuthPatient />} />
-        <Route path="/claims/:patient" element={<ClaimPatient />} />
+        <Route path="/pre-auths/:detail" element={<PreAuthPatient />} />
+        <Route path="/claims/:detail" element={<ClaimPatient />} />
         <Route path="/reports" element={<Reports />} />
         <Route path="/payments" element={<Payments />} />
-        <Route path="/patients" element={<Patients />} />
+        <Route path="/inpatients" element={<Inpatients />} />
+        <Route path="/inpatients/:detail" element={<InpatientDetail />} />
         <Route path="/support" element={<Support />} />
         <Route path="/login" element={<Login />} />
         <Route path="/reset-password" element={<RestPassword />} />
