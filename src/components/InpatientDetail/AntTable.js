@@ -1,7 +1,6 @@
 import { Table } from 'antd';
 import styles from './index.module.css';
-import { HiOutlineDocumentText } from 'react-icons/hi';
-import { Link } from 'react-router-dom';
+
 const columns = [
   {
     title: 'Member ID',
@@ -61,6 +60,16 @@ for (let i = 0; i < 5; i++) {
   });
 }
 
-const AntTable = () => <Table columns={columns} dataSource={data} pagination={false} />;
+const AntTable = () => (
+  <Table
+    className="inpatientDetail"
+    columns={columns}
+    dataSource={data}
+    pagination={false}
+    scroll={{
+      y: 400,
+    }}
+  />
+);
 
 export default AntTable;

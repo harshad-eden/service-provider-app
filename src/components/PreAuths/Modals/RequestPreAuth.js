@@ -1,17 +1,34 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button, Input, Upload, Modal } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import UploadImg from '../../../img/upload.png';
 import CloseModalImg from '../../../img/close-modal.png';
+import { closePreAuth } from '../../../store/dashboardSlice';
 import styles from '../index.module.css';
 
+const { Dragger } = Upload;
+
 const RequestPreAuth = ({ setIsModalVisible, isModalVisible }) => {
-  const { Dragger } = Upload;
+  const dispatch = useDispatch();
+  const { openPreAuth } = useSelector((state) => state.dashboard);
+
+  useEffect(() => {
+    if (openPreAuth) {
+      setIsModalVisible(true);
+    }
+  }, [openPreAuth]);
+
+  const handleModalClose = () => {
+    setIsModalVisible(false);
+    dispatch(closePreAuth());
+  };
 
   return (
     <>
       <Modal bodyStyle={{ padding: 50 }} footer={null} visible={isModalVisible}>
         <div
-          onClick={() => setIsModalVisible(false)}
+          onClick={() => handleModalClose()}
           style={{ cursor: 'pointer' }}
           className="modalCloseIcon"
         >
@@ -47,7 +64,7 @@ const RequestPreAuth = ({ setIsModalVisible, isModalVisible }) => {
             </Dragger>
           </div>
           <Button
-            onClick={() => setIsModalVisible(false)}
+            onClick={() => handleModalClose()}
             size="large"
             style={{ width: '55%' }}
             type="primary"

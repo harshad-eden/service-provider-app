@@ -235,11 +235,11 @@ body {
   font-size: 13px !important;
 }
 
-.Dashboard_table__eLPic .ant-table-thead .ant-table-cell {
+.dashBoardTable .ant-table-thead .ant-table-cell {
   background-color: inherit !important;
 }
 
-.InpatientDetail_table__Wx3v7 .ant-table-thead .ant-table-cell {
+.inpatientDetail .ant-table-thead .ant-table-cell {
   background-color: inherit !important;
 }
 

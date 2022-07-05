@@ -1,7 +1,7 @@
 import { Table } from 'antd';
 import styles from './index.module.css';
 import { HiOutlineDocumentText } from 'react-icons/hi';
-import { Link } from 'react-router-dom';
+
 const columns = [
   {
     title: 'Member No',
@@ -69,6 +69,7 @@ for (let i = 0; i < 100; i++) {
 
 const AntTable = () => (
   <Table
+    className="dashBoardTable"
     columns={columns}
     dataSource={data}
     pagination={false}

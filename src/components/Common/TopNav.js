@@ -14,6 +14,7 @@ const TopNav = ({ options, width, marginBottom, notification }) => {
       {options.map((item, index) =>
         index === 0 ? (
           <div
+            key={index}
             style={{
               position: 'relative',
               height: 50,
@@ -53,6 +54,7 @@ const TopNav = ({ options, width, marginBottom, notification }) => {
           </div>
         ) : (
           <div
+            key={index}
             style={{
               position: 'relative',
               height: 50,

@@ -4,9 +4,20 @@ import { Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import AntTable from './AntTable';
 import TabMenu from '../../components/Common/TopNav';
-import AddBox from '../../components/Common/AddBox';
+import { openPreAuth } from '../../store/dashboardSlice';
+
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 const TopSection = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleOpenPreAuth = () => {
+    dispatch(openPreAuth());
+    navigate('/pre-auths');
+  };
+
   return (
     <div
       style={{
@@ -21,7 +32,15 @@ const TopSection = () => {
             className="customAntInput"
           />
         </div>
-        <AddBox value="New Pre-Auth" />
+
+        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <div onClick={() => handleOpenPreAuth()}>
+            <div className="addBox">
+              <img src="/icons/plusSign.webp" style={{ height: 40 }} alt="" />
+              <div className="addBoxWhite">New Pre-Auth</div>
+            </div>
+          </div>
+        </div>
       </div>
       <div className="mtLarge">
         <div className="mlLarge">

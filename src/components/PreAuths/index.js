@@ -10,6 +10,7 @@ import SearchAndFilter from '../../components/Common/SearchAndFilter';
 
 const Index = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+
   return (
     <Main>
       <div style={{ marginTop: 20 }}>

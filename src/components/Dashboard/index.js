@@ -8,13 +8,13 @@ import RightSection from './RightSection';
 const Index = () => {
   return (
     <Main pageName="Dashboard">
-      <div>
+      <>
         <section className={styles.firstSection}>
           <MainSection />
           <RightSection />
         </section>
         <BottomSection />
-      </div>
+      </>
     </Main>
   );
 };
