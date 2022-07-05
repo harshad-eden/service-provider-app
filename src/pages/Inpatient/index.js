@@ -8,8 +8,12 @@ import { Pagination } from 'antd';
 import RequestPreAuth from './FileClaim';
 import SearchAndFilter from '../../components/Common/SearchAndFilter';
 
+import ViewDocs from './ViewDocs';
+
 const Index = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isDocVisible, setIsDocVisible] = useState(false);
+
   return (
     <Main>
       <div style={{ marginTop: 20 }}>
@@ -21,12 +25,13 @@ const Index = () => {
           <TopNav options={['Pending Claims', 'Approved']} width={200} notification />
         </div>
         <div className={styles.table}>
-          <AntTable />
+          <AntTable setIsDocVisible={setIsDocVisible} />
         </div>
         <div style={{ marginTop: 30, display: 'flex', justifyContent: 'center' }}>
           <Pagination size="small" total={50} />
         </div>
       </div>
+      <ViewDocs isDocVisible={isDocVisible} setIsDocVisible={setIsDocVisible} />
       <RequestPreAuth isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />
     </Main>
   );
