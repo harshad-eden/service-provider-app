@@ -16,25 +16,9 @@ const Login = () => {
         <img src="icons/logo.png" className={styles.logo} />
         <Form form={form} className="wFull" name="basic" onFinish={onFinish}>
           <label className="fieldLabel" htmlFor="username">
-            Username
-          </label>
-          <Form.Item
-            name="username"
-            rules={[
-              {
-                required: true,
-                message: 'Please input your username!',
-              },
-            ]}
-          >
-            <Input placeholder="Enter your Username" className="customAntInput" size="large" />
-          </Form.Item>
-
-          <label className="fieldLabel" htmlFor="username">
             Password
           </label>
           <Form.Item
-            className="mbZero"
             name="password"
             rules={[
               {
@@ -49,9 +33,26 @@ const Login = () => {
               size="large"
             />
           </Form.Item>
-          <Link to="/reset-password-request" className={styles.forgottPassword}>
-            Forgot Password
-          </Link>
+
+          <label className="fieldLabel" htmlFor="username">
+            Confirm Password
+          </label>
+          <Form.Item
+            className="mbZero"
+            name="confirmPassword"
+            rules={[
+              {
+                required: true,
+                message: 'Please input your password!',
+              },
+            ]}
+          >
+            <Input.Password
+              placeholder="Repeat your Password"
+              className="customAntInput"
+              size="large"
+            />
+          </Form.Item>
         </Form>
         <div className={styles.submitBtn}>
           <Button
@@ -63,7 +64,7 @@ const Login = () => {
             type="primary"
             htmlType="submit"
           >
-            Login
+            Change password
           </Button>
         </div>
       </div>

@@ -14,7 +14,8 @@ const PaymentDetails = lazy(() => import('./pages/PaymentDetails'));
 const Inpatients = lazy(() => import('./pages/Inpatient'));
 const InpatientDetail = lazy(() => import('./pages/InpatientDetail'));
 const Login = lazy(() => import('./pages/Login'));
-const RestPassword = lazy(() => import('./pages/RestPassword'));
+const RestPasswordReq = lazy(() => import('./pages/ResetPasswordReq'));
+const RestPassword = lazy(() => import('./pages/ResetPassword'));
 const DocView = lazy(() => import('./pages/DocView'));
 const NotFound = lazy(() => import('./pages/404'));
 
@@ -34,6 +35,7 @@ const RouteSetup = () => {
         <Route path="/payments/:detail" element={<PaymentDetails />} />
         <Route path="/support" element={<Support />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/reset-password-request" element={<RestPasswordReq />} />
         <Route path="/reset-password" element={<RestPassword />} />
         <Route path="/view/:viewdoc" element={<DocView />} />
         <Route path="*" element={<NotFound />} />

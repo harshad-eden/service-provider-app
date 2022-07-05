@@ -26,7 +26,7 @@ const DocView = () => {
   }
 
   return (
-    <div style={{ width: '70%', margin: 'auto' }}>
+    <div style={{ width: '60%', margin: 'auto' }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <Button
           onClick={changePageBack}
