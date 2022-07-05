@@ -2,22 +2,22 @@ import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import LoaderComponenet from './components/Loader';
 
-const Dashboard = lazy(() => import('./pages/Dashboard'));
-const PreAuths = lazy(() => import('./pages/PreAuths'));
-const Claims = lazy(() => import('./pages/Claims'));
-const PreAuthPatient = lazy(() => import('./pages/PreAuthPatient'));
-const ClaimPatient = lazy(() => import('./pages/ClaimPatient'));
-const Reports = lazy(() => import('./pages/Reports'));
-const Support = lazy(() => import('./pages/Support'));
-const Payments = lazy(() => import('./pages/Payments'));
-const PaymentDetails = lazy(() => import('./pages/PaymentDetails'));
-const Inpatients = lazy(() => import('./pages/Inpatient'));
-const InpatientDetail = lazy(() => import('./pages/InpatientDetail'));
-const Login = lazy(() => import('./pages/Login'));
-const RestPasswordReq = lazy(() => import('./pages/ResetPasswordReq'));
-const RestPassword = lazy(() => import('./pages/ResetPassword'));
-const DocView = lazy(() => import('./pages/DocView'));
-const NotFound = lazy(() => import('./pages/404'));
+const Dashboard = lazy(() => import('./components/Dashboard'));
+const PreAuths = lazy(() => import('./components/PreAuths'));
+const Claims = lazy(() => import('./components/Claims'));
+const PreAuthPatient = lazy(() => import('./components/PreAuthPatient'));
+const ClaimPatient = lazy(() => import('./components/ClaimPatient'));
+const Reports = lazy(() => import('./components/Reports'));
+const Support = lazy(() => import('./components/Support'));
+const Payments = lazy(() => import('./components/Payments'));
+const PaymentDetails = lazy(() => import('./components/PaymentDetails'));
+const Inpatients = lazy(() => import('./components/Inpatient'));
+const InpatientDetail = lazy(() => import('./components/InpatientDetail'));
+const Login = lazy(() => import('./components/Login'));
+const RestPasswordReq = lazy(() => import('./components/ResetPasswordReq'));
+const RestPassword = lazy(() => import('./components/ResetPassword'));
+const DocView = lazy(() => import('./components/DocView'));
+const NotFound = lazy(() => import('./components/404'));
 
 const RouteSetup = () => {
   return (
@@ -37,7 +37,7 @@ const RouteSetup = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/reset-password-request" element={<RestPasswordReq />} />
         <Route path="/reset-password" element={<RestPassword />} />
-        <Route path="/view/:viewdoc" element={<DocView />} />
+        <Route path="/view/:viewDoc" element={<DocView />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
