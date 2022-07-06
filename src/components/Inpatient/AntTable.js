@@ -94,7 +94,7 @@ const AntTable = ({ setIsDocVisible }) => {
       render: (text) => (
         <div
           onClick={() => setIsDocVisible(true)}
-          style={{ display: 'flex', alignItems: 'center' }}
+          style={{ display: 'flex', alignItems: 'center', zIndex: 10, position: 'sticky' }}
         >
           <div style={{ display: 'flex', alignItems: 'center', width: 70 }}>
             <HiOutlineDocumentText size={30} color="#f87d4e" />
@@ -133,7 +133,7 @@ const AntTable = ({ setIsDocVisible }) => {
     <Table
       onRow={(record, rowIndex) => {
         return {
-          // onClick: () => navigate('/inpatients/detail'),
+          onClick: () => navigate('/inpatients/detail'),
         };
       }}
       rowKey={(key) => console.log('!!', key)}

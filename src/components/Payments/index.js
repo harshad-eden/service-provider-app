@@ -18,7 +18,7 @@ const Index = () => {
       </div>
       <div className="mtLarge">
         <div className="mlLarge">
-          <TopNav options={['Pending payments', 'Paid payments']} width={250} notification />
+          <TopNav options={['Pending Payments', 'Paid Payments']} width={250} notification />
         </div>
 
         <div className={styles.table}>

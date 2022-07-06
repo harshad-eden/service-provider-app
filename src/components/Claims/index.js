@@ -18,7 +18,7 @@ const Index = () => {
       </div>
       <div className="mtLarge">
         <div className="mlLarge">
-          <TopNav options={['Pending claims', 'Approved']} width={200} notification />
+          <TopNav options={['Pending Claims', 'Approved']} width={200} notification />
         </div>
 
         <div className={styles.table}>
