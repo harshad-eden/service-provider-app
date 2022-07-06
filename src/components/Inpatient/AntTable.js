@@ -90,7 +90,7 @@ const AntTable = ({ setIsDocVisible }) => {
       dataIndex: 'Documents',
       filters: [],
       filterIcon: (filtered) => <AiFillCaretDown type="filter" style={{ color: '#f87d4e' }} />,
-      width: 180,
+      width: 150,
       render: (text) => (
         <div
           onClick={() => setIsDocVisible(true)}
@@ -121,9 +121,9 @@ const AntTable = ({ setIsDocVisible }) => {
     // {
     //   title: 'View',
     //   dataIndex: 'view',
-    //   width: 70,
+    //   width: 20,
     //   render: () => (
-    //     <div>
+    //     <div style={{ display: 'grid', placeItems: 'center' }}>
     //       <FullscreenExitOutlined />
     //     </div>
     //   ),
@@ -131,9 +131,9 @@ const AntTable = ({ setIsDocVisible }) => {
   ];
   return (
     <Table
-      onRow={(record, rowIndex) => {
+      onRow={() => {
         return {
-          onClick: () => navigate('/inpatients/detail'),
+          // onClick: () => navigate('/inpatients/detail'),
         };
       }}
       rowKey={(key) => console.log('!!', key)}

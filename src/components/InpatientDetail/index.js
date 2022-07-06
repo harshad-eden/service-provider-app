@@ -13,10 +13,13 @@ const Index = () => {
   return (
     <Main>
       <div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 20, marginBottom: 40 }}>
+        <Link
+          to="/inpatients"
+          style={{ display: 'flex', alignItems: 'center', gap: 20, marginBottom: 40 }}
+        >
           <HiOutlineArrowLeft size={30} />
           <h3 style={{ marginBottom: 0, fontWeight: 700 }}>Inpatient Profile</h3>
-        </div>
+        </Link>
 
         <div style={{ display: 'flex', gap: 20 }}>
           <section style={{ width: '35%' }}>
