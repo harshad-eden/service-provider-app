@@ -9,7 +9,7 @@ const BottomSection = () => {
       <div className={styles.progressBox}>
         <p className="mbFive">Claims</p>
         <div className={styles.progressBoxIn}>
-          <div className="wHalf dGrid">
+          <div className="wHalf dGridCenter">
             <Tooltip title="60% approoved 40% denied">
               <Progress
                 width={80}
@@ -53,7 +53,7 @@ const BottomSection = () => {
       <div className={styles.progressBox}>
         <p className="mbFive">Payments</p>
         <div className={styles.progressBoxIn}>
-          <div className="wHalf dGrid">
+          <div className="wHalf dGridCenter">
             <Tooltip title="60% approoved 40% denied">
               <Progress
                 strokeColor="#cb6ba2"

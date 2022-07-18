@@ -1,8 +1,6 @@
 import React from 'react';
 import styles from './index.module.css';
 import { Button, Form, Input } from 'antd';
-import { Link } from 'react-router-dom';
-import loginPic from '../../img/loginPic.png';
 
 const Login = () => {
   const [form] = Form.useForm();
@@ -11,19 +9,27 @@ const Login = () => {
     console.log('Success:', values);
   };
 
+  const onFinishFailed = (errorInfo) => {
+    console.log('Failed:', errorInfo);
+  };
   return (
     <div className={styles.container}>
-      <img src={loginPic} alt="" className={styles.loginPic} />
       <div className={styles.box}>
         <img src="icons/logo.png" className={styles.logo} />
         <div className={styles.sectionTwo}>
           <img src="/icons/important.png" className="importantIcon" />
           <p>Kindly enter your email address below to enable us reset your password</p>
         </div>
-        <Form form={form} className="wFull" name="basic" onFinish={onFinish}>
-          <p className={styles.fieldLabel} htmlFor="username">
+        <Form
+          form={form}
+          className="wFull"
+          name="basic"
+          onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
+        >
+          <label className="fieldLabel" htmlFor="username">
             Enter Email Address
-          </p>
+          </label>
           <Form.Item
             name="username"
             rules={[

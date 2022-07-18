@@ -113,7 +113,7 @@ body {
   justify-content: space-between;
 }
 
-.dGrid {
+.dGridCenter {
   display: grid;
   place-items: center;
 }

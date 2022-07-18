@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './index.module.css';
 import { Button, Form, Input } from 'antd';
 import { Link } from 'react-router-dom';
+import loginPic from '../../img/loginPic.png';
 
 const Login = () => {
   const [form] = Form.useForm();
@@ -12,12 +13,13 @@ const Login = () => {
 
   return (
     <div className={styles.container}>
+      <img src={loginPic} alt="" className={styles.loginPic} />
       <div className={styles.box}>
         <img src="icons/logo.png" className={styles.logo} />
         <Form form={form} className="wFull" name="basic" onFinish={onFinish}>
-          <label className="fieldLabel" htmlFor="username">
+          <p className={styles.fieldLabel} htmlFor="username">
             Username
-          </label>
+          </p>
           <Form.Item
             name="username"
             rules={[
@@ -30,9 +32,9 @@ const Login = () => {
             <Input placeholder="Enter your Username" className="customAntInput" size="large" />
           </Form.Item>
 
-          <label className="fieldLabel" htmlFor="username">
+          <p className={styles.fieldLabel} htmlFor="username">
             Password
-          </label>
+          </p>
           <Form.Item
             className="mbZero"
             name="password"
@@ -58,7 +60,7 @@ const Login = () => {
             onClick={() => form.submit()}
             className="custom-ant-button"
             shape="round"
-            style={{ width: '85%' }}
+            style={{ width: '85%', marginBottom: 30, marginTop: 25 }}
             size="large"
             type="primary"
             htmlType="submit"
