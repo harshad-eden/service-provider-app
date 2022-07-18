@@ -1,4 +1,4 @@
-import Main from '../../components/Layout';
+import Main from '../../template';
 import { Link } from 'react-router-dom';
 import { HiOutlineArrowLeft } from 'react-icons/hi';
 import { Button, Divider } from 'antd';

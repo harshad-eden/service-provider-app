@@ -1,4 +1,4 @@
-import Main from '../../components/Layout';
+import Main from '../../template';
 import styles from './index.module.css';
 import { Button, Form, Input, Select } from 'antd';
 import CollapseComponent from './Collapse';

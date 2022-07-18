@@ -3,7 +3,7 @@ import styles from './index.module.css';
 import AntTable from './AntTable';
 import { Pagination } from 'antd';
 import RequestPreAuth from './Modal';
-import Main from '../../components/Layout';
+import Main from '../../template';
 import TopNav from '../../components/Common/TopNav';
 import AddBox from '../../components/Common/AddBox';
 import SearchAndFilter from '../../components/Common/SearchAndFilter';

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Main from '../../components/Layout';
+import Main from '../../template';
 import styles from './index.module.css';
 import AntTable from './AntTable';
 import { HiOutlineArrowLeft } from 'react-icons/hi';

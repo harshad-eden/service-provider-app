@@ -1,5 +1,5 @@
 import React from 'react';
-import Main from '../../components/Layout';
+import Main from '../../template';
 import styles from './index.module.css';
 import BottomSection from './BottomSection';
 import MainSection from './MainSection';

@@ -9,7 +9,7 @@ import pdf from '../../img/pdf.png';
 import excel from '../../img/excel.png';
 import finger from '../../img/fingerprintBlue.png';
 import GenerateReport from './GenerateModal';
-import Main from '../../components/Layout';
+import Main from '../../template';
 import styles from './index.module.css';
 import SearchAndFilter from '../../components/Common/SearchAndFilter';
 

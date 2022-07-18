@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Main from '../../components/Layout';
+import Main from '../../template';
 import TopNav from '../../components/Common/TopNav';
 import styles from './index.module.css';
 import AntTable from './AntTable';
