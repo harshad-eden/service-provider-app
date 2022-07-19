@@ -6,22 +6,6 @@ import Steps from './Step';
 import { BsChevronDown } from 'react-icons/bs';
 import { HiOutlineDocumentText } from 'react-icons/hi';
 
-import TelImg from '../../img/tel.png';
-import EmailImg from '../../img/email.png';
-import BronzeImg from '../../img/bronze.png';
-
-import dental from '../../img/dentist.png';
-import general from '../../img/general.png';
-import maternity from '../../img/maternity.png';
-import optical from '../../img/optical.png';
-
-let items = [
-  { title: 'General', img: general },
-  { title: 'Maternity', img: maternity },
-  { title: 'Dentist', img: dental },
-  { title: 'Optical', img: optical },
-];
-
 const Index = () => {
   return (
     <Main>
@@ -32,102 +16,45 @@ const Index = () => {
         </div>
       </Link>
       <div style={{ width: '90%', margin: 'auto' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 15 }}>
-          {/* one */}
+        <div style={{ marginBottom: 60 }}>
+          <p style={{ marginBottom: 5, color: '#3eb919', fontWeight: 700 }}>Patient</p>
           <div
             style={{
-              backgroundColor: '#cffad6',
-              height: 170,
-              width: '30%',
-              borderRadius: 20,
-              padding: 20,
-              position: 'relative',
+              width: '100%',
+              display: 'flex',
+              backgroundColor: 'white',
+              borderRadius: 15,
+              padding: 30,
+              alignItems: 'center',
             }}
           >
-            <div style={{ position: 'absolute', right: 1, top: -35 }}>
-              <img
-                style={{ width: 70, height: 70, borderRadius: '50%', marginRight: 40 }}
-                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80"
-                alt=""
-              />
-            </div>
-            <div style={{ marginTop: 15 }}>
+            <img
+              style={{ width: 70, height: 70, borderRadius: '50%', marginRight: 40 }}
+              src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80"
+              alt=""
+            />
+            {/* <div
+            style={{ width: 70, height: 70, borderRadius: '50%', backgroundColor: '#4287f5' }}
+          ></div> */}
+            <div style={{ marginRight: 70 }}>
               <p style={{ fontWeight: 700, color: '#3eb919' }} className="mbZero">
                 Patient
               </p>
-              <p style={{ fontWeight: 700, fontSize: 18 }} className="mbZero">
+              <p style={{ fontWeight: 700, fontSize: 22 }} className="mbZero">
                 Kipagat George
               </p>
               <p className="mbZero">#000000000</p>
             </div>
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                marginTop: 10,
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-                <img src={TelImg} style={{ height: 20 }} alt="" />
-                <span style={{ fontSize: 12 }}>000000000000</span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-                <img src={EmailImg} style={{ height: 20 }} alt="" />
-                <span style={{ fontSize: 12 }}>kiplagat@gmail.com</span>
-              </div>
-            </div>
-          </div>
-          {/* two */}
-          <div
-            style={{
-              backgroundColor: 'white',
-              height: 170,
-              width: '30%',
-              borderRadius: 20,
-              padding: 20,
-              position: 'relative',
-            }}
-          >
-            <div style={{ position: 'absolute', right: 1, top: -35 }}>
-              <img
-                style={{ width: 70, height: 70, borderRadius: '50%', marginRight: 40 }}
-                src={BronzeImg}
-                alt=""
-              />
-            </div>
-            <div style={{ marginTop: 15 }}>
+
+            <div>
               <p style={{ fontWeight: 700 }} className="mbZero">
                 Insurance Type
               </p>
-              <p style={{ fontWeight: 600, color: '#f4bb1d' }} className="mbZero">
-                Bronze
-              </p>
-            </div>
-
-            <div style={{ display: 'flex', gap: 22, marginTop: 20 }}>
-              {items.map((item) => (
-                <div style={{ display: 'grid', placeItems: 'center' }} key={item.title}>
-                  <img src={item.img} style={{ height: 30 }} alt="" />
-                  <span style={{ fontSize: 10 }}>{item.title}</span>
-                </div>
-              ))}
+              <p style={{ fontWeight: 800, fontSize: 18, color: '#3eb919' }}>Bronze</p>
             </div>
           </div>
-
-          <div
-            style={{
-              backgroundColor: 'white',
-              height: 170,
-              width: '30%',
-              borderRadius: 20,
-              padding: 20,
-              position: 'relative',
-            }}
-          ></div>
         </div>
-
-        <div style={{ width: '100%', marginTop: 50 }}>
+        <div style={{ width: '100%', marginTop: 30 }}>
           <div
             style={{
               width: '80%',
