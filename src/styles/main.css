@@ -278,3 +278,7 @@ body {
 }
 
 /* Ant table css customization over here*/
+
+.inpatientDetail .ant-input {
+  background-color: #f8f8f8;
+}

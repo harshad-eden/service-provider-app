@@ -58,11 +58,10 @@ const Login = () => {
         <div className={styles.submitBtn}>
           <Button
             onClick={() => form.submit()}
-            className="custom-ant-button"
             shape="round"
-            style={{ width: '85%', marginBottom: 30, marginTop: 25 }}
+            style={{ width: '85%', backgroundColor: '#3ab44d', color: 'white' }}
             size="large"
-            type="primary"
+            type="text"
             htmlType="submit"
           >
             Login

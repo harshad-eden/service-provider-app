@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import { RiFingerprintLine } from 'react-icons/ri';
 import styles from './index.module.css';
 import { openPreAuth } from '../../store/dashboardSlice';
-import { Button } from 'antd';
 import CustomButton from '../Common/CustomButton';
 
 const TopSection = () => {
@@ -50,14 +49,11 @@ const TopSection = () => {
           <p style={{ marginBottom: 0, fontSize: 13, color: 'white', padding: 10 }}>
             Lorem Ipsum is simply dummy text of the printing
           </p>
-          <CustomButton text="New Pre-Auth"></CustomButton>
-        </div>
-        {/* <div onClick={() => handleOpenPreAuth()}>
-          <div className="addBox">
-            <img src="/icons/plusSign.webp" style={{ height: 40 }} alt="" />
-            <div className="addBoxWhite">New Pre-Auth</div>
+
+          <div onClick={() => handleOpenPreAuth()}>
+            <CustomButton width="50%" backgroundColor="white" color="#3ab44d" text="New Pre-Auth" />
           </div>
-        </div> */}
+        </div>
       </div>
     </div>
   );

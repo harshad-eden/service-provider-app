@@ -1,13 +1,13 @@
 import React from 'react';
 import { HiArrowNarrowRight } from 'react-icons/hi';
 
-const RoundArrow = ({ text }) => {
+const RoundArrow = ({ text, height, width }) => {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 5, marginTop: -10 }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
       <div
         style={{
-          height: 20,
-          width: 20,
+          height: height ? height : 15,
+          width: width ? width : 15,
           borderRadius: '50%',
           display: 'flex',
           alignItems: 'center',
@@ -15,7 +15,7 @@ const RoundArrow = ({ text }) => {
           backgroundColor: '#3ab44d',
         }}
       >
-        <HiArrowNarrowRight size={10} color="white" />
+        <HiArrowNarrowRight size={8} color="white" />
       </div>
       <p style={{ fontSize: 10 }} className="mbZero">
         {text}

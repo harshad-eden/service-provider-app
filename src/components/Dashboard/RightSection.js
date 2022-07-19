@@ -14,15 +14,14 @@ const RightSection = () => {
         }}
       >
         <h3 style={{ marginBottom: 20 }}>Policy Utilisation</h3>
+
         <Progress
           width={240}
-          format={() => (
-            <div>
-              <img src="/sidebarIcons/claim.png" style={{ width: '25%' }} alt="altimg" />
-            </div>
-          )}
+          format={() => <div style={{ color: '#fd8d2d', fontWeight: 600 }}>86%</div>}
+          trailColor=""
           success={{
             percent: 70,
+            strokeColor: '#fd8d2d',
           }}
           type="circle"
         />
@@ -56,7 +55,9 @@ const RightSection = () => {
               Triggers Repricing
             </p>
           </div>
-          <RoundArrow text="View details" />
+          <div style={{ marginTop: -10 }}>
+            <RoundArrow text="View details" />
+          </div>
         </div>
       </div>
     </div>

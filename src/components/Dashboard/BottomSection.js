@@ -2,6 +2,9 @@ import React from 'react';
 import styles from './index.module.css';
 import { Progress, Tooltip } from 'antd';
 import { FaFingerprint } from 'react-icons/fa';
+import ColorRound from '../Common/ColorRound';
+
+import RoundArrow from '../Common/RoundArrow';
 
 const BottomSection = () => {
   return (
@@ -12,14 +15,15 @@ const BottomSection = () => {
             <Tooltip title="60% approoved 40% denied">
               <Progress
                 width={80}
-                percent={100}
+                percent={60}
+                trailColor="#f4bb1d"
                 format={() => (
                   <div>
                     <img src="/sidebarIcons/claim.png" style={{ width: '25%' }} alt="altimg" />
                   </div>
                 )}
                 success={{
-                  percent: 40,
+                  percent: 60,
                 }}
                 type="circle"
               />
@@ -38,12 +42,15 @@ const BottomSection = () => {
                 </div>
               </div>
               <div>
-                <p className={styles.bluePrecentage}>40%</p>
+                <p className={styles.yellowPrecentage}>40%</p>
                 <div style={{ display: 'flex', gap: 4, alignItems: 'center' }}>
-                  <div className={styles.blueDot} />
+                  <ColorRound color="#f4bb1d" />
                   <p style={{ marginBottom: 0, fontSize: 10 }}>Denied</p>
                 </div>
               </div>
+            </div>
+            <div style={{ marginTop: 15 }}>
+              <RoundArrow text="View details" />
             </div>
           </div>
         </div>
@@ -54,8 +61,8 @@ const BottomSection = () => {
           <div className="wHalf dGridCenter">
             <Tooltip title="60% approoved 40% denied">
               <Progress
-                strokeColor="#cb6ba2"
-                trailColor="#246798"
+                strokeColor="gray"
+                trailColor="#f4bb1d"
                 width={80}
                 percent={60}
                 format={() => (
@@ -78,21 +85,25 @@ const BottomSection = () => {
               <div>
                 <p className={styles.greenPrecentage}>60%</p>
                 <div style={{ display: 'flex', gap: 4, alignItems: 'center' }}>
-                  <div style={{ backgroundColor: '#cb6ba2' }} className={styles.greenDot} />
-                  <p className="mbZero" style={{ fontSize: 10 }}>
-                    Approved
+                  <ColorRound color="#626262" />
+                  <p className="mbZero" style={{ fontSize: 8 }}>
+                    Claims made in 30 Days
                   </p>
                 </div>
               </div>
+
               <div>
-                <p className={styles.bluePrecentage}>40%</p>
+                <p className={styles.yellowPrecentage}>40%</p>
                 <div style={{ display: 'flex', gap: 4, alignItems: 'center' }}>
-                  <div style={{ backgroundColor: '#246798' }} className={styles.blueDot} />
-                  <p className="mbZero" style={{ fontSize: 10 }}>
-                    Denied
+                  <ColorRound color="#f4bb1d" />
+                  <p className="mbZero" style={{ fontSize: 8 }}>
+                    Outstanding
                   </p>
                 </div>
               </div>
+            </div>
+            <div style={{ marginTop: 15 }}>
+              <RoundArrow text="View details" />
             </div>
           </div>
         </div>
