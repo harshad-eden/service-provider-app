@@ -89,7 +89,6 @@ const SideBar = () => {
             {/* <img className={styles.sidebarIcon} src={item.icon} alt="" />
             <img className={styles.sidebarIconActive} src={item.activeIcon} alt="" /> */}
             {item.reactIcon}
-
             <div className={styles.bottomLine} />
           </NavLink>
         ))}

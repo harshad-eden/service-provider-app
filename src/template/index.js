@@ -7,6 +7,26 @@ import { useState } from 'react';
 
 function Main({ children, pageName }) {
   const [collapsed, setCollapsed] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => setIsOpen(!isOpen);
+
+  const inputAnimation = {
+    hidden: {
+      width: 0,
+      padding: 0,
+      transition: {
+        duration: 0.2,
+      },
+    },
+    show: {
+      width: '140px',
+      padding: '5px 15px',
+      transition: {
+        duration: 0.2,
+      },
+    },
+  };
+
   return (
     <div style={{ display: 'flex', height: '100vh' }}>
       {collapsed ? (
