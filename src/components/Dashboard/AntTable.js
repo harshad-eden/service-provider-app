@@ -16,7 +16,7 @@ const columns = [
   {
     title: 'Authority Processing',
     dataIndex: 'authorityProcessing',
-    width: 148,
+    width: 140,
   },
   {
     title: 'Documents',
@@ -44,12 +44,12 @@ const columns = [
         {status}
       </div>
     ),
-    width: 100,
+    width: 90,
   },
   {
     title: 'Comments',
     dataIndex: 'comment',
-    width: 127,
+    width: 115,
   },
 ];
 const data = [];
@@ -74,7 +74,7 @@ const AntTable = () => (
     dataSource={data}
     pagination={false}
     scroll={{
-      y: 200,
+      y: 140,
     }}
   />
 );

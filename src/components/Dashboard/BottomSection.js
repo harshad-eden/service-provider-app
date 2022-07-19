@@ -7,7 +7,6 @@ const BottomSection = () => {
   return (
     <div className={styles.progressContainer}>
       <div className={styles.progressBox}>
-        <p className="mbFive">Claims</p>
         <div className={styles.progressBoxIn}>
           <div className="wHalf dGridCenter">
             <Tooltip title="60% approoved 40% denied">
@@ -51,7 +50,6 @@ const BottomSection = () => {
       </div>
       {/* Two */}
       <div className={styles.progressBox}>
-        <p className="mbFive">Payments</p>
         <div className={styles.progressBoxIn}>
           <div className="wHalf dGridCenter">
             <Tooltip title="60% approoved 40% denied">
@@ -95,42 +93,6 @@ const BottomSection = () => {
                   </p>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* Three */}
-      <div className={styles.progressBox}>
-        <p className="mbFive">TAT</p>
-        <div className={styles.progressBoxIn}>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-around',
-              padding: 20,
-              width: '100%',
-            }}
-          >
-            <div>
-              {/* <FaFingerprint color="#9444e3" size={34} /> */}
-              <img style={{ width: 70 }} src="/icons/fingerprintBlue.png" alt="fingerprintBlue" />
-            </div>
-            <div>
-              <p className="mbZero" style={{ fontSize: 10 }}>
-                SMART to INVOICE
-              </p>
-              <p className="mbZero" style={{ fontWeight: 'bold', fontSize: 24 }}>
-                270
-              </p>
-            </div>
-            <div>
-              <p className="mbZero" style={{ fontSize: 10 }}>
-                Pre-Auth TAT
-              </p>
-              <p className="mbZero" style={{ fontWeight: 'bold', fontSize: 24 }}>
-                13
-              </p>
             </div>
           </div>
         </div>
