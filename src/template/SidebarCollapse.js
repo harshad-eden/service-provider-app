@@ -18,6 +18,7 @@ import reports from '../img/sidebarIcons/reports.png';
 import reportsActive from '../img/sidebarIcons/reportsActive.png';
 import support from '../img/sidebarIcons/support.png';
 import supportActive from '../img/sidebarIcons/supportActive.png';
+
 import { RiDashboardLine } from 'react-icons/ri';
 
 const links = [
@@ -87,16 +88,8 @@ const SideBar = () => {
           >
             {/* <img className={styles.sidebarIcon} src={item.icon} alt="" />
             <img className={styles.sidebarIconActive} src={item.activeIcon} alt="" /> */}
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 10,
-              }}
-            >
-              {item.reactIcon}
-              <p className="mbZero">{item.name}</p>
-            </div>
+            {item.reactIcon}
+
             <div className={styles.bottomLine} />
           </NavLink>
         ))}
