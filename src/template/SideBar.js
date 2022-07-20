@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-key */
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 import styles from './index.module.css';
@@ -73,8 +73,14 @@ const links = [
 ];
 
 const SideBar = () => {
+  const [open, setOpen] = useState(false);
+
   return (
-    <>
+    <div
+      onMouseLeave={() => setOpen(false)}
+      onMouseEnter={() => setOpen(true)}
+      className={open ? styles.sideBarCollapsed : styles.sideBar}
+    >
       <Link to={'/'}>
         <img src={Logo} className={styles.logo} />
       </Link>
@@ -85,23 +91,28 @@ const SideBar = () => {
             className={({ isActive }) => (isActive ? styles.linkItemActive : styles.linkItem)}
             to={item.path}
           >
-            {/* <img className={styles.sidebarIcon} src={item.icon} alt="" />
-            <img className={styles.sidebarIconActive} src={item.activeIcon} alt="" /> */}
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 10,
-              }}
-            >
-              {item.reactIcon}
-              <p className="mbZero">{item.name}</p>
-            </div>
-            <div className={styles.bottomLine} />
+            {open ? (
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 10,
+                }}
+              >
+                <img className={styles.sidebarIcon} src={item.icon} alt="" />
+                <img className={styles.sidebarIconActive} src={item.activeIcon} alt="" />
+                <p className="mbZero">{item.name}</p>
+              </div>
+            ) : (
+              <>
+                <img className={styles.sidebarIcon} src={item.icon} alt="" />
+                <img className={styles.sidebarIconActive} src={item.activeIcon} alt="" />
+              </>
+            )}
           </NavLink>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
