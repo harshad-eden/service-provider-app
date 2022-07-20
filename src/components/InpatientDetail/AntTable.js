@@ -67,7 +67,7 @@ const AntTable = () => (
     dataSource={data}
     pagination={false}
     scroll={{
-      y: 400,
+      y: 220,
     }}
   />
 );

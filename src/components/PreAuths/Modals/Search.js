@@ -34,39 +34,44 @@ const RequestPreAuth = ({ setIsModalVisible, isModalVisible }) => {
         >
           <img src={CloseModalImg} style={{ width: 28 }} alt="" />
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 35 }}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: 35,
+          }}
+        >
           <div>
-            <h1 className="mbZero">New Pre-Auth</h1>
-            <h5 className="mbZero">Fill in the below form to initiate the Pre-auth</h5>
+            <h2 style={{ textAlign: 'center', fontWeight: 700 }} className="mbZero">
+              New Pre-Auth
+            </h2>
+            <h5 className="mbZero">Fill in the below form to initaitethe Pre-auth</h5>
+
+            <div style={{ marginTop: 30 }}>
+              <h5 style={{ fontWeight: 700, textAlign: 'center' }}>Claim Number</h5>
+              <Input
+                prefix={<SearchOutlined className={styles.searchIcon} />}
+                style={{ borderRadius: 15 }}
+                placeholder="Search Claim Number"
+              />
+            </div>
+
+            <div style={{ marginTop: 30 }}>
+              <h5 style={{ fontWeight: 700, textAlign: 'center' }}>Smart Amount</h5>
+              <Input
+                prefix={<SearchOutlined className={styles.searchIcon} />}
+                style={{ borderRadius: 15 }}
+                placeholder="Enter smart amount"
+              />
+            </div>
           </div>
-          <div style={{ width: '65%' }}>
-            <h5 style={{ fontWeight: 700 }}>Patient ID</h5>
-            <Input
-              prefix={<SearchOutlined className={styles.searchIcon} />}
-              style={{ borderRadius: 15 }}
-              placeholder="Search Patient ID"
-            />
-          </div>
-          <div>
-            <h5 style={{ fontWeight: 700 }}>Upload Documents</h5>
-            <Dragger>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 15, marginLeft: 30 }}>
-                <img style={{ height: 50 }} src={UploadImg} alt="UploadImg" />
-                <div>
-                  <h5 className="mbZero" style={{ fontWeight: 700 }}>
-                    Browse to upload
-                  </h5>
-                  <p style={{ color: '#f87d4e', fontSize: 10, textAlign: 'start' }}>
-                    Or Drag to Drop
-                  </p>
-                </div>
-              </div>
-            </Dragger>
-          </div>
+
           <Button
             onClick={() => handleModalClose()}
             size="large"
-            style={{ width: '55%' }}
+            style={{ width: '55%', marginTop: 30 }}
             type="primary"
             shape="round"
           >

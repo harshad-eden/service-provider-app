@@ -133,7 +133,7 @@ const AntTable = ({ setIsDocVisible }) => {
     <Table
       onRow={() => {
         return {
-          onClick: () => navigate('/inpatients/detail'),
+          // onClick: () => navigate('/inpatients/detail'),
         };
       }}
       rowKey={(key) => console.log('!!', key)}

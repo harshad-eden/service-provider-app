@@ -40,6 +40,10 @@
   color: #fff;
 }
 
+.linkItem:hover {
+  color: #fff;
+}
+
 .sidebarIcon {
   height: 22px;
 }
@@ -52,6 +56,10 @@
   display: grid;
   place-items: center;
   font-weight: 600;
+  color: white;
+}
+
+.linkItemActive:hover {
   color: white;
 }
 

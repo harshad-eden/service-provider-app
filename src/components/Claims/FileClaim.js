@@ -39,7 +39,7 @@ const RequestPreAuth = ({ setIsModalVisible, isModalVisible }) => {
           </Radio.Group>
           <div>
             <p style={{ fontWeight: 700, marginBottom: 6 }}>Upload Documents</p>
-            <Dragger>
+            <Dragger multiple={true}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 15, marginLeft: 30 }}>
                 <img style={{ height: 50 }} src={UploadImg} alt="UploadImg" />
                 <div>

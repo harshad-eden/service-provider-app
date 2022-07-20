@@ -5,6 +5,7 @@ import { RiFingerprintLine } from 'react-icons/ri';
 import styles from './index.module.css';
 import { openPreAuth } from '../../store/dashboardSlice';
 import CustomButton from '../Common/CustomButton';
+import fingerPrint from '../../img/fingerprint.png';
 
 const TopSection = () => {
   const dispatch = useDispatch();
@@ -42,11 +43,19 @@ const TopSection = () => {
           alignItems: 'center',
         }}
       >
-        <div style={{ width: '25%', display: 'grid', placeItems: 'center' }}>
-          <RiFingerprintLine color="white" size={50} />
+        <div style={{ width: '25%', display: 'grid', placeItems: 'center', marginRight: 10 }}>
+          <img style={{ height: 60 }} src={fingerPrint} alt="" />
         </div>
-        <div style={{ width: '75%' }}>
-          <p style={{ marginBottom: 0, fontSize: 13, color: 'white', padding: 10 }}>
+        <div>
+          <p
+            style={{
+              marginBottom: 7,
+              fontSize: 13,
+              color: 'white',
+              lineHeight: 1.25,
+              width: '90%',
+            }}
+          >
             Lorem Ipsum is simply dummy text of the printing
           </p>
 

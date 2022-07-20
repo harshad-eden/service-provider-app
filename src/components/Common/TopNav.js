@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const TopNav = ({ options, width, marginBottom, notification }) => {
   return (
@@ -63,9 +64,14 @@ const TopNav = ({ options, width, marginBottom, notification }) => {
               justifyContent: 'flex-end',
             }}
           >
-            <div style={{ paddingBottom: 10, cursor: 'pointer' }} className="topNav" key={item}>
+            <Link
+              to={`/${item}`}
+              style={{ paddingBottom: 10, cursor: 'pointer' }}
+              className="topNav"
+              key={item}
+            >
               {item}
-            </div>
+            </Link>
           </div>
         ),
       )}
