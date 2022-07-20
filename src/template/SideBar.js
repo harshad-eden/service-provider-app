@@ -13,12 +13,13 @@ import patientActive from '../img/sidebarIcons/patientActive.png';
 import claims from '../img/sidebarIcons/claim.png';
 import claimsActive from '../img/sidebarIcons/claimsActive.png';
 import payment from '../img/sidebarIcons/payment.png';
-import paymentActive from '../img/sidebarIcons/dashboardActive.png';
+import paymentActive from '../img/sidebarIcons/paymentActive.png';
 import reports from '../img/sidebarIcons/reports.png';
 import reportsActive from '../img/sidebarIcons/reportsActive.png';
 import support from '../img/sidebarIcons/support.png';
 import supportActive from '../img/sidebarIcons/supportActive.png';
 import { RiDashboardLine } from 'react-icons/ri';
+import Sticker from '../img/sticker.png';
 
 const links = [
   {
@@ -79,12 +80,12 @@ const SideBar = () => {
     <div
       onMouseLeave={() => setOpen(false)}
       onMouseEnter={() => setOpen(true)}
-      className={open ? styles.sideBarCollapsed : styles.sideBar}
+      className={open ? styles.sideBarOpen : styles.sideBar}
     >
       <Link to={'/'}>
         <img src={Logo} className={styles.logo} />
       </Link>
-      <div className={styles.links}>
+      <div className={open ? styles.linksOpen : styles.links}>
         {links.map((item) => (
           <NavLink
             key={item.name}
@@ -100,7 +101,7 @@ const SideBar = () => {
                 }}
               >
                 <img className={styles.sidebarIcon} src={item.icon} alt="" />
-                <img className={styles.sidebarIconActive} src={item.activeIcon} alt="" />
+                <img className={styles.sidebarIconActiveOpen} src={item.activeIcon} alt="" />
                 <p className="mbZero">{item.name}</p>
               </div>
             ) : (
