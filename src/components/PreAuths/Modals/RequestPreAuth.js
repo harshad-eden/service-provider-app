@@ -57,7 +57,7 @@ const RequestPreAuth = ({ setIsModalVisible, isModalVisible }) => {
                     Browse to upload
                   </h5>
                   <p style={{ color: '#f87d4e', fontSize: 10, textAlign: 'start' }}>
-                    Or Drag to Drop
+                    Or Drag and Drop
                   </p>
                 </div>
               </div>

@@ -47,7 +47,7 @@ const RequestPreAuth = ({ setIsModalVisible, isModalVisible }) => {
                     Browse to upload
                   </h5>
                   <p style={{ color: '#f87d4e', fontSize: 10, textAlign: 'start' }}>
-                    Or Drag to Drop
+                    Or Drag and Drop
                   </p>
                 </div>
               </div>
@@ -59,7 +59,7 @@ const RequestPreAuth = ({ setIsModalVisible, isModalVisible }) => {
 
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <CheckOutlined style={{ color: '#f87d4e', marginRight: 6, paddingBottom: 7 }} />
-                <div className={styles.borderBottom}>claim form</div>
+                <div className={styles.borderBottom}>Claim form</div>
               </div>
 
               <div style={{ display: 'flex', alignItems: 'center' }}>
