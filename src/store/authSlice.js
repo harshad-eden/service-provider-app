@@ -43,6 +43,7 @@ export const AuthSlice = createSlice({
       state.provider = action.payload?.provider;
       state.user = action.payload?.user;
       state.role = action.payload?.role;
+      state.error = null;
     });
     builder.addCase(loginUserWithEmail.rejected, (state, action) => {
       console.log(action);
