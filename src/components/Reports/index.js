@@ -22,6 +22,7 @@ let imgs = [
 
 const Index = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [title, setTitle] = useState('');
   return (
     <Main>
       <div style={{ marginTop: 20 }}>
@@ -37,11 +38,15 @@ const Index = () => {
             width: '100%',
           }}
         >
-          <ColumnItem setIsModalVisible={setIsModalVisible} imgs={imgs} />
+          <ColumnItem setTitle={setTitle} setIsModalVisible={setIsModalVisible} imgs={imgs} />
         </div>
       </div>
 
-      <GenerateReport isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />
+      <GenerateReport
+        title={title}
+        isModalVisible={isModalVisible}
+        setIsModalVisible={setIsModalVisible}
+      />
 
       <div
         style={{

@@ -19,7 +19,7 @@ const Index = () => {
           </p>
           <Form form={form} className="wFull" name="basic" onFinish={onFinish}>
             <label className="fieldLabel" htmlFor="username">
-              Area or section
+              Area or Section
             </label>
             <Form.Item
               name="username"

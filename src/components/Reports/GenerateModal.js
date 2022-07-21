@@ -3,7 +3,7 @@ import { Button, Modal, Form, Input, DatePicker, Select } from 'antd';
 import CloseModalImg from '../../img/close-modal.png';
 import styles from './index.module.css';
 
-const GenerateReport = ({ setIsModalVisible, isModalVisible }) => {
+const GenerateReport = ({ setIsModalVisible, isModalVisible, title }) => {
   const [form] = Form.useForm();
 
   const onFinish = (values) => {
@@ -38,8 +38,8 @@ const GenerateReport = ({ setIsModalVisible, isModalVisible }) => {
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 35 }}>
           <div>
-            <h1 className="mbZero">New Claim</h1>
-            <h5 className="mbZero">Fill in the form below to make a New Claim</h5>
+            <h1 className="mbZero">{title}</h1>
+            <h5 className="mbZero">Fill in the form below to make filter</h5>
           </div>
 
           <Form form={form} className="wFull" name="basic" onFinish={onFinish}>

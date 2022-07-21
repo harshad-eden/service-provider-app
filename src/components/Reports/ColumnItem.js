@@ -1,7 +1,12 @@
 import { Button } from 'antd';
 import React from 'react';
 
-const ColumnItem = ({ imgs, setIsModalVisible }) => {
+const ColumnItem = ({ imgs, setIsModalVisible, setTitle }) => {
+  const handleClick = (title) => {
+    setIsModalVisible(true);
+    setTitle(title);
+  };
+
   return imgs.map((item, index) => (
     <div
       key={index}
@@ -30,7 +35,7 @@ const ColumnItem = ({ imgs, setIsModalVisible }) => {
         </p>
         <p style={{ fontWeight: 800, fontSize: 26, marginBottom: 0 }}>{item.count}</p>
         <Button
-          onClick={() => setIsModalVisible(true)}
+          onClick={() => handleClick(item.title)}
           size="small"
           style={{
             backgroundColor: item.color,
