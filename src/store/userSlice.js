@@ -10,9 +10,23 @@ const initialSlice = {
   token: null,
 };
 
+export const attachTokenToHeaders = (getState) => {
+  let token = 'token';
+  const config = {
+    headers: {
+      'Content-type': 'application/json',
+    },
+  };
+  if (token) {
+    config.headers['x-auth-token'] = token;
+  }
+  return config;
+};
+
 export const fetchPost = createAsyncThunk('user/getUser', async (arg, state) => {
+  const options = attachTokenToHeaders(state);
   try {
-    const response = await axios.get(baseUrl);
+    const response = await axios.get(baseUrl, options);
     return response.data;
   } catch (error) {
     return error;

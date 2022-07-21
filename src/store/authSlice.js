@@ -1,38 +1,25 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const baseUrl = 'https://my-json-server.typicode.com/typicode/demo/posts';
+const baseUrl = 'http://13.127.7.128:5010/api/provider/user/account/login';
 
 const initialState = {
-  token: typeof window !== 'undefined' && localStorage.getItem('token'),
   isAuthenticated: false,
   isLoading: false,
-  me: null,
   error: null,
-  appLoaded: false,
+  provider: null,
+  user: null,
+  role: null,
 };
 
-export const attachTokenToHeaders = (getState) => {
-  // const token = getState().auth.token;
-  let token = 'token';
-  const config = {
-    headers: {
-      'Content-type': 'application/json',
-    },
-  };
-  if (token) {
-    config.headers['x-auth-token'] = token;
-  }
-  return config;
-};
-
-export const loadMe = createAsyncThunk('user/getUser', async (arg, state) => {
-  try {
-    const options = attachTokenToHeaders(state);
-    const response = await axios.get(baseUrl, options);
+export const loginUserWithEmail = createAsyncThunk('auth/login', async (args, state) => {
+  const response = await axios.post(baseUrl, args.values);
+  if (response.data?.api.responseCode === 2250) {
+    localStorage.setItem('x-auth-token', response.headers.token);
+    args.navigate('/');
     return response.data;
-  } catch (error) {
-    return error;
+  } else {
+    throw response.data;
   }
 });
 
@@ -40,7 +27,7 @@ export const AuthSlice = createSlice({
   name: 'auth',
   initialState: initialState,
   reducers: {
-    logOut: (state, actions) => {
+    logOut: (state) => {
       state.loading = false;
       state.isAuthenticated = false;
       state.token = null;
@@ -48,18 +35,21 @@ export const AuthSlice = createSlice({
     },
   },
   extraReducers(builder) {
-    builder.addCase(loadMe.pending, (state) => {
+    builder.addCase(loginUserWithEmail.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(loadMe.fulfilled, (state, action) => {
+    builder.addCase(loginUserWithEmail.fulfilled, (state, action) => {
       state.loading = false;
-      state.token = 'token';
-      state.appLoaded = true;
       state.isAuthenticated = true;
-      localStorage.setItem('token', 'token');
+      state.provider = action.payload?.provider;
+      state.user = action.payload?.user;
+      state.role = action.payload?.role;
     });
-    builder.addCase(loadMe.rejected, (state) => {
+    builder.addCase(loginUserWithEmail.rejected, (state, action) => {
+      console.log(action);
       state.loading = false;
+      // state.error = action.error.message;
+      state.error = 'Wrong Email or Password';
     });
   },
 });
