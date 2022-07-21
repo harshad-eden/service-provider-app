@@ -3,9 +3,13 @@ import React from 'react';
 import { FaUser } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { LogoutOutlined, UserOutlined } from '@ant-design/icons';
+import { useSelector } from 'react-redux';
 
 const HeaderComponenet = () => {
   const { Header: AntHeader } = Layout;
+  const data = useSelector((state) => state.auth);
+
+  console.log(data);
 
   const navigate = useNavigate();
 

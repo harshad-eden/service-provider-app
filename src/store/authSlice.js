@@ -38,11 +38,12 @@ export const AuthSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(loginUserWithEmail.fulfilled, (state, action) => {
+      console.log(action.payload);
       state.loading = false;
       state.isAuthenticated = true;
-      state.provider = action.payload?.provider;
-      state.user = action.payload?.user;
-      state.role = action.payload?.role;
+      state.provider = action.payload.result.provider;
+      state.user = action.payload.result.user;
+      state.role = action.payload?.result.role;
       state.error = null;
     });
     builder.addCase(loginUserWithEmail.rejected, (state, action) => {

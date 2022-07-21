@@ -19,7 +19,7 @@ import reportsActive from '../img/sidebarIcons/reportsActive.png';
 import support from '../img/sidebarIcons/support.png';
 import supportActive from '../img/sidebarIcons/supportActive.png';
 import { RiDashboardLine } from 'react-icons/ri';
-import Sticker from '../img/sticker.png';
+import StickerComponent from './Sticker';
 
 const links = [
   {
@@ -113,6 +113,7 @@ const SideBar = () => {
           </NavLink>
         ))}
       </div>
+      {open ? <StickerComponent /> : <StickerComponent />}
     </div>
   );
 };
