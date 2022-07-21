@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { baseUrl } from '../utils';
 import axios from 'axios';
-
-const baseUrl = 'http://13.127.7.128:5010/api/provider/user/account/login';
 
 const initialState = {
   isAuthenticated: false,
@@ -13,7 +12,7 @@ const initialState = {
 };
 
 export const loginUserWithEmail = createAsyncThunk('auth/login', async (args, state) => {
-  const response = await axios.post(baseUrl, args.values);
+  const response = await axios.post(`${baseUrl}provider/user/account/login`, args.values);
   if (response.data?.api.responseCode === 2250) {
     localStorage.setItem('x-auth-token', response.headers.token);
     args.navigate('/');
