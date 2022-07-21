@@ -48,7 +48,7 @@ export const AuthSlice = createSlice({
       console.log(action);
       state.loading = false;
       // state.error = action.error.message;
-      state.error = 'Wrong Email or Password';
+      state.error = 'Oops! Invalid credentials';
     });
   },
 });
