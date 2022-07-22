@@ -19,7 +19,7 @@ const RequestPreAuth = ({ setIsModalVisible, isModalVisible }) => {
             <h5 className="mbZero">Fill in the below form o patient ID</h5>
           </div>
           <div style={{ width: '65%' }}>
-            <h5 style={{ fontWeight: 700 }}>Patient ID</h5>
+            <h5 style={{ fontWeight: 700 }}>Member card ID</h5>
             <Input
               prefix={<SearchOutlined className={styles.searchIcon} />}
               style={{ borderRadius: 15 }}
