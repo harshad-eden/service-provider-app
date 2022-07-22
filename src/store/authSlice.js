@@ -11,14 +11,16 @@ const initialState = {
   role: null,
 };
 
-export const loginUserWithEmail = createAsyncThunk('auth/login', async (args, state) => {
+export const loginUserWithEmail = createAsyncThunk('auth/login', async (args) => {
   const response = await axios.post(`${baseUrl}provider/user/account/login`, args.values);
-  if (response.data?.api.responseCode === 2250) {
+  const { data } = response;
+  if (data?.api.responseCode === 2250) {
     localStorage.setItem('x-auth-token', response.headers.token);
+    localStorage.setItem('providerUser', JSON.stringify(data.result.user));
     args.navigate('/');
-    return response.data;
+    return data;
   } else {
-    throw response.data;
+    throw data;
   }
 });
 
@@ -49,7 +51,6 @@ export const AuthSlice = createSlice({
     builder.addCase(loginUserWithEmail.rejected, (state, action) => {
       console.log(action);
       state.loading = false;
-      // state.error = action.error.message;
       state.error = 'Oops! Invalid credentials';
     });
   },

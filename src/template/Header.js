@@ -1,6 +1,5 @@
 import { Dropdown, Layout, Menu } from 'antd';
 import React from 'react';
-import { FaUser } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { LogoutOutlined, UserOutlined } from '@ant-design/icons';
 import { useSelector } from 'react-redux';
@@ -41,6 +40,9 @@ const HeaderComponenet = () => {
     />
   );
 
+  const providerUser =
+    localStorage.getItem('providerUser') && JSON.parse(localStorage.getItem('providerUser'));
+
   return (
     <AntHeader style={{ backgroundColor: 'inherit' }}>
       <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 15 }}>
@@ -50,7 +52,7 @@ const HeaderComponenet = () => {
             <img src="/icons/user.png" style={{ width: 30 }} alt="" />
           </div>
         </Dropdown>
-        <p style={{ marginBottom: 0 }}>Jhon Doe</p>
+        <p style={{ marginBottom: 0 }}>{providerUser?.name}</p>
       </div>
     </AntHeader>
   );
