@@ -14,7 +14,6 @@ const Index = () => {
     <Main>
       <div style={{ marginTop: 20 }}>
         <SearchAndFilter />
-        <AddBox value="New Claim" setIsModalVisible={setIsModalVisible} />
       </div>
       <div className="mtLarge">
         <div className="mlLarge">
