@@ -74,7 +74,7 @@ const links = [
 ];
 
 const SideBar = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   return (
     <div
@@ -113,7 +113,18 @@ const SideBar = () => {
           </NavLink>
         ))}
       </div>
-      {open ? <StickerComponent /> : <StickerComponent />}
+      {open ? (
+        <StickerComponent
+          open={true}
+          height={153}
+          width={140}
+          titleOne="Urgent"
+          titleTwo="Claims"
+          text="Lorem ipsum is simply dummy text of the printing "
+        />
+      ) : (
+        <StickerComponent open={false} titleOne="Urgent" titleTwo="Claims" />
+      )}
     </div>
   );
 };
