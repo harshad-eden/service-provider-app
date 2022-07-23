@@ -1,7 +1,7 @@
 import { Button, Input, Upload, Modal } from 'antd';
 import { SearchOutlined, InboxOutlined } from '@ant-design/icons';
-import UploadImg from '../../img/upload.png';
-import CloseModalImg from '../../../../img/close-modal.png';
+import UploadImg from '../../../img/upload.png';
+// import CloseModalImg from '../../../../img/close-modal.png';
 import styles from '../index.module.css';
 
 const RequestPreAuth = ({ setIsModalVisible, isModalVisible }) => {
@@ -11,7 +11,7 @@ const RequestPreAuth = ({ setIsModalVisible, isModalVisible }) => {
     <>
       <Modal bodyStyle={{ padding: 50 }} footer={null} visible={isModalVisible}>
         <div className="modalCloseIcon">
-          <img src={CloseModalImg} style={{ width: 28 }} alt="" />
+          {/* <img src={CloseModalImg} style={{ width: 28 }} alt="" /> */}
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 35 }}>
           <div>
