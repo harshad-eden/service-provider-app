@@ -6,9 +6,6 @@ import { useSelector } from 'react-redux';
 
 const HeaderComponenet = () => {
   const { Header: AntHeader } = Layout;
-  const data = useSelector((state) => state.auth);
-
-  console.log(data);
 
   const navigate = useNavigate();
 

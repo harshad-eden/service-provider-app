@@ -7,44 +7,27 @@ import Dropdown from './DropDown';
 
 const columns = [
   {
-    title: 'Trans No',
-    dataIndex: 'transNo',
-    filters: [],
-    filterIcon: (filtered) => <AiFillCaretDown type="filter" style={{ color: '#f87d4e' }} />,
-    width: 90,
+    title: 'Pre-Auth ID',
+    dataIndex: 'pre_auth_id',
+
+    width: 110,
   },
   {
     title: 'Member No',
-    dataIndex: 'memberNumber',
-    filters: [],
-    filterIcon: (filtered) => <AiFillCaretDown type="filter" style={{ color: '#f87d4e' }} />,
+    dataIndex: 'member_card_number',
+
     width: 105,
-  },
-  {
-    title: 'Names',
-    dataIndex: 'names',
-    width: 70,
   },
   {
     title: 'Phone No',
     dataIndex: 'phoneNo',
-    filters: [],
-    filterIcon: (filtered) => <AiFillCaretDown type="filter" style={{ color: '#f87d4e' }} />,
     width: 70,
   },
   {
-    title: 'Department',
-    dataIndex: 'department',
+    title: 'Employer',
+    dataIndex: 'member',
+    render: (item) => item.name,
     width: 70,
-    filters: [],
-    filterIcon: (filtered) => <AiFillCaretDown type="filter" style={{ color: '#f87d4e' }} />,
-  },
-  {
-    title: 'Claim No',
-    dataIndex: 'claimNo',
-    filters: [],
-    filterIcon: (filtered) => <AiFillCaretDown type="filter" style={{ color: '#f87d4e' }} />,
-    width: 90,
   },
   {
     title: 'Status',
@@ -62,7 +45,7 @@ const columns = [
   },
   {
     title: 'Documents',
-    dataIndex: 'Documents',
+    dataIndex: 'documents',
     filters: [],
     filterIcon: (filtered) => <AiFillCaretDown type="filter" style={{ color: '#f87d4e' }} />,
     width: 180,
@@ -92,24 +75,8 @@ const columns = [
     width: 127,
   },
 ];
-const data = [];
 
-for (let i = 0; i < 5; i++) {
-  data.push({
-    key: i,
-    names: 'Jhons',
-    memberNumber: '#45454',
-    documents: [],
-    status: 'pending',
-    comment: 'lorem lipsul lorem lipsul lorem ',
-    claimNo: '#45454',
-    transNo: '#45454',
-    phoneNo: '0724548000',
-    department: 'Sales and Marketing',
-  });
-}
-
-const AntTable = () => {
+const AntTable = ({ data }) => {
   const navigate = useNavigate();
   return (
     <Table
@@ -118,6 +85,7 @@ const AntTable = () => {
           onClick: () => navigate('/pre-auths/patient'),
         };
       }}
+      rowKey="pre_auth_id"
       columns={columns}
       dataSource={data}
       pagination={false}

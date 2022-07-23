@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Main from '../../template';
 import TopNav from '../../components/Common/TopNav';
 import styles from './index.module.css';
@@ -7,9 +7,17 @@ import { Pagination } from 'antd';
 import RequestPreAuth from './FileClaim';
 import AddBox from '../../components/Common/AddBox';
 import SearchAndFilter from '../../components/Common/SearchAndFilter';
+import { useDispatch } from 'react-redux';
+import { getAllClaims } from '../../store/claimSlice';
 
 const Index = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllClaims());
+  }, []);
+
   return (
     <Main>
       <div style={{ marginTop: 20 }}>

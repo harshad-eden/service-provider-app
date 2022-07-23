@@ -1,16 +1,17 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Input, Upload, Modal } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import UploadImg from '../../../img/upload.png';
-import CloseModalImg from '../../../img/close-modal.png';
-import { closePreAuth } from '../../../store/dashboardSlice';
-import styles from '../index.module.css';
+import UploadImg from '../../img/upload.png';
+import CloseModalImg from '../../img/close-modal.png';
+import { closePreAuth } from '../../store/dashboardSlice';
+import styles from './index.module.css';
 
 const { Dragger } = Upload;
 
 const RequestPreAuth = ({ setIsModalVisible, isModalVisible }) => {
   const dispatch = useDispatch();
+  const [searchVlue, setSearchVlue] = useState();
   const { openPreAuth } = useSelector((state) => state.dashboard);
 
   useEffect(() => {
@@ -40,11 +41,12 @@ const RequestPreAuth = ({ setIsModalVisible, isModalVisible }) => {
             <h5 className="mbZero">Fill in the below form to initiate the Pre-auth</h5>
           </div>
           <div style={{ width: '65%' }}>
-            <h5 style={{ fontWeight: 700 }}>Member Card ID</h5>
+            <h5 style={{ fontWeight: 700 }}>Member Number</h5>
             <Input
+              onPressEnter={(e) => console.log(e)}
               prefix={<SearchOutlined className={styles.searchIcon} />}
               style={{ borderRadius: 15 }}
-              placeholder="Search member card ID"
+              placeholder="Search Member Number"
             />
           </div>
           <div>
