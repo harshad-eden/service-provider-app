@@ -5,6 +5,11 @@ import axios from 'axios';
 const initialState = {
   loading: false,
   data: null,
+  newReqState: {
+    loading: false,
+    status: '',
+    loaded: false,
+  },
   memeber: {
     isSearchLoading: false,
     data: null,
@@ -15,7 +20,7 @@ let token = localStorage.getItem('x-auth-token');
 
 export const getPreAuths = createAsyncThunk('preAuths', async () => {
   try {
-    const response = await axios.get(`${baseUrl}provider/preauth/all`, {
+    const response = await axios.get(`${baseUrl}provider/preauth/all?pageSize=${5}`, {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -38,6 +43,27 @@ export const getMemberByCardNumb = createAsyncThunk('searchMember', async (numb)
       },
     });
     console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+export const newPreAuth = createAsyncThunk('newPreAuths', async (formData) => {
+  console.log(...formData);
+  try {
+    const response = await axios({
+      method: 'POST',
+      url: `${baseUrl}provider/preauth/request`,
+      data: formData,
+      headers: {
+        Accept: 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'multipart/form-data',
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    console.log(response);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -75,6 +101,20 @@ export const AuthSlice = createSlice({
     });
     builder.addCase(getMemberByCardNumb.rejected, (state) => {
       state.memeber.isSearchLoading = false;
+    });
+    builder.addCase(newPreAuth.pending, (state) => {
+      state.newReqState.loading = true;
+      state.newReqState.loaded = false;
+    });
+    builder.addCase(newPreAuth.fulfilled, (state, action) => {
+      state.newReqState.loading = false;
+      state.newReqState.status = 'success';
+      state.newReqState.loaded = true;
+    });
+    builder.addCase(newPreAuth.rejected, (state) => {
+      state.newReqState.loading = false;
+      state.newReqState.status = 'failed';
+      state.newReqState.loaded = true;
     });
   },
 });
