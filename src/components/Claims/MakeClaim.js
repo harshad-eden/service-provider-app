@@ -22,17 +22,18 @@ const RequestPreAuth = ({ setIsModalVisible, isModalVisible }) => {
   const { memeber, newReqState } = useSelector((state) => state.claims);
 
   const handleSubmit = () => {
-    let { amount, currency } = form.getFieldsValue();
-    if (amount && currency) {
-      let formData = new FormData();
-      let values = {
-        member_card_number: cardNumber,
-        smart: { amount: amount, currency: currency },
-      };
-      formData.append('request', JSON.stringify(values));
-      files.map((item) => formData.append('documents', item));
-      dispatch(newClaim(formData));
-    }
+    let { amount, currency, type } = form.getFieldsValue();
+    console.log(amount, currency, type);
+
+    let formData = new FormData();
+    let values = {
+      member_card_number: cardNumber,
+      invoice: { amount, currency },
+      type,
+    };
+    formData.append('request', JSON.stringify(values));
+    files.map((item) => formData.append('documents', item));
+    dispatch(newClaim(formData));
   };
 
   const handleModalClose = () => {
@@ -49,6 +50,8 @@ const RequestPreAuth = ({ setIsModalVisible, isModalVisible }) => {
     console.log('radio checked', e.target.value);
     setValue(e.target.value);
   };
+
+  console.log(newReqState.loaded);
 
   return (
     <>
@@ -155,21 +158,21 @@ const RequestPreAuth = ({ setIsModalVisible, isModalVisible }) => {
                     rules={[
                       {
                         required: true,
-                        message: 'Please input currency!',
+                        message: 'Please input type!',
                       },
                     ]}
                     style={{ marginBottom: 0 }}
-                    name="currency"
+                    name="type"
                   >
                     <Radio.Group
                       style={{ display: 'flex', marginTop: 12 }}
                       onChange={onChange}
                       value={value}
                     >
-                      <Radio style={{ width: '49%' }} value={1}>
+                      <Radio style={{ width: '49%' }} value={'Outpatient'}>
                         Outpatient
                       </Radio>
-                      <Radio value={2}>Inpatient</Radio>
+                      <Radio value={'Inpatient'}>Inpatient</Radio>
                     </Radio.Group>
                   </Form.Item>
                 </Form>

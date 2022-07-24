@@ -150,7 +150,7 @@ const RequestPreAuth = ({ setIsModalVisible, isModalVisible }) => {
               <DraggerComponent disabled={memeber.data ? false : true} setFiles={setFiles} />
             </div>
             <Button
-              // loading={preAuthState.loading}
+              loading={newReqState.loading}
               disabled={files.length < 1}
               onClick={() => form.submit()}
               size="large"

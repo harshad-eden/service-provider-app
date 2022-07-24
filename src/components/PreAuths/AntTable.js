@@ -26,7 +26,7 @@ const columns = [
   {
     title: 'Employer',
     dataIndex: 'member',
-    render: (item) => item.name,
+    render: (item) => item.employer_name,
     width: 70,
   },
   {
@@ -85,7 +85,7 @@ const AntTable = ({ data }) => {
           onClick: () => navigate('/pre-auths/patient'),
         };
       }}
-      rowKey="pre_auth_id"
+      rowKey="claim_number"
       columns={columns}
       dataSource={data}
       pagination={false}

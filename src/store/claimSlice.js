@@ -51,23 +51,23 @@ export const getMemberByCardNumb = createAsyncThunk('searchMember', async (numb)
 
 export const newClaim = createAsyncThunk('newPreAuths', async (formData) => {
   console.log(...formData);
-  // try {
-  //   const response = await axios({
-  //     method: 'POST',
-  //     url: `${baseUrl}provider/claim/generate`,
-  //     data: formData,
-  //     headers: {
-  //       Accept: 'application/json',
-  //       'Access-Control-Allow-Origin': '*',
-  //       'Content-Type': 'multipart/form-data',
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   });
-  //   console.log(response);
-  //   return response.data;
-  // } catch (error) {
-  //   console.log(error);
-  // }
+  try {
+    const response = await axios({
+      method: 'POST',
+      url: `${baseUrl}provider/claim/generate`,
+      data: formData,
+      headers: {
+        Accept: 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'multipart/form-data',
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    console.log(response);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 export const AuthSlice = createSlice({

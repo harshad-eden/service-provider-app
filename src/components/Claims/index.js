@@ -4,7 +4,7 @@ import TopNav from '../../components/Common/TopNav';
 import styles from './index.module.css';
 import AntTable from './AntTable';
 import { Pagination } from 'antd';
-import RequestPreAuth from './RequestPreAuth';
+import MakeClaim from './MakeClaim';
 import AddBox from '../../components/Common/AddBox';
 import SearchAndFilter from '../../components/Common/SearchAndFilter';
 import { useDispatch, useSelector } from 'react-redux';
@@ -37,13 +37,13 @@ const Index = () => {
             </div>
 
             <div className={styles.table}>
-              <AntTable />
+              <AntTable data={data?.content} />
             </div>
             <div style={{ marginTop: 30, display: 'flex', justifyContent: 'center' }}>
               <Pagination size="small" total={50} />
             </div>
           </div>
-          <RequestPreAuth isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />
+          <MakeClaim isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />
         </>
       )}
     </Main>
