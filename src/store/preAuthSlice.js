@@ -71,7 +71,7 @@ export const newPreAuth = createAsyncThunk('newPreAuths', async (formData) => {
 });
 
 export const AuthSlice = createSlice({
-  name: 'auth',
+  name: 'preAuths',
   initialState: initialState,
   reducers: {
     logOut: (state) => {

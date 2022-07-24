@@ -4,39 +4,48 @@ import TopNav from '../../components/Common/TopNav';
 import styles from './index.module.css';
 import AntTable from './AntTable';
 import { Pagination } from 'antd';
-import RequestPreAuth from './FileClaim';
+import RequestPreAuth from './RequestPreAuth';
 import AddBox from '../../components/Common/AddBox';
 import SearchAndFilter from '../../components/Common/SearchAndFilter';
-import { useDispatch } from 'react-redux';
-import { getAllClaims } from '../../store/claimSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { getClaims } from '../../store/claimSlice';
+import Loader from '../Common/Loader';
 
 const Index = () => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
   const dispatch = useDispatch();
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const { data } = useSelector((state) => state.claims);
+  const [paginationNumb, setPaginationNumb] = useState();
 
   useEffect(() => {
-    dispatch(getAllClaims());
+    dispatch(getClaims());
   }, []);
 
   return (
     <Main>
-      <div style={{ marginTop: 20 }}>
-        <SearchAndFilter />
-        <AddBox value="New Claim" setIsModalVisible={setIsModalVisible} />
-      </div>
-      <div className="mtLarge">
-        <div className="mlLarge">
-          <TopNav options={['Pending Claims', 'Approved']} width={200} notification />
-        </div>
+      {!data ? (
+        <Loader />
+      ) : (
+        <>
+          <div style={{ marginTop: 20 }}>
+            <SearchAndFilter />
+            <AddBox value="New Claim" setIsModalVisible={setIsModalVisible} />
+          </div>
+          <div className="mtLarge">
+            <div className="mlLarge">
+              <TopNav options={['Pending Claims', 'Approved']} width={200} notification />
+            </div>
 
-        <div className={styles.table}>
-          <AntTable />
-        </div>
-        <div style={{ marginTop: 30, display: 'flex', justifyContent: 'center' }}>
-          <Pagination size="small" total={50} />
-        </div>
-      </div>
-      <RequestPreAuth isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />
+            <div className={styles.table}>
+              <AntTable />
+            </div>
+            <div style={{ marginTop: 30, display: 'flex', justifyContent: 'center' }}>
+              <Pagination size="small" total={50} />
+            </div>
+          </div>
+          <RequestPreAuth isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />
+        </>
+      )}
     </Main>
   );
 };

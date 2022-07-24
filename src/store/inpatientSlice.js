@@ -18,9 +18,9 @@ const initialState = {
 
 let token = localStorage.getItem('x-auth-token');
 
-export const getClaims = createAsyncThunk('claims', async () => {
+export const getPreAuths = createAsyncThunk('claims', async () => {
   try {
-    const response = await axios.get(`${baseUrl}provider/claim/all`, {
+    const response = await axios.get(`${baseUrl}provider/preauth/all?pageSize=${5}`, {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -49,29 +49,29 @@ export const getMemberByCardNumb = createAsyncThunk('searchMember', async (numb)
   }
 });
 
-export const newClaim = createAsyncThunk('newPreAuths', async (formData) => {
+export const newPreAuth = createAsyncThunk('newPreAuths', async (formData) => {
   console.log(...formData);
-  // try {
-  //   const response = await axios({
-  //     method: 'POST',
-  //     url: `${baseUrl}provider/claim/generate`,
-  //     data: formData,
-  //     headers: {
-  //       Accept: 'application/json',
-  //       'Access-Control-Allow-Origin': '*',
-  //       'Content-Type': 'multipart/form-data',
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   });
-  //   console.log(response);
-  //   return response.data;
-  // } catch (error) {
-  //   console.log(error);
-  // }
+  try {
+    const response = await axios({
+      method: 'POST',
+      url: `${baseUrl}provider/preauth/request`,
+      data: formData,
+      headers: {
+        Accept: 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'multipart/form-data',
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    console.log(response);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 export const AuthSlice = createSlice({
-  name: 'claim',
+  name: 'auth',
   initialState: initialState,
   reducers: {
     logOut: (state) => {
@@ -82,14 +82,14 @@ export const AuthSlice = createSlice({
     },
   },
   extraReducers(builder) {
-    builder.addCase(getClaims.pending, (state) => {
+    builder.addCase(getPreAuths.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(getClaims.fulfilled, (state, action) => {
+    builder.addCase(getPreAuths.fulfilled, (state, action) => {
       state.loading = false;
       state.data = action.payload.result;
     });
-    builder.addCase(getClaims.rejected, (state, action) => {
+    builder.addCase(getPreAuths.rejected, (state, action) => {
       state.loading = false;
     });
     builder.addCase(getMemberByCardNumb.pending, (state) => {
@@ -102,16 +102,16 @@ export const AuthSlice = createSlice({
     builder.addCase(getMemberByCardNumb.rejected, (state) => {
       state.memeber.isSearchLoading = false;
     });
-    builder.addCase(newClaim.pending, (state) => {
+    builder.addCase(newPreAuth.pending, (state) => {
       state.newReqState.loading = true;
       state.newReqState.loaded = false;
     });
-    builder.addCase(newClaim.fulfilled, (state, action) => {
+    builder.addCase(newPreAuth.fulfilled, (state, action) => {
       state.newReqState.loading = false;
       state.newReqState.status = 'success';
       state.newReqState.loaded = true;
     });
-    builder.addCase(newClaim.rejected, (state) => {
+    builder.addCase(newPreAuth.rejected, (state) => {
       state.newReqState.loading = false;
       state.newReqState.status = 'failed';
       state.newReqState.loaded = true;

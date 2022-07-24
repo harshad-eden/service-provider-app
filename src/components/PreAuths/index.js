@@ -12,8 +12,8 @@ import Loader from '../Common/Loader';
 import RequestPreAuth from './RequestPreAuth';
 
 const Index = () => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
   const dispatch = useDispatch();
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const { data } = useSelector((state) => state.preAuth);
   const [paginationNumb, setPaginationNumb] = useState();
 
