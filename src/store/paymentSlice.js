@@ -15,15 +15,18 @@ const initialState = {
 
 let token = localStorage.getItem('x-auth-token');
 
-export const getAllPayments = createAsyncThunk('payment', async () => {
+export const getAllPayments = createAsyncThunk('payment', async (args) => {
   try {
-    const response = await axios.get(`${baseUrl}provider/payment/all`, {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
+    const response = await axios.get(
+      `${baseUrl}provider/payment/all?page=${args.page}&size=${args.size}`,
+      {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
       },
-    });
+    );
     return response.data;
   } catch (error) {
     console.log(error);

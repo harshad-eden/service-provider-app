@@ -15,15 +15,11 @@ const Index = () => {
   const dispatch = useDispatch();
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { data, content } = useSelector((state) => state.preAuth);
-  const [paginationNumb, setPaginationNumb] = useState();
+  const [page, setPage] = useState(0);
 
   useEffect(() => {
-    dispatch(getPreAuths());
-  }, []);
-
-  const handlePaginationChange = (e) => {
-    console.log(e);
-  };
+    dispatch(getPreAuths({ page, size: 6 }));
+  }, [page]);
 
   return (
     <Main>
@@ -47,7 +43,7 @@ const Index = () => {
               <AntTable data={content} />
             </div>
             <div style={{ marginTop: 30, display: 'flex', justifyContent: 'center' }}>
-              <Pagination onChange={handlePaginationChange} size="small" total={30} />
+              <Pagination onChange={(e) => setPage(e - 1)} size="small" total={40} />
             </div>
           </div>
           <RequestPreAuth isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />

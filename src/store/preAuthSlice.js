@@ -19,15 +19,19 @@ const initialState = {
 
 let token = localStorage.getItem('x-auth-token');
 
-export const getPreAuths = createAsyncThunk('preAuths', async () => {
+export const getPreAuths = createAsyncThunk('preAuths', async (args) => {
   try {
-    const response = await axios.get(`${baseUrl}provider/preauth/all?page=0&size=6`, {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
+    const response = await axios.get(
+      `${baseUrl}provider/preauth/all?page=${args.page}&size=${args.size}`,
+      {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
       },
-    });
+    );
+    console.log('response.data', response.data);
     return response.data;
   } catch (error) {
     console.log(error);

@@ -13,12 +13,13 @@ import Loader from '../Common/Loader';
 
 const Index = () => {
   const dispatch = useDispatch();
+  const [page, setPage] = useState(0);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { data, content } = useSelector((state) => state.payment);
 
   useEffect(() => {
-    dispatch(getAllPayments());
-  }, []);
+    dispatch(getAllPayments({ page, size: 6 }));
+  }, [page]);
 
   return (
     <Main>
@@ -38,7 +39,7 @@ const Index = () => {
               <AntTable data={content} />
             </div>
             <div style={{ marginTop: 30, display: 'flex', justifyContent: 'center' }}>
-              <Pagination size="small" total={50} />
+              <Pagination onChange={(e) => setPage(e - 1)} size="small" total={50} />
             </div>
           </div>
           <RequestPreAuth isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />
