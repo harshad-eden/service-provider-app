@@ -119,7 +119,7 @@ const AntTable = ({ data }) => {
               if (e.target.innerText === 'View all' || e.target.innerText === 'View') {
                 e.preventDefault();
               } else {
-                navigate('/payments/detail');
+                navigate('/payments/:detail');
               }
             },
           };
