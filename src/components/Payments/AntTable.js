@@ -5,6 +5,8 @@ import { AiFillCaretDown } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
 import Dropdown from './DropDown';
 
+import DocView from '../DocView/DocView';
+
 const columns = [
   {
     title: 'Payment ID',
@@ -52,24 +54,7 @@ const columns = [
     title: 'Documents',
     dataIndex: 'documents',
     width: 180,
-    render: (text) => (
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <div style={{ display: 'flex', alignItems: 'center', width: 70 }}>
-          <HiOutlineDocumentText size={30} color="#f87d4e" />
-          <p style={{ fontSize: 8, marginBottom: 0 }}>Request form</p>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', width: 70 }}>
-          <HiOutlineDocumentText size={30} color="#f87d4e" />
-          <p style={{ fontSize: 8, marginBottom: 0 }}>Request form</p>
-        </div>
-        <Link
-          style={{ fontSize: 10, fontWeight: 10, textDecoration: 'underline', color: '#f87d4e' }}
-          to={'/'}
-        >
-          View all
-        </Link>
-      </div>
-    ),
+    render: (docs) => <DocView docs={docs ? docs : []} />,
   },
 
   {
@@ -86,12 +71,20 @@ const AntTable = ({ data }) => {
     <Table
       onRow={(record, rowIndex) => {
         return {
-          onClick: () => navigate('/payments/detail'),
+          // onClick: (e) => navigate('/payments/detail'),
+          onClick: (e) => {
+            if (e.target.innerText === 'View all' || e.target.innerText === 'View') {
+              e.preventDefault();
+            } else {
+              navigate('/payments/detail');
+            }
+          },
         };
       }}
       columns={columns}
       dataSource={data}
       pagination={false}
+      rowKey="payment_id"
     />
   );
 };
