@@ -7,38 +7,32 @@ import Dropdown from './DropDown';
 
 const columns = [
   {
-    title: 'Batch No',
-    dataIndex: 'transNo',
-    filters: [],
-    filterIcon: (filtered) => <AiFillCaretDown type="filter" style={{ color: '#f87d4e' }} />,
-    width: 90,
-  },
-  {
-    title: 'Staff ID',
-    dataIndex: 'memberNumber',
-    filters: [],
-    filterIcon: (filtered) => <AiFillCaretDown type="filter" style={{ color: '#f87d4e' }} />,
+    title: 'Payment ID',
+    dataIndex: 'payment_id',
     width: 105,
   },
   {
-    title: 'Names',
-    dataIndex: 'names',
-    width: 70,
+    title: 'Claim Number',
+    dataIndex: 'claim_number',
+    width: 100,
   },
   {
-    title: 'Phone No',
-    dataIndex: 'phoneNo',
-    filters: [],
-    filterIcon: (filtered) => <AiFillCaretDown type="filter" style={{ color: '#f87d4e' }} />,
-    width: 70,
+    title: 'Name',
+    dataIndex: 'member',
+    render: (item) => item.name,
+    width: 100,
   },
-
   {
-    title: 'Supervisor',
-    dataIndex: 'claimNo',
-    filters: [],
-    filterIcon: (filtered) => <AiFillCaretDown type="filter" style={{ color: '#f87d4e' }} />,
-    width: 90,
+    title: 'Claim Type',
+    dataIndex: 'claim',
+    render: (item) => item.type,
+    width: 100,
+  },
+  {
+    title: 'Payment invoice',
+    dataIndex: 'payment_invoice',
+    render: (item) => <div>{`${item.amount}, ${item.currency}`}</div>,
+    width: 120,
   },
   {
     title: 'Status',
@@ -50,16 +44,13 @@ const columns = [
       <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
         <div className={styles.pinkRound}></div>
         {status}
-        <span style={{ color: 'green', fontSize: 12 }}>{'( +22 days )'}</span>
       </div>
     ),
-    width: 140,
+    width: 90,
   },
   {
     title: 'Documents',
-    dataIndex: 'Documents',
-    filters: [],
-    filterIcon: (filtered) => <AiFillCaretDown type="filter" style={{ color: '#f87d4e' }} />,
+    dataIndex: 'documents',
     width: 180,
     render: (text) => (
       <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -84,28 +75,13 @@ const columns = [
   {
     title: 'Comments',
     dataIndex: 'comment',
-    width: 127,
+    width: 110,
   },
 ];
-const data = [];
 
-for (let i = 0; i < 5; i++) {
-  data.push({
-    key: i,
-    names: 'Jhons',
-    memberNumber: '#45454',
-    documents: [],
-    status: 'pending',
-    comment: 'lorem lipsul lorem lipsul lorem ',
-    claimNo: '#45454',
-    transNo: '#45454',
-    phoneNo: '0724548000',
-    department: 'Sales and Marketing',
-  });
-}
-
-const AntTable = () => {
+const AntTable = ({ data }) => {
   const navigate = useNavigate();
+
   return (
     <Table
       onRow={(record, rowIndex) => {
