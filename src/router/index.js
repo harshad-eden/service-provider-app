@@ -49,7 +49,7 @@ const RouteSetup = () => {
           }
         />
         <Route
-          path="/pre-auths/:detail"
+          path="/pre-auths/:id"
           element={
             <PrivateRoute>
               <PreAuthPatient />
