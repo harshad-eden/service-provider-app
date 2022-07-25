@@ -1,22 +1,20 @@
 import { Button, Modal, Form, Input, DatePicker, Select } from 'antd';
-
+import { useDispatch } from 'react-redux';
 import CloseModalImg from '../../img/close-modal.png';
+import { approvedPreAuthsReport, pendingClaimsReport } from '../../store/reportSlice';
 import styles from './index.module.css';
 
-const GenerateReport = ({ setIsModalVisible, isModalVisible, title }) => {
+const GenerateReport = ({ setIsModalVisible, isModalVisible, title, status, loading }) => {
+  const dispatch = useDispatch();
   const [form] = Form.useForm();
 
   const onFinish = (values) => {
-    console.log('Success:', values);
-  };
-
-  const onChange = (values) => {
-    console.log('Success:', values);
-  };
-
-  const handleClick = () => {
-    form.submit();
-    setIsModalVisible(false);
+    if (title === 'Pending claims') {
+      dispatch(pendingClaimsReport({ modalOf: setIsModalVisible }));
+    }
+    if (title === 'Pre-auths') {
+      dispatch(approvedPreAuthsReport({ modalOf: setIsModalVisible }));
+    }
   };
 
   const { Option } = Select;
@@ -50,7 +48,6 @@ const GenerateReport = ({ setIsModalVisible, isModalVisible, title }) => {
                   name="from"
                   rules={[
                     {
-                      required: true,
                       message: 'Please input your username!',
                     },
                   ]}
@@ -58,7 +55,6 @@ const GenerateReport = ({ setIsModalVisible, isModalVisible, title }) => {
                   <DatePicker
                     className="fromDatePicker"
                     placeholder="Date from"
-                    onChange={onChange}
                     style={{ borderRadius: 20, width: '100%' }}
                     size="large"
                     format="YYYY/MM/DD"
@@ -71,14 +67,12 @@ const GenerateReport = ({ setIsModalVisible, isModalVisible, title }) => {
                   name="to"
                   rules={[
                     {
-                      required: true,
                       message: 'Please input your username!',
                     },
                   ]}
                 >
                   <DatePicker
                     placeholder="Date to"
-                    onChange={onChange}
                     style={{ borderRadius: 20, width: '100%' }}
                     size="large"
                     format="YYYY/MM/DD"
@@ -87,37 +81,25 @@ const GenerateReport = ({ setIsModalVisible, isModalVisible, title }) => {
               </div>
             </div>
             <label>Status</label>
-            <Form.Item
-              name="status"
-              rules={[
-                {
-                  required: true,
-                  message: 'Please input your username!',
-                },
-              ]}
-            >
+            <Form.Item name="status">
               <Select size="large" placeholder="Status">
-                <Option value="lucy">Active</Option>
-                <Option value="lucy">Inactive</Option>
+                {status?.map((item) => (
+                  <Option key={item} value="Active">
+                    {item}
+                  </Option>
+                ))}
               </Select>
             </Form.Item>
 
             <label>Amount</label>
-            <Form.Item
-              name="amount"
-              rules={[
-                {
-                  required: true,
-                  message: 'Please input your username!',
-                },
-              ]}
-            >
+            <Form.Item name="amount">
               <Input placeholder="Ammount" style={{ borderRadius: 20 }} size="large" />
             </Form.Item>
           </Form>
 
           <Button
-            onClick={handleClick}
+            loading={loading}
+            onClick={() => form.submit()}
             size="large"
             style={{ width: '55%' }}
             type="primary"

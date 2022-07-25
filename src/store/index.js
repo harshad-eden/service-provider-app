@@ -6,6 +6,7 @@ import dashboard from './dashboardSlice';
 import claims from './claimSlice';
 import preAuth from './preAuthSlice';
 import payment from './paymentSlice';
+import reports from './reportSlice';
 
 export const store = configureStore({
   reducer: {
@@ -15,5 +16,6 @@ export const store = configureStore({
     claims,
     preAuth,
     payment,
+    reports,
   },
 });

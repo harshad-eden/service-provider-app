@@ -1,13 +1,13 @@
 import { Button } from 'antd';
 import React from 'react';
 
-const ColumnItem = ({ imgs, setIsModalVisible, setTitle }) => {
+const ColumnItem = ({ data, setIsModalVisible, setTitle }) => {
   const handleClick = (title) => {
     setIsModalVisible(true);
     setTitle(title);
   };
 
-  return imgs.map((item, index) => (
+  return data.map((item, index) => (
     <div
       key={index}
       style={{
