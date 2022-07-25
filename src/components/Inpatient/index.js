@@ -15,7 +15,6 @@ import { getClaims } from '../../store/claimSlice';
 const Index = () => {
   const dispatch = useDispatch();
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [isDocVisible, setIsDocVisible] = useState(false);
   const { data, content } = useSelector((state) => state.claims);
 
   useEffect(() => {
@@ -37,13 +36,13 @@ const Index = () => {
               <TopNav options={['Pending Claims', 'Approved']} width={200} notification />
             </div>
             <div className={styles.table}>
-              <AntTable data={content} setIsDocVisible={setIsDocVisible} />
+              <AntTable data={content} />
             </div>
             <div style={{ marginTop: 30, display: 'flex', justifyContent: 'center' }}>
               <Pagination size="small" total={50} />
             </div>
           </div>
-          <ViewDocs isDocVisible={isDocVisible} setIsDocVisible={setIsDocVisible} />
+
           <RequestPreAuth isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />
         </>
       )}
