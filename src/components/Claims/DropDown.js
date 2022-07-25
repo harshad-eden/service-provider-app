@@ -13,20 +13,27 @@ const DropDown = () => {
     >
       <div className={styles.dropdownMarginLine}>
         <div className={styles.greenRound}></div>
-        <p className="mbZero">Approved</p>
+        <p className="mbZero">Received</p>
       </div>
 
       <Divider />
 
       <div className={styles.dropdownMarginLine}>
         <div className={styles.pinkRound}></div>
-        <p className="mbZero">Rejected</p>
+        <p className="mbZero">Processing</p>
       </div>
 
       <Divider />
 
       <div className={styles.dropdownMarginLine}>
         <div className={styles.skyblue}></div>
+        <p className="mbZero">Approved</p>
+      </div>
+
+      <Divider />
+
+      <div className={styles.dropdownMarginLine}>
+        <div className={styles.voiletRound}></div>
         <p className="mbZero">Settled</p>
       </div>
 
@@ -34,7 +41,7 @@ const DropDown = () => {
 
       <div className={styles.dropdownMarginLine}>
         <div className={styles.voiletRound}></div>
-        <p className="mbZero">In-process</p>
+        <p className="mbZero">Declined</p>
       </div>
     </div>
   );

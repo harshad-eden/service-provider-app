@@ -34,6 +34,21 @@ export const getPreAuths = createAsyncThunk('preAuths', async () => {
   }
 });
 
+export const getPreAuthsWithFilter = createAsyncThunk('preAuths/filter', async (filter) => {
+  try {
+    const response = await axios.get(`${baseUrl}provider/preauth/all?status=${filter}`, {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 export const getMemberByCardNumb = createAsyncThunk('searchMember', async (numb) => {
   try {
     const response = await axios.get(`${baseUrl}provider/member/profile/card-number/${numb}`, {
@@ -88,7 +103,7 @@ export const PreAuthSlice = createSlice({
     builder.addCase(getPreAuths.fulfilled, (state, action) => {
       state.loading = false;
       state.data = action.payload.result;
-      state.content = action.payload.result.content;
+      state.content = action.payload.result.page_content;
     });
     builder.addCase(getPreAuths.rejected, (state, action) => {
       state.loading = false;
@@ -105,7 +120,6 @@ export const PreAuthSlice = createSlice({
     });
     builder.addCase(newPreAuth.pending, (state) => {
       state.newReqState.loading = true;
-      state.newReqState.loaded = false;
     });
     builder.addCase(newPreAuth.fulfilled, (state, action) => {
       state.newReqState.loading = false;
@@ -117,6 +131,16 @@ export const PreAuthSlice = createSlice({
       state.newReqState.loading = false;
       state.newReqState.status = 'failed';
       state.newReqState.loaded = true;
+    });
+    builder.addCase(getPreAuthsWithFilter.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(getPreAuthsWithFilter.fulfilled, (state, action) => {
+      state.loading = false;
+      state.content = action.payload.result?.page_content;
+    });
+    builder.addCase(getPreAuthsWithFilter.rejected, (state) => {
+      state.loading = false;
     });
   },
 });

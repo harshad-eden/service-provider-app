@@ -1,17 +1,40 @@
 import { Table } from 'antd';
 import styles from './index.module.css';
-import { HiOutlineDocumentText } from 'react-icons/hi';
 import { AiFillCaretDown } from 'react-icons/ai';
-import { Link, useNavigate } from 'react-router-dom';
-import Dropdown from './DropDown';
+import { useNavigate } from 'react-router-dom';
+import Dropdown from '../Common/StatusDropDown';
 import DocView from '../DocView/DocView';
 import ViewDocsModal from '../DocView/ViewDocs';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getClaimsWithFilter } from '../../store/claimSlice';
 
 const AntTable = ({ data }) => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [doocs, setDoocs] = useState([]);
   const [isDocVisible, setIsDocVisible] = useState(false);
+  const [hideDropDown, setHideDropDown] = useState();
+  const [filterState, setFilter] = useState('');
+
+  const state = useSelector((state) => state.claims);
+
+  console.log('haha', state.loading);
+
+  let statusArr = [
+    { color: '#2da028', text: 'Approved' },
+    { color: '#9f3ade', text: 'Processing' },
+    { color: '#e00f65', text: 'Declined' },
+    { color: 'blue', text: 'Received' },
+    { color: 'gray', text: 'Settled' },
+  ];
+
+  useEffect(() => {
+    if (filterState !== '') {
+      dispatch(getClaimsWithFilter(filterState));
+      setFilter('');
+    }
+  }, [filterState]);
 
   const columns = [
     {
@@ -49,9 +72,22 @@ const AntTable = ({ data }) => {
     {
       title: 'Status',
       dataIndex: 'status',
-      filterDropdown: (props) => <Dropdown />,
+      filterDropdown: () => (
+        <Dropdown
+          statusArr={statusArr}
+          hideDropDown={hideDropDown}
+          setFilter={setFilter}
+          setHideDropDown={setHideDropDown}
+        />
+      ),
       onFilter: (value, record) => record.address.startsWith(value),
-      filterIcon: (filtered) => <AiFillCaretDown type="filter" style={{ color: '#f87d4e' }} />,
+      filterIcon: () => (
+        <AiFillCaretDown
+          onClick={() => setHideDropDown(false)}
+          type="filter"
+          style={{ color: '#f87d4e' }}
+        />
+      ),
       render: (status) => (
         <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
           <div className={styles.pinkRound}></div>
@@ -65,9 +101,7 @@ const AntTable = ({ data }) => {
       dataIndex: 'documents',
       width: 180,
       render: (docs) => (
-        <>
-          <DocView setDoocs={setDoocs} setIsDocVisible={setIsDocVisible} docs={docs ? docs : []} />
-        </>
+        <DocView setDoocs={setDoocs} setIsDocVisible={setIsDocVisible} docs={docs ? docs : []} />
       ),
     },
     {
@@ -80,7 +114,8 @@ const AntTable = ({ data }) => {
   return (
     <>
       <Table
-        onRow={(record, rowIndex) => {
+        loading={state.loading}
+        onRow={() => {
           return {
             onClick: (e) => {
               if (e.target.innerText === 'View all' || e.target.innerText === 'View') {

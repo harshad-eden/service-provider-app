@@ -47,7 +47,7 @@ const Index = () => {
               <AntTable data={content} />
             </div>
             <div style={{ marginTop: 30, display: 'flex', justifyContent: 'center' }}>
-              <Pagination onChange={handlePaginationChange} size="small" />
+              <Pagination onChange={handlePaginationChange} size="small" total={30} />
             </div>
           </div>
           <RequestPreAuth isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />

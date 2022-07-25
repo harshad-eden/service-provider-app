@@ -35,6 +35,22 @@ export const getClaims = createAsyncThunk('claims', async () => {
   }
 });
 
+export const getClaimsWithFilter = createAsyncThunk('claims/filter', async (filter) => {
+  try {
+    const response = await axios.get(`${baseUrl}provider/claim/all?status=${filter}`, {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 export const getMemberByCardNumb = createAsyncThunk('searchMember', async (numb) => {
   try {
     const response = await axios.get(`${baseUrl}provider/member/profile/card-number/${numb}`, {
@@ -95,7 +111,7 @@ export const claimSlice = createSlice({
     builder.addCase(getClaims.fulfilled, (state, action) => {
       state.loading = false;
       state.data = action.payload.result;
-      state.content = action.payload.result.content;
+      state.content = action.payload.result.page_content;
     });
     builder.addCase(getClaims.rejected, (state, action) => {
       state.loading = false;
@@ -112,7 +128,6 @@ export const claimSlice = createSlice({
     });
     builder.addCase(newClaim.pending, (state) => {
       state.newReqState.loading = true;
-      state.newReqState.loaded = false;
     });
     builder.addCase(newClaim.fulfilled, (state, action) => {
       state.newReqState.loading = false;
@@ -124,6 +139,16 @@ export const claimSlice = createSlice({
       state.newReqState.loading = false;
       state.newReqState.status = 'failed';
       state.newReqState.loaded = true;
+    });
+    builder.addCase(getClaimsWithFilter.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(getClaimsWithFilter.fulfilled, (state, action) => {
+      state.loading = false;
+      state.content = action.payload.result?.page_content;
+    });
+    builder.addCase(getClaimsWithFilter.rejected, (state) => {
+      state.loading = false;
     });
   },
 });

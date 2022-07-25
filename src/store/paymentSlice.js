@@ -15,7 +15,7 @@ const initialState = {
 
 let token = localStorage.getItem('x-auth-token');
 
-export const getAllPayments = createAsyncThunk('claims', async () => {
+export const getAllPayments = createAsyncThunk('payment', async () => {
   try {
     const response = await axios.get(`${baseUrl}provider/payment/all`, {
       headers: {
@@ -24,7 +24,24 @@ export const getAllPayments = createAsyncThunk('claims', async () => {
         Authorization: `Bearer ${token}`,
       },
     });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+export const getPaymentsWithFilter = createAsyncThunk('payment/filter', async (filter) => {
+  try {
+    const response = await axios.get(`${baseUrl}provider/payment/all?status=${filter}`, {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
     console.log(response.data);
+
     return response.data;
   } catch (error) {
     console.log(error);
@@ -32,7 +49,7 @@ export const getAllPayments = createAsyncThunk('claims', async () => {
 });
 
 export const PaymentSlice = createSlice({
-  name: 'claim',
+  name: 'payment',
   initialState: initialState,
   reducers: {
     logOut: (state) => {
@@ -52,6 +69,16 @@ export const PaymentSlice = createSlice({
       state.content = action.payload.result.page_content;
     });
     builder.addCase(getAllPayments.rejected, (state, action) => {
+      state.loading = false;
+    });
+    builder.addCase(getPaymentsWithFilter.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(getPaymentsWithFilter.fulfilled, (state, action) => {
+      state.loading = false;
+      state.content = action.payload.result?.page_content;
+    });
+    builder.addCase(getPaymentsWithFilter.rejected, (state, action) => {
       state.loading = false;
     });
   },

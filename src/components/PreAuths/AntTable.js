@@ -2,15 +2,36 @@ import { Table } from 'antd';
 import styles from './index.module.css';
 import { AiFillCaretDown } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
-import Dropdown from './DropDown';
+import Dropdown from '../Common/StatusDropDown';
 import DocView from '../DocView/DocView';
 import ViewDocsModal from '../DocView/ViewDocs';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getPreAuthsWithFilter } from '../../store/preAuthSlice';
 
 const AntTable = ({ data }) => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [doocs, setDoocs] = useState([]);
+  const [filterState, setFilter] = useState('');
+  const [hideDropDown, setHideDropDown] = useState('');
   const [isDocVisible, setIsDocVisible] = useState(false);
+
+  const state = useSelector((state) => state.preAuth);
+
+  useEffect(() => {
+    if (filterState !== '') {
+      dispatch(getPreAuthsWithFilter(filterState));
+      setFilter('');
+    }
+  }, [filterState]);
+
+  let statusArr = [
+    { color: '#2da028', text: 'Approved' },
+    { color: '#9f3ade', text: 'Processing' },
+    { color: '#e00f65', text: 'Declined' },
+    { color: 'blue', text: 'Received' },
+  ];
 
   const columns = [
     {
@@ -39,9 +60,21 @@ const AntTable = ({ data }) => {
     {
       title: 'Status',
       dataIndex: 'status',
-      filterDropdown: () => <Dropdown />,
-      onFilter: (value, record) => record.address.startsWith(value),
-      filterIcon: () => <AiFillCaretDown type="filter" style={{ color: '#f87d4e' }} />,
+      filterDropdown: () => (
+        <Dropdown
+          statusArr={statusArr}
+          hideDropDown={hideDropDown}
+          setHideDropDown={setHideDropDown}
+          setFilter={setFilter}
+        />
+      ),
+      filterIcon: () => (
+        <AiFillCaretDown
+          onClick={() => setHideDropDown(false)}
+          type="filter"
+          style={{ color: '#f87d4e' }}
+        />
+      ),
       render: (status) => (
         <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
           <div className={styles.pinkRound}></div>
@@ -53,8 +86,6 @@ const AntTable = ({ data }) => {
     {
       title: 'Documents',
       dataIndex: 'documents',
-      filters: [],
-      filterIcon: () => <AiFillCaretDown type="filter" style={{ color: '#f87d4e' }} />,
       width: 180,
       render: (docs) => (
         <DocView setDoocs={setDoocs} setIsDocVisible={setIsDocVisible} docs={docs ? docs : []} />
@@ -71,6 +102,7 @@ const AntTable = ({ data }) => {
   return (
     <>
       <Table
+        loading={state.loading}
         onRow={(record, rowIndex) => {
           return {
             onClick: (e) => {
@@ -82,7 +114,7 @@ const AntTable = ({ data }) => {
             },
           };
         }}
-        rowKey="claim_number"
+        rowKey="pre_auth_id"
         columns={columns}
         dataSource={data}
         pagination={false}
