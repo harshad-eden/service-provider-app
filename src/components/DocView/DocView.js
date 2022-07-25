@@ -3,6 +3,7 @@ import { HiOutlineDocumentText } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
 
 const DocView = ({ docs }) => {
+  console.log('docs--', docs);
   return (
     <div style={{ display: 'flex', alignItems: 'center' }}>
       {docs.map((item, index) => (

@@ -21,7 +21,7 @@ let token = localStorage.getItem('x-auth-token');
 
 export const getPreAuths = createAsyncThunk('preAuths', async () => {
   try {
-    const response = await axios.get(`${baseUrl}provider/preauth/all?pageSize=${5}`, {
+    const response = await axios.get(`${baseUrl}provider/preauth/all?page=0&size=6`, {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',

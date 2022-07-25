@@ -71,7 +71,6 @@ const AntTable = ({ data }) => {
     <Table
       onRow={(record, rowIndex) => {
         return {
-          // onClick: (e) => navigate('/payments/detail'),
           onClick: (e) => {
             if (e.target.innerText === 'View all' || e.target.innerText === 'View') {
               e.preventDefault();
