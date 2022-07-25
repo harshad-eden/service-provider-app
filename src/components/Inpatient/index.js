@@ -19,8 +19,10 @@ const Index = () => {
   const { data, content } = useSelector((state) => state.claims);
 
   useEffect(() => {
-    dispatch(getClaims({ page, size: 6 }));
-  }, [page]);
+    if (data === null) {
+      dispatch(getClaims({ page, size: 6 }));
+    }
+  }, [page, data]);
 
   return (
     <Main>

@@ -18,8 +18,10 @@ const Index = () => {
   const [page, setPage] = useState(0);
 
   useEffect(() => {
-    dispatch(getClaims({ page, size: 6 }));
-  }, [page]);
+    if (data === null) {
+      dispatch(getClaims({ page, size: 6 }));
+    }
+  }, [page, data]);
 
   return (
     <Main>

@@ -18,7 +18,9 @@ const Index = () => {
   const { data, content } = useSelector((state) => state.payment);
 
   useEffect(() => {
-    dispatch(getAllPayments({ page, size: 6 }));
+    if (data === null) {
+      dispatch(getAllPayments({ page, size: 6 }));
+    }
   }, [page]);
 
   return (
