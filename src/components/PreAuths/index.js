@@ -14,7 +14,7 @@ import RequestPreAuth from './RequestPreAuth';
 const Index = () => {
   const dispatch = useDispatch();
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const { data } = useSelector((state) => state.preAuth);
+  const { data, content } = useSelector((state) => state.preAuth);
   const [paginationNumb, setPaginationNumb] = useState();
 
   useEffect(() => {
@@ -44,7 +44,7 @@ const Index = () => {
               />
             </div>
             <div className={styles.table}>
-              <AntTable data={data?.content} />
+              <AntTable data={content} />
             </div>
             <div style={{ marginTop: 30, display: 'flex', justifyContent: 'center' }}>
               <Pagination onChange={handlePaginationChange} size="small" total={50} />

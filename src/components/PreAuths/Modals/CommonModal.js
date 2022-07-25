@@ -1,9 +1,17 @@
-import { Button, Modal } from 'antd';
-import styles from '../index.module.css';
+import { Button } from 'antd';
 import CheckerImg from '../../../img/checked.png';
 import filedImg from '../../../img/failed.png';
+import { useDispatch } from 'react-redux';
+import { resetRequest } from '../../../store/preAuthSlice';
 
-const CommonModal = ({ isModalVisible, setIsModalVisible, status }) => {
+const CommonModal = ({ setIsModalVisible, status }) => {
+  const dipatch = useDispatch();
+
+  const handleReqReset = () => {
+    dipatch(resetRequest());
+    setIsModalVisible(false);
+  };
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 30 }}>
       <div>
@@ -23,7 +31,7 @@ const CommonModal = ({ isModalVisible, setIsModalVisible, status }) => {
       </div>
       {status ? (
         <Button
-          onClick={() => setIsModalVisible(false)}
+          onClick={() => handleReqReset()}
           size="large"
           shape="round"
           style={{ width: '60%' }}
@@ -33,7 +41,7 @@ const CommonModal = ({ isModalVisible, setIsModalVisible, status }) => {
         </Button>
       ) : (
         <Button
-          onClick={() => setIsModalVisible(false)}
+          onClick={() => handleReqReset()}
           size="large"
           shape="round"
           style={{ width: '60%', backgroundColor: '#980c31', color: 'white' }}

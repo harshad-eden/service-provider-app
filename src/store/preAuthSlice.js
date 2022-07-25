@@ -5,6 +5,7 @@ import axios from 'axios';
 const initialState = {
   loading: false,
   data: null,
+  content: [],
   newReqState: {
     loading: false,
     status: '',
@@ -70,15 +71,14 @@ export const newPreAuth = createAsyncThunk('newPreAuths', async (formData) => {
   }
 });
 
-export const AuthSlice = createSlice({
+export const PreAuthSlice = createSlice({
   name: 'preAuths',
   initialState: initialState,
   reducers: {
-    logOut: (state) => {
-      state.loading = false;
-      state.isAuthenticated = false;
-      state.token = null;
-      localStorage.clear();
+    resetRequest: (state) => {
+      state.newReqState.loading = false;
+      state.newReqState.loaded = false;
+      state.newReqState.status = '';
     },
   },
   extraReducers(builder) {
@@ -88,6 +88,7 @@ export const AuthSlice = createSlice({
     builder.addCase(getPreAuths.fulfilled, (state, action) => {
       state.loading = false;
       state.data = action.payload.result;
+      state.content = action.payload.result.content;
     });
     builder.addCase(getPreAuths.rejected, (state, action) => {
       state.loading = false;
@@ -110,6 +111,7 @@ export const AuthSlice = createSlice({
       state.newReqState.loading = false;
       state.newReqState.status = 'success';
       state.newReqState.loaded = true;
+      state.content = [...state.content, action.payload.result];
     });
     builder.addCase(newPreAuth.rejected, (state) => {
       state.newReqState.loading = false;
@@ -119,4 +121,6 @@ export const AuthSlice = createSlice({
   },
 });
 
-export default AuthSlice.reducer;
+export const { resetRequest } = PreAuthSlice.actions;
+
+export default PreAuthSlice.reducer;
