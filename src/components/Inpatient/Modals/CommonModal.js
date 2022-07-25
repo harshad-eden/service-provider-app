@@ -2,17 +2,8 @@ import { Button, Modal } from 'antd';
 import styles from '../index.module.css';
 import CheckerImg from '../../../img/checked.png';
 import filedImg from '../../../img/failed.png';
-import { useDispatch } from 'react-redux';
-import { resetRequest } from '../../../store/claimSlice';
 
 const CommonModal = ({ isModalVisible, setIsModalVisible, status }) => {
-  const dipatch = useDispatch();
-
-  const handleReqReset = () => {
-    dipatch(resetRequest());
-    setIsModalVisible(false);
-  };
-
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 30 }}>
       <div>
@@ -32,7 +23,7 @@ const CommonModal = ({ isModalVisible, setIsModalVisible, status }) => {
       </div>
       {status ? (
         <Button
-          onClick={() => handleReqReset()}
+          onClick={() => setIsModalVisible(false)}
           size="large"
           shape="round"
           style={{ width: '60%' }}
@@ -42,7 +33,7 @@ const CommonModal = ({ isModalVisible, setIsModalVisible, status }) => {
         </Button>
       ) : (
         <Button
-          onClick={() => handleReqReset()}
+          onClick={() => setIsModalVisible(false)}
           size="large"
           shape="round"
           style={{ width: '60%', backgroundColor: '#980c31', color: 'white' }}

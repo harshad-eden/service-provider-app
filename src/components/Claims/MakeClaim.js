@@ -71,8 +71,8 @@ const RequestPreAuth = ({ setIsModalVisible, isModalVisible }) => {
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
             <div>
-              <h1 className="mbZero">New Pre-Auth</h1>
-              <h5 className="mbZero">Fill in the below form to initiate the Pre-auth</h5>
+              <h1 className="mbZero">New Claim</h1>
+              <h5 className="mbZero">Fill in the form below to make a New Claim</h5>
             </div>
 
             <div style={{ width: '65%' }}>
@@ -184,7 +184,7 @@ const RequestPreAuth = ({ setIsModalVisible, isModalVisible }) => {
               <DraggerComponent disabled={memeber.data ? false : true} setFiles={setFiles} />
             </div>
             <Button
-              // loading={preAuthState.loading}
+              loading={newReqState.loading}
               disabled={files.length < 1}
               onClick={() => form.submit()}
               size="large"

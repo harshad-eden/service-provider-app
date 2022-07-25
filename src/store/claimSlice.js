@@ -5,6 +5,7 @@ import axios from 'axios';
 const initialState = {
   loading: false,
   data: null,
+  content: [],
   newReqState: {
     loading: false,
     status: '',
@@ -27,6 +28,7 @@ export const getClaims = createAsyncThunk('claims', async () => {
         Authorization: `Bearer ${token}`,
       },
     });
+    console.log(response.data);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -70,10 +72,15 @@ export const newClaim = createAsyncThunk('newPreAuths', async (formData) => {
   }
 });
 
-export const AuthSlice = createSlice({
+export const claimSlice = createSlice({
   name: 'claim',
   initialState: initialState,
   reducers: {
+    resetRequest: (state) => {
+      state.newReqState.loading = false;
+      state.newReqState.loaded = false;
+      state.newReqState.status = '';
+    },
     logOut: (state) => {
       state.loading = false;
       state.isAuthenticated = false;
@@ -88,6 +95,7 @@ export const AuthSlice = createSlice({
     builder.addCase(getClaims.fulfilled, (state, action) => {
       state.loading = false;
       state.data = action.payload.result;
+      state.content = action.payload.result.content;
     });
     builder.addCase(getClaims.rejected, (state, action) => {
       state.loading = false;
@@ -119,4 +127,6 @@ export const AuthSlice = createSlice({
   },
 });
 
-export default AuthSlice.reducer;
+export const { resetRequest } = claimSlice.actions;
+
+export default claimSlice.reducer;

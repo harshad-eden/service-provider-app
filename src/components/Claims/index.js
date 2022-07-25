@@ -14,7 +14,7 @@ import Loader from '../Common/Loader';
 const Index = () => {
   const dispatch = useDispatch();
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const { data } = useSelector((state) => state.claims);
+  const { data, content } = useSelector((state) => state.claims);
   const [paginationNumb, setPaginationNumb] = useState();
 
   useEffect(() => {
@@ -37,7 +37,7 @@ const Index = () => {
             </div>
 
             <div className={styles.table}>
-              <AntTable data={data?.content} />
+              <AntTable data={content} />
             </div>
             <div style={{ marginTop: 30, display: 'flex', justifyContent: 'center' }}>
               <Pagination size="small" total={50} />
