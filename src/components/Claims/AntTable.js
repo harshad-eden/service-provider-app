@@ -48,9 +48,9 @@ const AntTable = ({ data }) => {
     {
       title: 'Status',
       dataIndex: 'status',
-      filterDropdown: (props) => <Dropdown />,
+      filterDropdown: () => <Dropdown />,
       onFilter: (value, record) => record.address.startsWith(value),
-      filterIcon: (filtered) => <AiFillCaretDown type="filter" style={{ color: '#f87d4e' }} />,
+      filterIcon: () => <AiFillCaretDown type="filter" style={{ color: '#f87d4e' }} />,
       render: (status) => (
         <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
           <div className={styles.pinkRound}></div>
@@ -77,7 +77,7 @@ const AntTable = ({ data }) => {
   return (
     <>
       <Table
-        onRow={(record, rowIndex) => {
+        onRow={() => {
           return {
             onClick: (e) => {
               if (e.target.innerText === 'View all' || e.target.innerText === 'View') {

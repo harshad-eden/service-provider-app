@@ -21,7 +21,7 @@ let token = localStorage.getItem('x-auth-token');
 
 export const getClaims = createAsyncThunk('claims', async () => {
   try {
-    const response = await axios.get(`${baseUrl}provider/claim/all`, {
+    const response = await axios.get(`${baseUrl}provider/claim/all?page=0&size=6`, {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
