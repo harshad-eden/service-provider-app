@@ -58,14 +58,14 @@ const Index = () => {
       status: ['Received', 'Processing', 'Approved', 'Settled', 'Declined'],
     },
     {
-      img: finger,
+      img: group,
       color: '#f87d4e',
       title: 'Payments',
       count: stats?.payment_stats?.num_of_payments_processed,
       status: ['Declined', 'Transferred', 'Processed', 'Initiated'],
     },
     {
-      img: group,
+      img: finger,
       color: '#8e3ab4',
       title: 'Pre-auths',
       count: stats?.pre_auth_stats?.num_of_total_pre_auths,
