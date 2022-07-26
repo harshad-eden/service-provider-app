@@ -6,7 +6,6 @@ import {
   getPaymentReport,
   pendingClaimsReport,
 } from '../../store/reportSlice';
-import styles from './index.module.css';
 
 const GenerateReport = ({ setIsModalVisible, isModalVisible, title, status, loading }) => {
   const dispatch = useDispatch();

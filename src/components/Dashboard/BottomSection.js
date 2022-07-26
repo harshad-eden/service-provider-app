@@ -23,7 +23,7 @@ const BottomSection = () => {
                 trailColor="#f4bb1d"
                 strokeColor="gray"
                 success={{
-                  percent: stats?.pre_auth_stats?.percent_of_approved_pre_auths,
+                  percent: 25,
                 }}
                 format={() => (
                   <div>
@@ -40,18 +40,14 @@ const BottomSection = () => {
             </p>
             <div className={styles.stacticsInfo}>
               <div>
-                <p className={styles.greenPrecentage}>
-                  {stats?.pre_auth_stats?.percent_of_approved_pre_auths}%
-                </p>
+                <p className={styles.greenPrecentage}>25%</p>
                 <div style={{ display: 'flex', gap: 4, alignItems: 'center' }}>
                   <div className={styles.greenDot} />
                   <p style={{ marginBottom: 0, fontSize: 10 }}>Approved</p>
                 </div>
               </div>
               <div>
-                <p className={styles.yellowPrecentage}>
-                  {100 - stats?.pre_auth_stats?.percent_of_approved_pre_auths}%
-                </p>
+                <p className={styles.yellowPrecentage}>75%</p>
                 <div style={{ display: 'flex', gap: 4, alignItems: 'center' }}>
                   <ColorRound color="#f4bb1d" />
                   <p style={{ marginBottom: 0, fontSize: 10 }}>In-process</p>
@@ -74,7 +70,7 @@ const BottomSection = () => {
                 trailColor="#f4bb1d"
                 strokeColor="gray"
                 success={{
-                  percent: stats?.claim_stats?.percent_of_approved_claims,
+                  percent: 25,
                 }}
                 format={() => (
                   <div>
@@ -91,9 +87,7 @@ const BottomSection = () => {
             </p>
             <div className={styles.stacticsInfo}>
               <div>
-                <p className={styles.greenPrecentage}>
-                  {stats?.claim_stats?.percent_of_approved_claims}%
-                </p>
+                <p className={styles.greenPrecentage}>25%</p>
                 <div style={{ display: 'flex', gap: 4, alignItems: 'center' }}>
                   <ColorRound color="#626262" />
                   <p style={{ marginBottom: 0, fontSize: 10 }}>Approved</p>
@@ -101,9 +95,7 @@ const BottomSection = () => {
               </div>
 
               <div>
-                <p className={styles.yellowPrecentage}>
-                  {100 - stats?.claim_stats?.percent_of_approved_claims}%
-                </p>
+                <p className={styles.yellowPrecentage}>75%</p>
                 <div style={{ display: 'flex', gap: 4, alignItems: 'center' }}>
                   <ColorRound color="#f4bb1d" />
                   <p style={{ marginBottom: 0, fontSize: 10 }}>In-process</p>

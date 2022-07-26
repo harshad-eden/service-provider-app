@@ -54,7 +54,7 @@ export const getClaimsWithFilter = createAsyncThunk('claims/filter', async (filt
   }
 });
 
-export const getMemberByCardNumb = createAsyncThunk('searchMember', async (numb) => {
+export const getMemberByCardNumb = createAsyncThunk('searchMember/claims', async (numb) => {
   try {
     const response = await axios.get(`${baseUrl}provider/member/profile/card-number/${numb}`, {
       headers: {
