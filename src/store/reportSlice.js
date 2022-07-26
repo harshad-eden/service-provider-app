@@ -12,13 +12,18 @@ let token = localStorage.getItem('x-auth-token');
 
 export const pendingClaimsReport = createAsyncThunk('reportClaims', async (args) => {
   try {
-    const response = await axios.get(`${baseUrl}provider/report/claim`, {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
+    const response = await axios.get(
+      `${baseUrl}provider/report/claim?page=${args.page ? args.page : 0}&size=${
+        args.size ? args.size : 5
+      }`,
+      {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
       },
-    });
+    );
     args.modalOf();
     return response.data;
   } catch (error) {
@@ -29,13 +34,18 @@ export const pendingClaimsReport = createAsyncThunk('reportClaims', async (args)
 
 export const approvedPreAuthsReport = createAsyncThunk('report/preAuths', async (args) => {
   try {
-    const response = await axios.get(`${baseUrl}provider/report/pre-auth`, {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
+    const response = await axios.get(
+      `${baseUrl}provider/report/pre-auth?page=${args.page ? args.page : 0}&size=${
+        args.size ? args.size : 5
+      }`,
+      {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
       },
-    });
+    );
     args.modalOf();
     return response.data;
   } catch (error) {

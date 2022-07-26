@@ -40,9 +40,11 @@ const Index = () => {
             <div className={styles.table}>
               <AntTable data={content} />
             </div>
-            <div style={{ marginTop: 30, display: 'flex', justifyContent: 'center' }}>
-              <Pagination onChange={(e) => setPage(e - 1)} size="small" total={50} />
-            </div>
+            {content.length > 5 && (
+              <div style={{ marginTop: 30, display: 'flex', justifyContent: 'center' }}>
+                <Pagination onChange={(e) => setPage(e - 1)} size="small" total={50} />
+              </div>
+            )}
           </div>
           <RequestPreAuth isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />
         </>

@@ -1,0 +1,43 @@
+.table {
+  margin-top: 10px;
+}
+.greenRound {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #2da028;
+}
+
+.pinkRound {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #e00f65;
+}
+
+.voiletRound {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #9f3ade;
+}
+
+.voiletRound {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #9f3ade;
+}
+
+.customRound {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #9f3ade;
+}
+
+.dropdownMarginLine {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

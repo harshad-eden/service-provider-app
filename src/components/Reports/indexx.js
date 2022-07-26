@@ -15,23 +15,13 @@ import SearchAndFilter from '../../components/Common/SearchAndFilter';
 import { useSelector } from 'react-redux';
 import Loader from '../Common/Loader';
 
-import ClaimTable from './Claims';
-import PreAuth from './PreAuth';
-
 const Index = () => {
   const [title, setTitle] = useState('');
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const state = useSelector((state) => state.reports);
 
-  const renderTable = () => {
-    if (title === 'Pending claims') {
-      return <ClaimTable />;
-    }
-    if (title === 'Pre-auths') {
-      return <PreAuth />;
-    }
-  };
+  console.log(state);
 
   return (
     <Main>
@@ -77,7 +67,12 @@ const Index = () => {
               <img src={excel} style={{ height: 20, marginRight: 8, cursor: 'pointer' }} alt="" />
               <img src={pdf} style={{ height: 20, cursor: 'pointer' }} alt="" />
             </div>
-            {renderTable()}
+            <div className={styles.table}>
+              <AntTable data={state.content} />
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20 }}>
+              <Pagination size="small" total={50} />
+            </div>
           </>
         )}
       </>
