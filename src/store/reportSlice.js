@@ -6,15 +6,32 @@ const initialState = {
   loading: false,
   data: null,
   content: [],
+  stats: null,
+  statsLoading: false,
 };
 
 let token = localStorage.getItem('x-auth-token');
+
+export const getStats = createAsyncThunk('report/stats', async (args) => {
+  try {
+    const response = await axios.get(`${baseUrl}provider/report/stats`, {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 export const pendingClaimsReport = createAsyncThunk('reportClaims', async (args) => {
   try {
     const response = await axios.get(
       `${baseUrl}provider/report/claim?page=${args.page ? args.page : 0}&size=${
-        args.size ? args.size : 5
+        args.size ? args.size : 4
       }`,
       {
         headers: {
@@ -36,7 +53,7 @@ export const approvedPreAuthsReport = createAsyncThunk('report/preAuths', async 
   try {
     const response = await axios.get(
       `${baseUrl}provider/report/pre-auth?page=${args.page ? args.page : 0}&size=${
-        args.size ? args.size : 5
+        args.size ? args.size : 4
       }`,
       {
         headers: {
@@ -54,18 +71,25 @@ export const approvedPreAuthsReport = createAsyncThunk('report/preAuths', async 
   }
 });
 
-export const getPaymentReport = createAsyncThunk('report', async () => {
+export const getPaymentReport = createAsyncThunk('report', async (args) => {
   try {
-    const response = await axios.get(`${baseUrl}provider/report/payment`, {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
+    const response = await axios.get(
+      `${baseUrl}provider/report/payment?page=${args.page ? args.page : 0}&size=${
+        args.size ? args.size : 4
+      }`,
+      {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
       },
-    });
+    );
+    args.modalOf();
     console.log(response.data);
     return response.data;
   } catch (error) {
+    args.modalOf();
     console.log(error);
   }
 });
@@ -74,14 +98,23 @@ export const ReportSlice = createSlice({
   name: 'payment',
   initialState: initialState,
   reducers: {
-    logOut: (state) => {
+    resetContent: (state) => {
       state.loading = false;
-      state.isAuthenticated = false;
-      state.token = null;
-      localStorage.clear();
+      state.data = null;
+      state.content = [];
     },
   },
   extraReducers(builder) {
+    builder.addCase(getStats.pending, (state) => {
+      state.statsLoading = true;
+    });
+    builder.addCase(getStats.fulfilled, (state, action) => {
+      state.statsLoading = false;
+      state.stats = action.payload.result;
+    });
+    builder.addCase(getStats.rejected, (state) => {
+      state.statsLoading = false;
+    });
     builder.addCase(pendingClaimsReport.pending, (state) => {
       state.loading = true;
     });
@@ -117,5 +150,7 @@ export const ReportSlice = createSlice({
     });
   },
 });
+
+export const { resetContent } = ReportSlice.actions;
 
 export default ReportSlice.reducer;

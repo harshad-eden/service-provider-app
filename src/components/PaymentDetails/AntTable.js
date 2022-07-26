@@ -71,12 +71,11 @@ const columns = [
           <HiOutlineDocumentText size={30} color="#f87d4e" />
           <p style={{ fontSize: 8, marginBottom: 0 }}>Request form</p>
         </div>
-        <Link
+        <div
           style={{ fontSize: 10, fontWeight: 10, textDecoration: 'underline', color: '#f87d4e' }}
-          to={'/'}
         >
           View all
-        </Link>
+        </div>
       </div>
     ),
   },

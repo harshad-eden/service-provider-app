@@ -3,60 +3,70 @@ import styles from './index.module.css';
 import { AiFillCaretDown } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 import Dropdown from '../../Common/StatusDropDown';
-import DocView from '../../DocView/DocView';
+import { getPaymentsWithFilter } from '../../../store/paymentSlice';
+
 import ViewDocsModal from '../../DocView/ViewDocs';
 import { useEffect, useState } from 'react';
+
+import DocView from '../../DocView/DocView';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPreAuthsWithFilter } from '../../../store/preAuthSlice';
 
 const AntTable = ({ data }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [doocs, setDoocs] = useState([]);
-  const [filterState, setFilter] = useState('');
-  const [hideDropDown, setHideDropDown] = useState('');
   const [isDocVisible, setIsDocVisible] = useState(false);
+  const [hideDropDown, setHideDropDown] = useState();
+  const [filterState, setFilter] = useState('');
 
-  const state = useSelector((state) => state.preAuth);
+  const state = useSelector((state) => state.payment);
+
+  console.log(state);
+
+  let statusArr = [
+    { color: '#2da028', text: 'Initiated' },
+    { color: '#9f3ade', text: 'Processed' },
+    { color: '#e00f65', text: 'Declined' },
+    { color: 'blue', text: 'Transferred' },
+  ];
 
   useEffect(() => {
     if (filterState !== '') {
-      dispatch(getPreAuthsWithFilter(filterState));
+      dispatch(getPaymentsWithFilter(filterState));
       setFilter('');
     }
   }, [filterState]);
 
-  let statusArr = [
-    { color: '#2da028', text: 'Approved' },
-    { color: '#9f3ade', text: 'Processing' },
-    { color: '#e00f65', text: 'Declined' },
-    { color: 'blue', text: 'Received' },
-  ];
-
   const columns = [
     {
-      title: 'Pre-Auth ID',
-      dataIndex: 'pre_auth_id',
-      width: 110,
+      title: 'Payment ID',
+      dataIndex: 'payment_id',
+      width: 105,
     },
     {
-      title: 'Member No',
-      dataIndex: 'member_card_number',
-
-      width: 105,
+      title: 'Claim Number',
+      dataIndex: 'claim_number',
+      width: 100,
+    },
+    {
+      title: 'Payment invoice',
+      dataIndex: 'payment_invoice',
+      render: (item) => <div>{`${item.amount}, ${item.currency}`}</div>,
+      width: 120,
     },
     {
       title: 'Status',
       dataIndex: 'status',
-      filterDropdown: () => (
+      filterDropdown: (props) => (
         <Dropdown
           statusArr={statusArr}
           hideDropDown={hideDropDown}
-          setHideDropDown={setHideDropDown}
           setFilter={setFilter}
+          setHideDropDown={setHideDropDown}
         />
       ),
-      filterIcon: () => (
+
+      filterIcon: (filtered) => (
         <AiFillCaretDown
           onClick={() => setHideDropDown(false)}
           type="filter"
@@ -69,7 +79,7 @@ const AntTable = ({ data }) => {
           {status}
         </div>
       ),
-      width: 100,
+      width: 90,
     },
     {
       title: 'Documents',
@@ -83,7 +93,7 @@ const AntTable = ({ data }) => {
     {
       title: 'Comments',
       dataIndex: 'comment',
-      width: 127,
+      width: 110,
     },
   ];
 
@@ -97,15 +107,15 @@ const AntTable = ({ data }) => {
               if (e.target.innerText === 'View all' || e.target.innerText === 'View') {
                 e.preventDefault();
               } else {
-                navigate(`/pre-auths/${record.id}`);
+                navigate('/payments/:detail');
               }
             },
           };
         }}
-        rowKey="pre_auth_id"
         columns={columns}
         dataSource={data}
         pagination={false}
+        rowKey="payment_id"
       />
       <ViewDocsModal docs={doocs} isDocVisible={isDocVisible} setIsDocVisible={setIsDocVisible} />
     </>

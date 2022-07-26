@@ -1,7 +1,11 @@
 import { Button, Modal, Form, Input, DatePicker, Select } from 'antd';
 import { useDispatch } from 'react-redux';
 import CloseModalImg from '../../img/close-modal.png';
-import { approvedPreAuthsReport, pendingClaimsReport } from '../../store/reportSlice';
+import {
+  approvedPreAuthsReport,
+  getPaymentReport,
+  pendingClaimsReport,
+} from '../../store/reportSlice';
 import styles from './index.module.css';
 
 const GenerateReport = ({ setIsModalVisible, isModalVisible, title, status, loading }) => {
@@ -12,8 +16,14 @@ const GenerateReport = ({ setIsModalVisible, isModalVisible, title, status, load
     if (title === 'Pending claims') {
       dispatch(pendingClaimsReport({ modalOf: setIsModalVisible }));
     }
+    if (title === 'Approved claims') {
+      dispatch(pendingClaimsReport({ modalOf: setIsModalVisible }));
+    }
     if (title === 'Pre-auths') {
       dispatch(approvedPreAuthsReport({ modalOf: setIsModalVisible }));
+    }
+    if (title === 'Payments') {
+      dispatch(getPaymentReport({ modalOf: setIsModalVisible }));
     }
   };
 

@@ -1,8 +1,13 @@
 import { Button } from 'antd';
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { resetContent } from '../../store/reportSlice';
 
 const ColumnItem = ({ data, setIsModalVisible, setTitle }) => {
+  const dipatch = useDispatch();
+
   const handleClick = (title) => {
+    dipatch(resetContent());
     setIsModalVisible(true);
     setTitle(title);
   };

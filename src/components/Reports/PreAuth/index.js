@@ -12,7 +12,7 @@ const index = () => {
 
   const handlePageChange = (e) => {
     setPage(e);
-    dispatch(approvedPreAuthsReport({ page, size: 5 }));
+    dispatch(approvedPreAuthsReport({ page, size: 4 }));
   };
 
   return (
@@ -20,9 +20,11 @@ const index = () => {
       <div style={{ marginTop: 10 }}>
         <AntTable data={content} />
       </div>
-      <div style={{ marginTop: 30, display: 'flex', justifyContent: 'center' }}>
-        <Pagination onChange={(e) => handlePageChange(e)} size="small" total={40} />
-      </div>
+      {content.length > 5 && (
+        <div style={{ marginTop: 30, display: 'flex', justifyContent: 'center' }}>
+          <Pagination onChange={(e) => handlePageChange(e)} size="small" total={40} />
+        </div>
+      )}
     </>
   );
 };
