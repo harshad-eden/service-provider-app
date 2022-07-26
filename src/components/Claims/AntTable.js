@@ -52,8 +52,9 @@ const AntTable = ({ data }) => {
       width: 70,
     },
     {
-      title: 'Phone No',
-      dataIndex: 'phoneNo',
+      title: 'Email',
+      dataIndex: 'member',
+      render: (item) => item.email,
       width: 90,
     },
     {

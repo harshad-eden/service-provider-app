@@ -44,6 +44,12 @@ const AntTable = ({ data }) => {
       width: 105,
     },
     {
+      title: 'Payment invoice',
+      dataIndex: 'payment_invoice',
+      render: (item) => <div>{`${item.amount}, ${item.currency}`}</div>,
+      width: 140,
+    },
+    {
       title: 'Claim Number',
       dataIndex: 'claim_number',
       width: 100,

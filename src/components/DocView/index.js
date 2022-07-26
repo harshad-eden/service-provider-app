@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
-import pdf from './sample.pdf';
+// import pdf from './sample.pdf';
 import { Button } from 'antd';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 
@@ -36,9 +36,9 @@ const DocView = () => {
           size="large"
         />
         <div>
-          <Document file={pdf} onLoadSuccess={onDocumentLoadSuccess}>
+          {/* <Document file={pdf} onLoadSuccess={onDocumentLoadSuccess}>
             <Page pageNumber={pageNumber} />
-          </Document>
+          </Document> */}
           <p style={{ textAlign: 'center' }}>
             Page {pageNumber} of {numPages}
           </p>

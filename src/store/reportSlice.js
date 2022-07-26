@@ -28,19 +28,23 @@ export const getStats = createAsyncThunk('report/stats', async (args) => {
 });
 
 export const pendingClaimsReport = createAsyncThunk('reportClaims', async (args) => {
+  let urlWithOutFilter = `${baseUrl}provider/report/claim?page=${args.page ? args.page : 0}&size=${
+    args.size ? args.size : 4
+  }`;
+
+  // let urlWithFilter = `${baseUrl}provider/report/claim?page=${args.page ? args.page : 0}&size=${
+  //   args.size ? args.size : 4
+  // }&status=${args.status}`;
+  // let baseUrl = args.status ? urlWithFilter : urlWithOutFilter;
+
   try {
-    const response = await axios.get(
-      `${baseUrl}provider/report/claim?page=${args.page ? args.page : 0}&size=${
-        args.size ? args.size : 4
-      }`,
-      {
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
+    const response = await axios.get(urlWithOutFilter, {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
       },
-    );
+    });
     args.modalOf();
     return response.data;
   } catch (error) {
