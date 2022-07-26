@@ -1,12 +1,20 @@
 import React from 'react';
 import Main from '../../template';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { HiOutlineArrowLeft } from 'react-icons/hi';
 import Steps from './Step';
 import { BsChevronDown } from 'react-icons/bs';
 import { HiOutlineDocumentText } from 'react-icons/hi';
+import { useSelector } from 'react-redux';
 
 const Index = () => {
+  const { content } = useSelector((state) => state.claims);
+  const { id } = useParams();
+
+  let state = content?.find((item) => item.id === id);
+
+  console.log('pp', state);
+
   return (
     <Main>
       <Link to={'/claims'}>
@@ -38,19 +46,21 @@ const Index = () => {
           ></div> */}
             <div style={{ marginRight: 70 }}>
               <p style={{ fontWeight: 700, color: '#3eb919' }} className="mbZero">
-                Patient
+                {state.type}
               </p>
               <p style={{ fontWeight: 700, fontSize: 22 }} className="mbZero">
-                Kipagat George
+                {state.member.name}
               </p>
-              <p className="mbZero">#000000000</p>
+              <p className="mbZero">{state?.member_card_number}</p>
             </div>
 
             <div>
               <p style={{ fontWeight: 700 }} className="mbZero">
                 Insurance Type
               </p>
-              <p style={{ fontWeight: 800, fontSize: 18, color: '#3eb919' }}>Bronze</p>
+              <p style={{ fontWeight: 800, fontSize: 18, color: '#3eb919' }}>
+                {state.member.insurance_type}
+              </p>
             </div>
           </div>
         </div>

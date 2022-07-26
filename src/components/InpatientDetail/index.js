@@ -1,5 +1,5 @@
 import Main from '../../template';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { HiOutlineArrowLeft } from 'react-icons/hi';
 import { Button, Divider, Upload } from 'antd';
 import shareIcon from '../../img/share.png';
@@ -11,10 +11,18 @@ import filterGreen from '../../img/filterGreen.png';
 
 import { Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
+import { useSelector } from 'react-redux';
 
 // import styles from './styles.module.css';
 
 const Index = () => {
+  const { content } = useSelector((state) => state.claims);
+  const { id } = useParams();
+
+  let state = content?.find((item) => item.id === id);
+
+  console.log('whoooo', state);
+
   return (
     <Main>
       <div>
@@ -54,9 +62,9 @@ const Index = () => {
                     Employee
                   </p>
                   <p style={{ fontWeight: 700, fontSize: 22 }} className="mbZero">
-                    Kipagat George
+                    {state.member.name}
                   </p>
-                  <p className="mbZero">#000000000</p>
+                  <p className="mbZero">{state?.member_card_number}</p>
                 </div>
 
                 <div style={{ display: 'flex', gap: 13 }}>
@@ -81,7 +89,9 @@ const Index = () => {
                   <p style={{ fontWeight: 700 }} className="mbZero">
                     Insurance Type
                   </p>
-                  <p style={{ fontWeight: 800, fontSize: 18, color: '#3ab44d' }}>Bronze</p>
+                  <p style={{ fontWeight: 800, fontSize: 18, color: '#3ab44d' }}>
+                    {state?.member.insurance_type}
+                  </p>
                 </div>
               </div>
               <Divider />

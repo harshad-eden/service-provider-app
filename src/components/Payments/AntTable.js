@@ -102,11 +102,11 @@ const AntTable = ({ data }) => {
       ),
     },
 
-    {
-      title: 'Comments',
-      dataIndex: 'comment',
-      width: 110,
-    },
+    // {
+    //   title: 'Comments',
+    //   dataIndex: 'comment',
+    //   width: 110,
+    // },
   ];
 
   return (

@@ -5,8 +5,13 @@ import { FaFingerprint } from 'react-icons/fa';
 import ColorRound from '../Common/ColorRound';
 
 import RoundArrow from '../Common/RoundArrow';
+import { useSelector } from 'react-redux';
 
 const BottomSection = () => {
+  const { stats } = useSelector((state) => state.reports);
+
+  // const { pre_auth_stats, payment_stats, claim_stats } = stats;
+
   return (
     <div className={styles.progressContainer}>
       <div className={styles.progressBox}>
@@ -15,37 +20,41 @@ const BottomSection = () => {
             <Tooltip title="60% approoved 40% denied">
               <Progress
                 width={80}
-                percent={60}
                 trailColor="#f4bb1d"
+                strokeColor="gray"
+                success={{
+                  percent: stats?.pre_auth_stats?.percent_of_approved_pre_auths,
+                }}
                 format={() => (
                   <div>
                     <img src="/sidebarIcons/claim.png" style={{ width: '25%' }} alt="altimg" />
                   </div>
                 )}
-                success={{
-                  percent: 60,
-                }}
                 type="circle"
               />
             </Tooltip>
           </div>
           <div className="wHalf">
             <p style={{ fontSize: 10, marginBottom: 12 }}>
-              Lorem ipsum is simply dummy text of the printing of typesetting
+              Real-time Insight for Pre-Auths that has been requested for.
             </p>
             <div className={styles.stacticsInfo}>
               <div>
-                <p className={styles.greenPrecentage}>60%</p>
+                <p className={styles.greenPrecentage}>
+                  {stats?.pre_auth_stats?.percent_of_approved_pre_auths}%
+                </p>
                 <div style={{ display: 'flex', gap: 4, alignItems: 'center' }}>
                   <div className={styles.greenDot} />
                   <p style={{ marginBottom: 0, fontSize: 10 }}>Approved</p>
                 </div>
               </div>
               <div>
-                <p className={styles.yellowPrecentage}>40%</p>
+                <p className={styles.yellowPrecentage}>
+                  {100 - stats?.pre_auth_stats?.percent_of_approved_pre_auths}%
+                </p>
                 <div style={{ display: 'flex', gap: 4, alignItems: 'center' }}>
                   <ColorRound color="#f4bb1d" />
-                  <p style={{ marginBottom: 0, fontSize: 10 }}>Denied</p>
+                  <p style={{ marginBottom: 0, fontSize: 10 }}>In-process</p>
                 </div>
               </div>
             </div>
@@ -61,44 +70,43 @@ const BottomSection = () => {
           <div className="wHalf dGridCenter">
             <Tooltip title="60% approoved 40% denied">
               <Progress
-                strokeColor="gray"
-                trailColor="#f4bb1d"
                 width={80}
-                percent={60}
+                trailColor="#f4bb1d"
+                strokeColor="gray"
+                success={{
+                  percent: stats?.claim_stats?.percent_of_approved_claims,
+                }}
                 format={() => (
                   <div>
                     <img src="/sidebarIcons/claim.png" style={{ width: '25%' }} alt="altimg" />
                   </div>
                 )}
-                success={{
-                  percent: 0,
-                }}
                 type="circle"
               />
             </Tooltip>
           </div>
           <div className="wHalf">
             <p style={{ fontSize: 10, marginBottom: 12 }}>
-              Lorem ipsum is simply dummy text of the printing of typesetting
+              Real-time Insight for Claims that has been filed.
             </p>
             <div className={styles.stacticsInfo}>
               <div>
-                <p className={styles.greenPrecentage}>60%</p>
+                <p className={styles.greenPrecentage}>
+                  {stats?.claim_stats?.percent_of_approved_claims}%
+                </p>
                 <div style={{ display: 'flex', gap: 4, alignItems: 'center' }}>
                   <ColorRound color="#626262" />
-                  <p className="mbZero" style={{ fontSize: 8 }}>
-                    Claims made in 30 Days
-                  </p>
+                  <p style={{ marginBottom: 0, fontSize: 10 }}>Approved</p>
                 </div>
               </div>
 
               <div>
-                <p className={styles.yellowPrecentage}>40%</p>
+                <p className={styles.yellowPrecentage}>
+                  {100 - stats?.claim_stats?.percent_of_approved_claims}%
+                </p>
                 <div style={{ display: 'flex', gap: 4, alignItems: 'center' }}>
                   <ColorRound color="#f4bb1d" />
-                  <p className="mbZero" style={{ fontSize: 8 }}>
-                    Outstanding
-                  </p>
+                  <p style={{ marginBottom: 0, fontSize: 10 }}>In-process</p>
                 </div>
               </div>
             </div>

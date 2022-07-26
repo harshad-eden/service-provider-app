@@ -57,7 +57,7 @@ const RouteSetup = () => {
           }
         />
         <Route
-          path="/claims/:detail"
+          path="/claims/:id"
           element={
             <PrivateRoute>
               <ClaimPatient />
@@ -81,7 +81,7 @@ const RouteSetup = () => {
           }
         />
         <Route
-          path="/inpatients/:detail"
+          path="/inpatients/:id"
           element={
             <PrivateRoute>
               <InpatientDetail />

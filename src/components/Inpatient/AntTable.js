@@ -116,13 +116,13 @@ const AntTable = ({ data }) => {
     <>
       <Table
         loading={state.loading}
-        onRow={() => {
+        onRow={(record) => {
           return {
             onClick: (e) => {
               if (e.target.innerText === 'View all' || e.target.innerText === 'View') {
                 e.preventDefault();
               } else {
-                navigate('/inpatients/:detail');
+                navigate(`/inpatients/${record.id}`);
               }
             },
           };

@@ -13,7 +13,7 @@ const RightSection = () => {
           placeItems: 'center',
         }}
       >
-        <h3 style={{ marginBottom: 20 }}>Policy Utilisation</h3>
+        <h3 style={{ marginBottom: 20 }}>Payments</h3>
 
         <Progress
           width={240}
@@ -28,7 +28,7 @@ const RightSection = () => {
       </div>
       <div style={{ width: '90%', marginTop: 25 }}>
         <p style={{ color: 'gray', fontSize: 12, lineHeight: 1 }}>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry
+          High-level Insight for Payments that has been processed and due.
         </p>
         <div style={{ display: 'flex', alignItems: 'center', gap: 5, marginBottom: 10 }}>
           <ColorRound height={10} width={10} color="#eaeaea" />
