@@ -53,21 +53,21 @@ const AntTable = ({ data }) => {
     {
       title: 'Status',
       dataIndex: 'status',
-      filterDropdown: () => (
-        <Dropdown
-          statusArr={statusArr}
-          hideDropDown={hideDropDown}
-          setHideDropDown={setHideDropDown}
-          setFilter={setFilter}
-        />
-      ),
-      filterIcon: () => (
-        <AiFillCaretDown
-          onClick={() => setHideDropDown(false)}
-          type="filter"
-          style={{ color: '#f87d4e' }}
-        />
-      ),
+      // filterDropdown: () => (
+      //   <Dropdown
+      //     statusArr={statusArr}
+      //     hideDropDown={hideDropDown}
+      //     setHideDropDown={setHideDropDown}
+      //     setFilter={setFilter}
+      //   />
+      // ),
+      // filterIcon: () => (
+      //   <AiFillCaretDown
+      //     onClick={() => setHideDropDown(false)}
+      //     type="filter"
+      //     style={{ color: '#f87d4e' }}
+      //   />
+      // ),
       render: (status) => (
         <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
           <div className={styles.pinkRound}></div>

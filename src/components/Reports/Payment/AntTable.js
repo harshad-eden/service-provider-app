@@ -63,22 +63,22 @@ const AntTable = ({ data }) => {
     {
       title: 'Status',
       dataIndex: 'status',
-      filterDropdown: (props) => (
-        <Dropdown
-          statusArr={statusArr}
-          hideDropDown={hideDropDown}
-          setFilter={setFilter}
-          setHideDropDown={setHideDropDown}
-        />
-      ),
+      // filterDropdown: (props) => (
+      //   <Dropdown
+      //     statusArr={statusArr}
+      //     hideDropDown={hideDropDown}
+      //     setFilter={setFilter}
+      //     setHideDropDown={setHideDropDown}
+      //   />
+      // ),
 
-      filterIcon: (filtered) => (
-        <AiFillCaretDown
-          onClick={() => setHideDropDown(false)}
-          type="filter"
-          style={{ color: '#f87d4e' }}
-        />
-      ),
+      // filterIcon: (filtered) => (
+      //   <AiFillCaretDown
+      //     onClick={() => setHideDropDown(false)}
+      //     type="filter"
+      //     style={{ color: '#f87d4e' }}
+      //   />
+      // ),
       render: (status) => (
         <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
           <div className={styles.pinkRound}></div>

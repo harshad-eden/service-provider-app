@@ -14,7 +14,8 @@ const GenerateReport = ({ setIsModalVisible, isModalVisible, title, status, load
 
   const onFinish = (values) => {
     if (title === 'Pending claims') {
-      dispatch(pendingClaimsReport({ modalOf: setIsModalVisible }));
+      console.log('++', values);
+      dispatch(pendingClaimsReport({ modalOf: setIsModalVisible, status: values.status }));
     }
     if (title === 'Approved claims') {
       dispatch(pendingClaimsReport({ modalOf: setIsModalVisible }));
@@ -94,7 +95,7 @@ const GenerateReport = ({ setIsModalVisible, isModalVisible, title, status, load
             <Form.Item name="status">
               <Select size="large" placeholder="Status">
                 {status?.map((item) => (
-                  <Option key={item} value="Active">
+                  <Option key={item} value={item}>
                     {item}
                   </Option>
                 ))}

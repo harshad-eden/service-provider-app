@@ -44,7 +44,7 @@ const AntTable = ({ data }) => {
     {
       title: 'Type',
       dataIndex: 'type',
-      width: 70,
+      width: 90,
     },
     {
       title: 'Payment invoice',
@@ -52,11 +52,7 @@ const AntTable = ({ data }) => {
       render: (item) => <div>{`${item.amount}, ${item.currency}`}</div>,
       width: 140,
     },
-    {
-      title: 'Phone No',
-      dataIndex: 'phoneNo',
-      width: 90,
-    },
+
     {
       title: 'Claim No',
       dataIndex: 'claim_number',
@@ -65,21 +61,21 @@ const AntTable = ({ data }) => {
     {
       title: 'Status',
       dataIndex: 'status',
-      filterDropdown: () => (
-        <Dropdown
-          statusArr={statusArr}
-          hideDropDown={hideDropDown}
-          setFilter={setFilter}
-          setHideDropDown={setHideDropDown}
-        />
-      ),
-      filterIcon: () => (
-        <AiFillCaretDown
-          onClick={() => setHideDropDown(false)}
-          type="filter"
-          style={{ color: '#f87d4e' }}
-        />
-      ),
+      // filterDropdown: () => (
+      //   <Dropdown
+      //     statusArr={statusArr}
+      //     hideDropDown={hideDropDown}
+      //     setFilter={setFilter}
+      //     setHideDropDown={setHideDropDown}
+      //   />
+      // ),
+      // filterIcon: () => (
+      //   <AiFillCaretDown
+      //     onClick={() => setHideDropDown(false)}
+      //     type="filter"
+      //     style={{ color: '#f87d4e' }}
+      //   />
+      // ),
       render: (status) => (
         <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
           <div className={styles.pinkRound}></div>

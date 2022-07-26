@@ -32,13 +32,14 @@ export const pendingClaimsReport = createAsyncThunk('reportClaims', async (args)
     args.size ? args.size : 4
   }`;
 
-  // let urlWithFilter = `${baseUrl}provider/report/claim?page=${args.page ? args.page : 0}&size=${
-  //   args.size ? args.size : 4
-  // }&status=${args.status}`;
-  // let baseUrl = args.status ? urlWithFilter : urlWithOutFilter;
+  let urlWithFilter = `${baseUrl}provider/report/claim?page=${args.page ? args.page : 0}&size=${
+    args.size ? args.size : 4
+  }&status=${args.status}`;
+
+  let baseUrll = args.status ? urlWithFilter : urlWithOutFilter;
 
   try {
-    const response = await axios.get(urlWithOutFilter, {
+    const response = await axios.get(baseUrll, {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',

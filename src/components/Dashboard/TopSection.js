@@ -16,6 +16,9 @@ const TopSection = () => {
     navigate('/pre-auths');
   };
 
+  const providerUser =
+    localStorage.getItem('providerUser') && JSON.parse(localStorage.getItem('providerUser'));
+
   return (
     <div className={styles.firstSection}>
       <div
@@ -27,10 +30,10 @@ const TopSection = () => {
           minHeight: 130,
         }}
       >
-        <h3 style={{ color: '#3ab44d' }}>Good morning Ekansh</h3>
+        <h3 style={{ color: '#3ab44d' }}>Good morning {providerUser?.name}</h3>
         <p style={{ color: '#626262', width: '80%' }}>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-          been the industrys standard dummy
+          The dashboard gives high-level real-time insight into recent Pre-auths, claims and
+          payments. You can navigate to other pages for more information.
         </p>
       </div>
       <div
@@ -56,7 +59,7 @@ const TopSection = () => {
               width: '90%',
             }}
           >
-            Lorem Ipsum is simply dummy text of the printing
+            New Patient? Request a Pre-auth for faster authorisation.
           </p>
 
           <div onClick={() => handleOpenPreAuth()}>
