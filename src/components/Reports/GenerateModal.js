@@ -26,6 +26,7 @@ const GenerateReport = ({ setIsModalVisible, isModalVisible, title, status, load
     if (title === 'Payments') {
       dispatch(getPaymentReport({ modalOf: setIsModalVisible }));
     }
+    form.resetFields();
   };
 
   const { Option } = Select;

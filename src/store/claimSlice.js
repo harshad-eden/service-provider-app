@@ -136,7 +136,7 @@ export const claimSlice = createSlice({
       state.newReqState.loading = false;
       state.newReqState.status = 'success';
       state.newReqState.loaded = true;
-      state.content = [...state.content, action.payload.result];
+      state.content = [action.payload.result, ...state.content];
     });
     builder.addCase(newClaim.rejected, (state) => {
       state.newReqState.loading = false;

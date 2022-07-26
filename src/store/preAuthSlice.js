@@ -10,6 +10,7 @@ const initialState = {
     loading: false,
     status: '',
     loaded: false,
+    data: null,
   },
   memeber: {
     isSearchLoading: false,
@@ -83,7 +84,7 @@ export const newPreAuth = createAsyncThunk('newPreAuths', async (formData) => {
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log(response);
+    console.log('respo++', response);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -98,6 +99,7 @@ export const PreAuthSlice = createSlice({
       state.newReqState.loading = false;
       state.newReqState.loaded = false;
       state.newReqState.status = '';
+      state.newReqState.data = null;
     },
   },
   extraReducers(builder) {
@@ -129,7 +131,7 @@ export const PreAuthSlice = createSlice({
       state.newReqState.loading = false;
       state.newReqState.status = 'success';
       state.newReqState.loaded = true;
-      state.content = [...state.content, action.payload.result];
+      state.content = [action.payload.result, ...state.content];
     });
     builder.addCase(newPreAuth.rejected, (state) => {
       state.newReqState.loading = false;

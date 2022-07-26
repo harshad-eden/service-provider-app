@@ -26,8 +26,10 @@ const CommonModal = ({ isModalVisible, setIsModalVisible, status }) => {
       <div>
         <h1 style={{ fontWeight: 'bold' }}>{status ? 'Successfull' : 'Failed'} </h1>
         <p style={{ fontWeight: 300 }}>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-          been the industrys.
+          {status
+            ? `The pre-auth/claim/in-patient request has been submitted for Eden Care to review. You can
+          check the status real-time.`
+            : ' The pre-auth/claim/in-patient request cannot be submitted now. Please try again?'}
         </p>
       </div>
       {status ? (

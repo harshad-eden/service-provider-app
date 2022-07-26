@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import ColumnItem from './ColumnItem';
 import group from '../../img/group.png';
 import claim from '../../img/claim.png';
+import payment from '../../img/payment.svg';
 import pdf from '../../img/pdf.png';
 import excel from '../../img/excel.png';
 import finger from '../../img/fingerprintBlue.png';
