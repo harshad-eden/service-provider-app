@@ -1,6 +1,6 @@
 import { Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import styles from './common.module.css';
+import styles from './index.module.css';
 
 const SearchAndFilter = () => {
   return (

@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getClaimsWithFilter } from '../../store/claimSlice';
 
-const AntTable = ({ data }) => {
+const AntTable = ({ data, dashboard }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [doocs, setDoocs] = useState([]);
@@ -109,26 +109,108 @@ const AntTable = ({ data }) => {
     },
   ];
 
+  const dashboardColumns = [
+    {
+      title: 'Member No',
+      dataIndex: 'member_card_number',
+      width: 105,
+    },
+    {
+      title: 'Name',
+      dataIndex: 'member',
+      render: (item) => item.name,
+      width: 70,
+    },
+    {
+      title: 'Type',
+      dataIndex: 'type',
+      width: 70,
+    },
+    {
+      title: 'Employer',
+      dataIndex: 'member',
+      render: (item) => item.employer_name,
+      width: 70,
+    },
+    {
+      title: 'Claim No',
+      dataIndex: 'claim_number',
+      width: 90,
+    },
+    {
+      title: 'Status',
+      dataIndex: 'status',
+      filterDropdown: () => (
+        <Dropdown
+          statusArr={statusArr}
+          hideDropDown={hideDropDown}
+          setFilter={setFilter}
+          setHideDropDown={setHideDropDown}
+        />
+      ),
+      filterIcon: () => (
+        <AiFillCaretDown
+          onClick={() => setHideDropDown(false)}
+          type="filter"
+          style={{ color: '#f87d4e' }}
+        />
+      ),
+      render: (status) => (
+        <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+          <div className={styles.pinkRound}></div>
+          {status}
+        </div>
+      ),
+      width: 100,
+    },
+  ];
+
   return (
     <>
-      <Table
-        loading={state.loading}
-        onRow={(record) => {
-          return {
-            onClick: (e) => {
-              if (e.target.innerText === 'View all' || e.target.innerText === 'View') {
-                e.preventDefault();
-              } else {
-                navigate(`/claims/${record.id}`);
-              }
-            },
-          };
-        }}
-        columns={columns}
-        dataSource={data}
-        pagination={false}
-        rowKey="claim_number"
-      />
+      {dashboard ? (
+        <Table
+          className="dashBoardTable"
+          loading={state.loading}
+          onRow={(record) => {
+            return {
+              onClick: (e) => {
+                if (e.target.innerText === 'View all' || e.target.innerText === 'View') {
+                  e.preventDefault();
+                } else {
+                  navigate(`/claims/${record.id}`);
+                }
+              },
+            };
+          }}
+          columns={dashboardColumns}
+          dataSource={data}
+          pagination={false}
+          rowKey="claim_number"
+          scroll={{
+            y: 140,
+          }}
+        />
+      ) : (
+        <Table
+          loading={state.loading}
+          onRow={(record) => {
+            return {
+              onClick: (e) => {
+                if (e.target.innerText === 'View all' || e.target.innerText === 'View') {
+                  e.preventDefault();
+                } else {
+                  navigate(`/claims/${record.id}`);
+                }
+              },
+            };
+          }}
+          columns={columns}
+          dataSource={data}
+          pagination={false}
+          rowKey="claim_number"
+        />
+      )}
+
       <ViewDocsModal docs={doocs} isDocVisible={isDocVisible} setIsDocVisible={setIsDocVisible} />
     </>
   );

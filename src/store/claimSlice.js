@@ -55,6 +55,7 @@ export const getClaimsWithFilter = createAsyncThunk('claims/filter', async (filt
 });
 
 export const getMemberByCardNumb = createAsyncThunk('searchMember/claims', async (numb) => {
+  alert('looo');
   try {
     const response = await axios.get(`${baseUrl}provider/member/profile/card-number/${numb}`, {
       headers: {
@@ -136,7 +137,7 @@ export const claimSlice = createSlice({
       state.newReqState.loading = false;
       state.newReqState.status = 'success';
       state.newReqState.loaded = true;
-      state.content = [action.payload.result, ...state.content];
+      state.content = [...state.content, action.payload.result];
     });
     builder.addCase(newClaim.rejected, (state) => {
       state.newReqState.loading = false;

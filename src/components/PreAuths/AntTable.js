@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPreAuthsWithFilter } from '../../store/preAuthSlice';
 
-const AntTable = ({ data }) => {
+const AntTable = ({ data, dashboard }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [doocs, setDoocs] = useState([]);
@@ -100,26 +100,105 @@ const AntTable = ({ data }) => {
     },
   ];
 
+  const dashBoardCol = [
+    {
+      title: 'Pre-Auth ID',
+      dataIndex: 'pre_auth_id',
+
+      width: 110,
+    },
+    {
+      title: 'Member No',
+      dataIndex: 'member_card_number',
+
+      width: 105,
+    },
+    {
+      title: 'Email',
+      dataIndex: 'member',
+      render: (item) => item.email,
+      width: 140,
+    },
+    {
+      title: 'Employer',
+      dataIndex: 'member',
+      render: (item) => item.employer_name,
+      width: 90,
+    },
+    {
+      title: 'Status',
+      dataIndex: 'status',
+      filterDropdown: () => (
+        <Dropdown
+          statusArr={statusArr}
+          hideDropDown={hideDropDown}
+          setHideDropDown={setHideDropDown}
+          setFilter={setFilter}
+        />
+      ),
+      filterIcon: () => (
+        <AiFillCaretDown
+          onClick={() => setHideDropDown(false)}
+          type="filter"
+          style={{ color: '#f87d4e' }}
+        />
+      ),
+      render: (status) => (
+        <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+          <div className={styles.pinkRound}></div>
+          {status}
+        </div>
+      ),
+      width: 100,
+    },
+  ];
+
   return (
     <>
-      <Table
-        loading={state.loading}
-        onRow={(record, rowIndex) => {
-          return {
-            onClick: (e) => {
-              if (e.target.innerText === 'View all' || e.target.innerText === 'View') {
-                e.preventDefault();
-              } else {
-                navigate(`/pre-auths/${record.id}`);
-              }
-            },
-          };
-        }}
-        rowKey="pre_auth_id"
-        columns={columns}
-        dataSource={data}
-        pagination={false}
-      />
+      {dashboard ? (
+        <Table
+          className="dashBoardTable"
+          loading={state.loading}
+          onRow={(record, rowIndex) => {
+            return {
+              onClick: (e) => {
+                if (e.target.innerText === 'View all' || e.target.innerText === 'View') {
+                  e.preventDefault();
+                } else {
+                  navigate(`/pre-auths/${record.id}`);
+                }
+              },
+            };
+          }}
+          rowKey="pre_auth_id"
+          columns={dashBoardCol}
+          dataSource={data}
+          pagination={false}
+          scroll={{
+            y: 140,
+          }}
+        />
+      ) : (
+        <Table
+          loading={state.loading}
+          onRow={(record, rowIndex) => {
+            return {
+              onClick: (e) => {
+                if (e.target.innerText === 'View all' || e.target.innerText === 'View') {
+                  e.preventDefault();
+                } else {
+                  navigate(`/pre-auths/${record.id}`);
+                }
+              },
+            };
+          }}
+          rowKey="pre_auth_id"
+          columns={columns}
+          dataSource={data}
+          pagination={false}
+        />
+      )}
+
       <ViewDocsModal docs={doocs} isDocVisible={isDocVisible} setIsDocVisible={setIsDocVisible} />
     </>
   );

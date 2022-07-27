@@ -12,7 +12,7 @@ const TopNav = ({ options, width, marginBottom, notification, setTab, tab }) => 
       }}
     >
       {options.map((item, index) =>
-        index === 0 ? (
+        item === tab ? (
           <div
             key={index}
             style={{

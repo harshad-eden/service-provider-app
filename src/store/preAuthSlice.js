@@ -10,7 +10,6 @@ const initialState = {
     loading: false,
     status: '',
     loaded: false,
-    data: null,
   },
   memeber: {
     isSearchLoading: false,
