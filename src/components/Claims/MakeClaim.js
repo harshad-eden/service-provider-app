@@ -57,8 +57,6 @@ const RequestPreAuth = ({ setIsModalVisible, isModalVisible }) => {
     setValue(e.target.value);
   };
 
-  console.log(memeber);
-
   return (
     <>
       <Modal bodyStyle={{ padding: 50 }} footer={null} visible={isModalVisible}>
@@ -213,7 +211,7 @@ const RequestPreAuth = ({ setIsModalVisible, isModalVisible }) => {
               shape="round"
               htmlType="submit"
             >
-              Request Pre-auth
+              Request New Claim
             </Button>
           </div>
         )}
