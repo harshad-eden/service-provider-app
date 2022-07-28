@@ -12,6 +12,7 @@ const initialState = {
     loaded: false,
   },
   memeber: {
+    isSearchLoaded: false,
     isSearchLoading: false,
     data: null,
   },
@@ -55,7 +56,6 @@ export const getClaimsWithFilter = createAsyncThunk('claims/filter', async (filt
 });
 
 export const getMemberByCardNumb = createAsyncThunk('searchMember/claims', async (numb) => {
-  alert('looo');
   try {
     const response = await axios.get(`${baseUrl}provider/member/profile/card-number/${numb}`, {
       headers: {
@@ -101,12 +101,6 @@ export const claimSlice = createSlice({
       state.newClaimReqState.loaded = false;
       state.newClaimReqState.status = '';
     },
-    logOut: (state) => {
-      state.loading = false;
-      state.isAuthenticated = false;
-      state.token = null;
-      localStorage.clear();
-    },
   },
   extraReducers(builder) {
     builder.addCase(getClaims.pending, (state) => {
@@ -121,13 +115,15 @@ export const claimSlice = createSlice({
       state.loading = false;
     });
     builder.addCase(getMemberByCardNumb.pending, (state) => {
-      state.isSearchLoading = true;
+      state.memeber.isSearchLoading = true;
     });
     builder.addCase(getMemberByCardNumb.fulfilled, (state, action) => {
-      state.isSearchLoading = false;
+      state.memeber.isSearchLoaded = true;
+      state.memeber.isSearchLoading = false;
       state.memeber.data = action.payload.result;
     });
     builder.addCase(getMemberByCardNumb.rejected, (state) => {
+      state.memeber.isSearchLoaded = true;
       state.memeber.isSearchLoading = false;
     });
     builder.addCase(newClaim.pending, (state) => {
