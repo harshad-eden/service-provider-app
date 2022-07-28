@@ -13,13 +13,14 @@ const initialState = {
   },
   memeber: {
     isSearchLoading: false,
+    isSearchLoaded: false,
     data: null,
   },
 };
 
 let token = localStorage.getItem('x-auth-token');
 
-export const getPreAuths = createAsyncThunk('preAuths', async (args) => {
+export const getPreAuths = createAsyncThunk('preAuths/newPreAuth', async (args) => {
   try {
     const response = await axios.get(
       `${baseUrl}provider/preauth/all?page=${args.page}&size=${args.size}`,
@@ -53,7 +54,7 @@ export const getPreAuthsWithFilter = createAsyncThunk('preAuths/filter', async (
   }
 });
 
-export const getMemberByCardNumb = createAsyncThunk('searchMember', async (numb) => {
+export const getMemberByCardNumb = createAsyncThunk('searchMember/preAuths', async (numb) => {
   try {
     const response = await axios.get(`${baseUrl}provider/member/profile/card-number/${numb}`, {
       headers: {
@@ -62,7 +63,6 @@ export const getMemberByCardNumb = createAsyncThunk('searchMember', async (numb)
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log(response.data);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -114,13 +114,15 @@ export const PreAuthSlice = createSlice({
       state.loading = false;
     });
     builder.addCase(getMemberByCardNumb.pending, (state) => {
-      state.isSearchLoading = true;
+      state.memeber.isSearchLoading = true;
     });
     builder.addCase(getMemberByCardNumb.fulfilled, (state, action) => {
-      state.isSearchLoading = false;
+      state.memeber.isSearchLoading = false;
+      state.memeber.isSearchLoaded = true;
       state.memeber.data = action.payload.result;
     });
     builder.addCase(getMemberByCardNumb.rejected, (state) => {
+      state.isSearchLoaded = true;
       state.memeber.isSearchLoading = false;
     });
     builder.addCase(newPreAuth.pending, (state) => {

@@ -6,7 +6,7 @@ const initialState = {
   loading: false,
   data: null,
   content: [],
-  newReqState: {
+  newClaimReqState: {
     loading: false,
     status: '',
     loaded: false,
@@ -71,7 +71,7 @@ export const getMemberByCardNumb = createAsyncThunk('searchMember/claims', async
   }
 });
 
-export const newClaim = createAsyncThunk('newPreAuths', async (formData) => {
+export const newClaim = createAsyncThunk('claims/new', async (formData) => {
   console.log(...formData);
   try {
     const response = await axios({
@@ -97,9 +97,9 @@ export const claimSlice = createSlice({
   initialState: initialState,
   reducers: {
     resetRequest: (state) => {
-      state.newReqState.loading = false;
-      state.newReqState.loaded = false;
-      state.newReqState.status = '';
+      state.newClaimReqState.loading = false;
+      state.newClaimReqState.loaded = false;
+      state.newClaimReqState.status = '';
     },
     logOut: (state) => {
       state.loading = false;
@@ -131,18 +131,18 @@ export const claimSlice = createSlice({
       state.memeber.isSearchLoading = false;
     });
     builder.addCase(newClaim.pending, (state) => {
-      state.newReqState.loading = true;
+      state.newClaimReqState.loading = true;
     });
     builder.addCase(newClaim.fulfilled, (state, action) => {
-      state.newReqState.loading = false;
-      state.newReqState.status = 'success';
-      state.newReqState.loaded = true;
-      state.content = [...state.content, action.payload.result];
+      state.newClaimReqState.loading = false;
+      state.newClaimReqState.status = 'success';
+      state.newClaimReqState.loaded = true;
+      state.content = [action.payload.result, ...state.content];
     });
     builder.addCase(newClaim.rejected, (state) => {
-      state.newReqState.loading = false;
-      state.newReqState.status = 'failed';
-      state.newReqState.loaded = true;
+      state.newClaimReqState.loading = false;
+      state.newClaimReqState.status = 'failed';
+      state.newClaimReqState.loaded = true;
     });
     builder.addCase(getClaimsWithFilter.pending, (state) => {
       state.loading = true;

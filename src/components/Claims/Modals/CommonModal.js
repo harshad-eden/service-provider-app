@@ -27,9 +27,9 @@ const CommonModal = ({ isModalVisible, setIsModalVisible, status }) => {
         <h1 style={{ fontWeight: 'bold' }}>{status ? 'Successfull' : 'Failed'} </h1>
         <p style={{ fontWeight: 300 }}>
           {status
-            ? `The pre-auth/claim/in-patient request has been submitted for Eden Care to review. You can
+            ? `The claim request has been submitted for Eden Care to review. You can
           check the status real-time.`
-            : ' The pre-auth/claim/in-patient request cannot be submitted now. Please try again?'}
+            : ' The claim request cannot be submitted now. Please try again?'}
         </p>
       </div>
       {status ? (

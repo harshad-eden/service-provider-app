@@ -19,7 +19,7 @@ const RequestPreAuth = ({ setIsModalVisible, isModalVisible }) => {
   const [files, setFiles] = useState([]);
   const [cardNumber, setCardNumber] = useState();
 
-  const { memeber, newReqState } = useSelector((state) => state.claims);
+  const { memeber, newClaimReqState } = useSelector((state) => state.claims);
 
   const handleSubmit = () => {
     let { amount, currency, type } = form.getFieldsValue();
@@ -51,8 +51,6 @@ const RequestPreAuth = ({ setIsModalVisible, isModalVisible }) => {
     setValue(e.target.value);
   };
 
-  console.log(newReqState.loaded);
-
   return (
     <>
       <Modal bodyStyle={{ padding: 50 }} footer={null} visible={isModalVisible}>
@@ -63,9 +61,9 @@ const RequestPreAuth = ({ setIsModalVisible, isModalVisible }) => {
         >
           <img src={CloseModalImg} style={{ width: 28 }} alt="" />
         </div>
-        {newReqState.loaded ? (
+        {newClaimReqState.loaded ? (
           <Message
-            status={newReqState.status === 'success' ? true : false}
+            status={newClaimReqState.status === 'success' ? true : false}
             setIsModalVisible={setIsModalVisible}
           />
         ) : (
@@ -184,7 +182,7 @@ const RequestPreAuth = ({ setIsModalVisible, isModalVisible }) => {
               <DraggerComponent disabled={memeber.data ? false : true} setFiles={setFiles} />
             </div>
             <Button
-              loading={newReqState.loading}
+              loading={newClaimReqState.loading}
               disabled={files.length < 1}
               onClick={() => form.submit()}
               size="large"

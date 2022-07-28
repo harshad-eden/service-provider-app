@@ -5,7 +5,7 @@ import axios from 'axios';
 const initialState = {
   loading: false,
   data: null,
-  newReqState: {
+  newClaimReqState: {
     loading: false,
     status: '',
     loaded: false,
@@ -103,18 +103,18 @@ export const AuthSlice = createSlice({
       state.memeber.isSearchLoading = false;
     });
     builder.addCase(newPreAuth.pending, (state) => {
-      state.newReqState.loading = true;
-      state.newReqState.loaded = false;
+      state.newClaimReqState.loading = true;
+      state.newClaimReqState.loaded = false;
     });
     builder.addCase(newPreAuth.fulfilled, (state, action) => {
-      state.newReqState.loading = false;
-      state.newReqState.status = 'success';
-      state.newReqState.loaded = true;
+      state.newClaimReqState.loading = false;
+      state.newClaimReqState.status = 'success';
+      state.newClaimReqState.loaded = true;
     });
     builder.addCase(newPreAuth.rejected, (state) => {
-      state.newReqState.loading = false;
-      state.newReqState.status = 'failed';
-      state.newReqState.loaded = true;
+      state.newClaimReqState.loading = false;
+      state.newClaimReqState.status = 'failed';
+      state.newClaimReqState.loaded = true;
     });
   },
 });

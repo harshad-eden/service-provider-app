@@ -42,7 +42,7 @@ const Index = () => {
               />
             </div>
             <div className={styles.table}>
-              <AntTable data={content} />
+              <AntTable data={content.slice(0, 6)} />
             </div>
             <div style={{ marginTop: 30, display: 'flex', justifyContent: 'center' }}>
               <Pagination onChange={(e) => setPage(e - 1)} size="small" total={40} />
