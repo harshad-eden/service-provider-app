@@ -61,7 +61,7 @@ const AntTable = ({ data, dashboard }) => {
       title: 'Employer',
       dataIndex: 'member',
       render: (item) => item.employer_name,
-      width: 70,
+      width: 120,
     },
     {
       title: 'Claim No',

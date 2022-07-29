@@ -1,11 +1,27 @@
 import Main from '../../template';
 import styles from './index.module.css';
-import { Button, Form, Input, Select } from 'antd';
+import { Button, Form, Input, Select, notification } from 'antd';
 import CollapseComponent from './Collapse';
+import { useDispatch, useSelector } from 'react-redux';
+import { postSupport } from '../../store/supportSlice';
 const { Option } = Select;
+
 const Index = () => {
+  const dispatch = useDispatch();
   const [form] = Form.useForm();
-  const onFinish = () => {};
+
+  const state = useSelector((state) => state.support);
+
+  const onFinish = (values) => {
+    dispatch(postSupport({ values, reset: form.resetFields, notification: openNotification }));
+  };
+
+  const openNotification = () => {
+    notification.open({
+      message: 'Form Submitted',
+    });
+  };
+
   return (
     <Main>
       <div style={{ display: 'flex', marginTop: 80 }}>
@@ -22,22 +38,20 @@ const Index = () => {
               Area or Section
             </label>
             <Form.Item
-              name="username"
+              name="area"
               rules={[
                 {
                   required: true,
-                  message: 'Please input your username!',
+                  message: 'Please select a value',
                 },
               ]}
             >
-              <Select
-                className="support"
-                placeholder="Select section"
-                size="large"
-                onChange={() => {}}
-              >
-                <Option value="jack">Jack</Option>
-                <Option value="lucy">Lucy</Option>
+              <Select className="support" placeholder="Select section" size="large">
+                <Option value="Claims">Claims</Option>
+                <Option value="lucy">Payments</Option>
+                <Option value="PreAuths">PreAuths</Option>
+                <Option value="Reports">Reports</Option>
+                <Option value="Other">Other</Option>
               </Select>
             </Form.Item>
 
@@ -46,11 +60,11 @@ const Index = () => {
             </label>
             <Form.Item
               className="mbZero"
-              name="password"
+              name="problem"
               rules={[
                 {
                   required: true,
-                  message: 'Please input your password!',
+                  message: 'Please input text!',
                 },
               ]}
             >
@@ -63,7 +77,13 @@ const Index = () => {
               />
             </Form.Item>
             <div style={{ marginTop: 25 }}>
-              <Button size="large" shape="round" type="primary">
+              <Button
+                loading={state.loading}
+                onClick={() => form.submit()}
+                size="large"
+                shape="round"
+                type="primary"
+              >
                 Send message
               </Button>
             </div>
