@@ -27,51 +27,19 @@ export const getStats = createAsyncThunk('report/stats', async (args) => {
   }
 });
 
-// export const pendingClaimsReport = createAsyncThunk('reportClaims', async (data) => {
-//   let status;
-//   let toDate;
-//   let fromDate;
-//   let amount;
-//   var base = `${baseUrl}provider/report/claim?page=${data.page}&size=${data.size}`;
-//   if (data.fromDate) {
-//     fromDate = `to-date=${data.fromDate}`;
-//   }
-//   if (data.status) {
-//     status = `&status=${data.status}`;
-//   }
-//   if (data.toDate) {
-//     toDate = `to-date=${data.toDate}`;
-//   }
-//   if (data.amount) {
-//     amount = `to-date=${data.amount}`;
-//   }
-//   // try {
-//   //   const response = await axios.get(
-//   //     `${baseUrl}provider/report/claim?page=${data.page}&size=${data.size}`,
-//   //     {
-//   //       headers: {
-//   //         Accept: 'application/json',
-//   //         'Content-Type': 'application/json',
-//   //         Authorization: `Bearer ${token}`,
-//   //       },
-//   //     },
-//   //   );
-//   //   data.modalOf();
-//   //   return response.data;
-//   // } catch (error) {
-//   //   data.modalOf();
-//   //   console.log(error);
-//   // }
-// });
-
 export const pendingClaimsReport = createAsyncThunk('reportClaims', async (args) => {
-  let urlWithOutFilter = `${baseUrl}provider/report/claim?page=${args.page}&size=${args.size}`;
-  let urlWithFilter = `${baseUrl}provider/report/claim?page=${args.page}&size=${args.size}&status=${args.status}`;
+  let urlWithOutFilter = `${baseUrl}provider/report/claim?page=${args.page ? args.page : 0}&size=${
+    args.size ? args.size : 4
+  }`;
+
+  let urlWithFilter = `${baseUrl}provider/report/claim?page=${args.page ? args.page : 0}&size=${
+    args.size ? args.size : 4
+  }&status=${args.status}`;
 
   let baseUrll = args.status ? urlWithFilter : urlWithOutFilter;
 
   try {
-    const response = await axios.get(baseUrll, {
+    const response = await axios.get(`${baseUrl}provider/report/claim?page=`, {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -87,19 +55,19 @@ export const pendingClaimsReport = createAsyncThunk('reportClaims', async (args)
 });
 
 export const approvedPreAuthsReport = createAsyncThunk('report/preAuths', async (args) => {
-  let urlWithOutFilter = `${baseUrl}provider/report/pre-auth?page=${args.page}&size=${args.size}`;
-  let urlWithFilter = `${baseUrl}provider/report/pre-auth?page=${args.page}&size=${args.size}&status=${args.status}`;
-
-  let baseUrll = args.status ? urlWithFilter : urlWithOutFilter;
-
   try {
-    const response = await axios.get(baseUrll, {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
+    const response = await axios.get(
+      `${baseUrl}provider/report/pre-auth?page=${args.page ? args.page : 0}&size=${
+        args.size ? args.size : 4
+      }`,
+      {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
       },
-    });
+    );
     args.modalOf();
     return response.data;
   } catch (error) {
@@ -109,18 +77,19 @@ export const approvedPreAuthsReport = createAsyncThunk('report/preAuths', async 
 });
 
 export const getPaymentReport = createAsyncThunk('report', async (args) => {
-  let urlWithOutFilter = `${baseUrl}provider/report/payment?page=${args.page}&size=${args.size}`;
-  let urlWithFilter = `${baseUrl}provider/report/payment?page=${args.page}&size=${args.size}&status=${args.status}`;
-
-  let baseUrll = args.status ? urlWithFilter : urlWithOutFilter;
   try {
-    const response = await axios.get(baseUrll, {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
+    const response = await axios.get(
+      `${baseUrl}provider/report/payment?page=${args.page ? args.page : 0}&size=${
+        args.size ? args.size : 4
+      }`,
+      {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
       },
-    });
+    );
     args.modalOf();
     console.log(response.data);
     return response.data;

@@ -13,17 +13,52 @@ const GenerateReport = ({ setIsModalVisible, isModalVisible, title, status, load
 
   const onFinish = (values) => {
     if (title === 'Pending claims') {
-      console.log('++', values);
-      dispatch(pendingClaimsReport({ modalOf: setIsModalVisible, status: values.status }));
+      let data = {
+        page: 0,
+        size: 4,
+        toDate: '02/03/2202',
+        fromDate: '02/03/2202',
+        modalOf: setIsModalVisible,
+        status: values.status,
+        amount: 230,
+      };
+      dispatch(pendingClaimsReport(data));
     }
     if (title === 'Approved claims') {
-      dispatch(pendingClaimsReport({ modalOf: setIsModalVisible }));
+      let data = {
+        page: 0,
+        size: 4,
+        toDate: '02/03/2202',
+        fromDate: '02/03/2202',
+        modalOf: setIsModalVisible,
+        status: values.status,
+        amount: 230,
+      };
+      dispatch(pendingClaimsReport(data));
     }
     if (title === 'Pre-auths') {
-      dispatch(approvedPreAuthsReport({ modalOf: setIsModalVisible }));
+      let data = {
+        page: 0,
+        size: 4,
+        toDate: '02/03/2202',
+        fromDate: '02/03/2202',
+        modalOf: setIsModalVisible,
+        status: values.status,
+        amount: 230,
+      };
+      dispatch(approvedPreAuthsReport(data));
     }
     if (title === 'Payments') {
-      dispatch(getPaymentReport({ modalOf: setIsModalVisible }));
+      let data = {
+        page: 0,
+        size: 4,
+        toDate: '02/03/2202',
+        fromDate: '02/03/2202',
+        modalOf: setIsModalVisible,
+        status: values.status,
+        amount: 230,
+      };
+      dispatch(getPaymentReport(data));
     }
     form.resetFields();
   };
