@@ -8,6 +8,7 @@ import ViewDocsModal from '../DocView/ViewDocs';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPreAuthsWithFilter } from '../../store/preAuthSlice';
+import ColorRound from '../Common/ColorRound';
 
 const AntTable = ({ data, dashboard }) => {
   const dispatch = useDispatch();
@@ -78,7 +79,7 @@ const AntTable = ({ data, dashboard }) => {
       ),
       render: (status) => (
         <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-          <div className={styles.pinkRound}></div>
+          <ColorRound color={status === 'Approved' ? 'green' : '#9f3ade'} />
           {status}
         </div>
       ),

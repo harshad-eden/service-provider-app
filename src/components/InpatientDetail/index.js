@@ -12,6 +12,7 @@ import filterGreen from '../../img/filterGreen.png';
 import { Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import { useSelector } from 'react-redux';
+import RoundArrow from '../Common/RoundArrow';
 
 // import styles from './styles.module.css';
 
@@ -142,6 +143,16 @@ const Index = () => {
                 Ipsum is simply dummy text of the printing and typesetting industry.
               </p>
               <AntTable />
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'flex-end',
+                  marginRight: 20,
+                  marginTop: 10,
+                }}
+              >
+                <RoundArrow text="View details" />
+              </div>
             </div>
           </section>
         </div>

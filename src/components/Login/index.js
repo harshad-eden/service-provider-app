@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './index.module.css';
 import { Alert, Button, Form, Input } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
@@ -10,10 +10,20 @@ const Login = () => {
   const [form] = Form.useForm();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [passwordLength, setaPasswordLength] = useState(false);
   const state = useSelector((state) => state.auth);
 
+  useEffect(() => {
+    localStorage.clear();
+  }, []);
+
   const onFinish = (values) => {
-    dispatch(loginUserWithEmail({ values, navigate }));
+    if (values.password.trim().length > 5) {
+      setaPasswordLength(false);
+      dispatch(loginUserWithEmail({ values, navigate }));
+    } else {
+      setaPasswordLength(true);
+    }
   };
 
   return (
@@ -58,6 +68,12 @@ const Login = () => {
             Forgot Password
           </Link>
         </Form>
+
+        {passwordLength && (
+          <span style={{ color: 'red', marginTop: -20, marginBottom: -10 }}>
+            Minimum 6 characters required
+          </span>
+        )}
 
         {state.error && (
           <span style={{ color: 'red', marginTop: -20, marginBottom: -10 }}>{state.error}</span>
