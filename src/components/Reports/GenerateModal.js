@@ -12,6 +12,7 @@ const GenerateReport = ({ setIsModalVisible, isModalVisible, title, status, load
   const [form] = Form.useForm();
 
   const onFinish = (values) => {
+    console.log(values);
     if (title === 'Pending claims') {
       let data = {
         page: 0,

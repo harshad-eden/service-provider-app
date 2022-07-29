@@ -48,7 +48,7 @@ const Index = () => {
             >
               <Select className="support" placeholder="Select section" size="large">
                 <Option value="Claims">Claims</Option>
-                <Option value="lucy">Payments</Option>
+                <Option value="Payments">Payments</Option>
                 <Option value="PreAuths">PreAuths</Option>
                 <Option value="Reports">Reports</Option>
                 <Option value="Other">Other</Option>
